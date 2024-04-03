@@ -1,8 +1,7 @@
 /**
  * The starting point of the application.
  *
- * @author Mats Loock
- * @author Emma Fransson
+ * @author ef222hr
  * @version 1.0.0
  */
 
@@ -28,7 +27,7 @@ try {
   app.use(helmet())
 
   app.use(cors({
-    origin: 'http://localhost',
+    origin: process.env.ORIGIN,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     credentials: true
   }

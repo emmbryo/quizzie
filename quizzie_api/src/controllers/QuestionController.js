@@ -29,13 +29,74 @@ export class QuestionController {
   }
 
   /**
-   * Return info on tandem routes.
+   * Return info on question routes.
    *
    * @param {object} req - Express request object.
    * @param {object} res - Express response object.
    * @param {Function} next - Express next middleware function.
    */
   index (req, res, next) {
+    res
+      .status(200)
+      .json({
+        message: "Welcome to the question route of the quizzie API!",
+      })
+  }
+
+  /**
+   * Create question.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async addQuestion (req, res, next) {
+    try {
+      const question = await this.#service.insert(req.body)
+
+      console.log('question: ', question)
+
+      res
+        .status(200)
+        .json({
+          message: "Question added",
+          question: question
+        })
+    } catch (error) {
+      next(createError(400, error.message))
+    }
+  }
+
+  /**
+   * Return a specified number of questions..
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async getQuestions (req, res, next) {
+    try {
+      const questions = await this.#service.get()
+      console.log(questions)
+      res
+        .status(200)
+        .json({
+          message: "All questions",
+          questions: questions
+        })
+    } catch (error) {
+      next(createError(400, error.message))
+    }
+  }
+
+  /**
+   * Return verb phrases.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  getVerbPhrases (req, res, next) {
     res
       .status(200)
       .json({

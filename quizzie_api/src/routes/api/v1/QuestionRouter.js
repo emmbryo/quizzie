@@ -18,8 +18,15 @@ const resolveQuestionController = (req) => req.app.get('container').resolve('Que
 
 // Map HTTP verbs and route paths to controller actions.
 
-// The base of tandem routes.
+// The base of question routes.
 router.get('/',
   (req, res, next) => resolveQuestionController(req).index(req, res, next)
 )
 
+router.get('/all', (req, res, next) => resolveQuestionController(req).getQuestions(req, res, next))
+
+router.get('/verb-phrases', (req, res, next) => resolveQuestionController(req).getVerbPhrases(req, res, next))
+
+// POST
+
+router.post('/', (req, res, next) => resolveQuestionController(req).addQuestion(req, res, next))

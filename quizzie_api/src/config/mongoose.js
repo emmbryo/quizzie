@@ -21,12 +21,15 @@ export const connectDB = async (connectionString) => {
   connection.on('disconnected', () => console.log('MongoDB is disconnected.'))
 
   // If the Node.js process ends, close the connection.
-  process.on('SIGINT', () => {
-    connection.close(() => {
-      console.log('MongoDB disconnected due to application termination.')
-      process.exit(0)
+  for (const signalEvent of ['SIGINT', 'SIGTERM']) {
+    process.on(signalEvent, () => {
+      (async () => {
+        await connection.close()
+        console.log(`Mongoose disconnected from MongoDB through ${signalEvent}.`)
+        process.exit(0)
+      })()
     })
-  })
+  }
 
   // Connect to the server.
   return mongoose.connect(connectionString)

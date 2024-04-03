@@ -40,7 +40,7 @@ export class MongooseRepositoryBase {
    */
   async get (filter = { limit: 50 }, projection = null, options = null) {
     return this.#model
-      .find(filter, projection, options)
+      .find(filter.conditions, projection, options)
       .limit(filter.limit)
       .lean({ virtuals: !!this.#model.schema.virtuals })
       .exec()
