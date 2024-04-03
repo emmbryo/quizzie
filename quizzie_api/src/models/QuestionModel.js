@@ -12,15 +12,53 @@ const schema = new mongoose.Schema({
   type: {
     type: String,
     trim: true,
-    maxlength: 10,
+    maxlength: 11,
     required: [true, 'A question type must be given.'],
-    enum: ['verbPhrase', 'idioms', 'vocab']
+    enum: ['phrasalVerb', 'idiom', 'vocab']
+  },
+  meaning: {
+    type: String,
+    trim: true,
+    maxlength: 200,
+    required: false
   },
   question: {
     type: String,
     required: [true, 'Question is required.'],
     unique: false,
     maxlength: 200,
+  },
+  options: {
+    type: [String],
+    validate: [{
+      validator: function(array) {
+        return array.every(string => string.length <= 200);
+      },
+      message: 'Each string in arrayField should not exceed 200 characters.'
+    }, {
+      validator: function(array) {
+        return array.length <= 10;
+      },
+      message: 'options should not exceed 10 elements.'
+    }],
+    required: false,
+    unique: false,
+  },
+  examples: {
+    type: [String],
+    validate: [{
+      validator: function(array) {
+        return array.every(string => string.length <= 200);
+      },
+      message: 'Each string in arrayField should not exceed 200 characters.'
+    }, {
+      validator: function(array) {
+        return array.length <= 10;
+      },
+      message: 'arrayField should not exceed 10 elements.'
+    }],
+    required: false,
+    unique: false,
   },
   answer: {
     type: String,
