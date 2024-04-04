@@ -97,7 +97,7 @@ export class QuestionController {
    * @param {object} res - Express response object.
    * @param {Function} next - Express next middleware function.
    */
-  async getVerbPhrases (req, res, next) {
+  async getPhrasalVerbs (req, res, next) {
     try {
       const questions = await this.#service.get({ conditions: { type: 'phrasalVerb'}, limit: 50 })
 
