@@ -83,12 +83,37 @@ export class QuestionController {
         throw new Error('Invalid limit query.')
       }
 
-      const questions = await this.#service.get(req.query.type ? { conditions: { type: req.query.type }, limit: req.query.limit || process.env.LIMIT } : { limit: req.query.limit || process.env.LIMIT })
+      const limitValue = req.query.limit || process.env.LIMIT 
+
+      const questions = await this.#service.get(req.query.type ? { conditions: { type: req.query.type }, limit: limitValue } : { limit: limitValue })
+
       res
         .status(200)
         .json({
           message: "All questions",
           questions: questions
+        })
+    } catch (error) {
+      next(createError(400, error.message))
+    }
+  }
+
+  /**
+   * Get a set of random questions.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async getRandomQuestions (req, res, next) {
+    try {
+      const questions = await this.#service.get()
+
+      res
+        .status(200)
+        .json({
+          message: "Set of random questions",
+          question: questions
         })
     } catch (error) {
       next(createError(400, error.message))

@@ -25,7 +25,7 @@ router.get('/',
 
 router.get('/all', (req, res, next) => resolveQuestionController(req).getQuestions(req, res, next))
 
-router.get('/phrasal-verbs', (req, res, next) => resolveQuestionController(req).getPhrasalVerbs(req, res, next))
+router.get('/random', (req, res, next) => resolveQuestionController(req).getRandomQuestions(req, res, next))
 
 // POST
 
