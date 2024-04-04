@@ -68,7 +68,7 @@ export class QuestionController {
   }
 
   /**
-   * Return a specified number of questions..
+   * Return a specified number of questions.
    *
    * @param {object} req - Express request object.
    * @param {object} res - Express response object.
@@ -76,8 +76,14 @@ export class QuestionController {
    */
   async getQuestions (req, res, next) {
     try {
-      const questions = await this.#service.get()
-      console.log(questions)
+      if (!['phrasalVerb', 'idiom', 'vocab'].includes(req.query.type)) {
+        throw new Error('Invalid type.')
+      }
+      if (req.query.limit && isNaN(req.query.limit)) {
+        throw new Error('Invalid limit query.')
+      }
+
+      const questions = await this.#service.get(req.query.type ? { conditions: { type: req.query.type }, limit: req.query.limit || process.env.LIMIT } : { limit: req.query.limit || process.env.LIMIT })
       res
         .status(200)
         .json({
@@ -87,20 +93,5 @@ export class QuestionController {
     } catch (error) {
       next(createError(400, error.message))
     }
-  }
-
-  /**
-   * Return verb phrases.
-   *
-   * @param {object} req - Express request object.
-   * @param {object} res - Express response object.
-   * @param {Function} next - Express next middleware function.
-   */
-  getVerbPhrases (req, res, next) {
-    res
-      .status(200)
-      .json({
-        message: "Welcome to the question route of the quizzie API!",
-      })
   }
 }

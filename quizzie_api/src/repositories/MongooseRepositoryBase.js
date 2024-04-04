@@ -38,7 +38,7 @@ export class MongooseRepositoryBase {
    * await myModelRepository.get({ name: /john/i }, null, { skip: 10 }).exec()
    * @returns {Promise<object[]>} Promise resolved with the found documents as a plain JavaScript objects.
    */
-  async get (filter = { limit: 50 }, projection = null, options = null) {
+  async get (filter = { limit: process.env.LIMIT }, projection = null, options = null) {
     return this.#model
       .find(filter.conditions, projection, options)
       .limit(filter.limit)
