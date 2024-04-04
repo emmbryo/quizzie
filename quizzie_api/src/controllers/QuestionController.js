@@ -82,7 +82,6 @@ export class QuestionController {
       this.checkLimit(req)
 
       const limitValue = req.query.limit || process.env.LIMIT 
-
       const questions = await this.#service.get(req.query.type ? { conditions: { type: req.query.type }, limit: limitValue } : { limit: limitValue })
 
       res
@@ -106,8 +105,7 @@ export class QuestionController {
   async getRandomQuestions (req, res, next) {
     try {
       this.checkLimit(req)
-
-      const questions = await this.#service.getRandom({ limit: req.query.limit })
+      const questions = await this.#service.getRandom({ value: req.query.limit })
 
       res
         .status(200)
@@ -127,7 +125,9 @@ export class QuestionController {
    * @throws {Error} - If limit query is not in number format, if it is greater than the maximum value or lower than one.
    */
    checkLimit (req) {
-    if (!req.query.limit || isNaN(req.query.limit) || req.query.limit > Number.parseInt(process.env.MAX_LIMIT) || req.query.limit < 1) {
+    if (!req.query.limit || isNaN(req.query.limit) || 
+        req.query.limit > Number.parseInt(process.env.MAX_LIMIT) || 
+        req.query.limit < 1) {
       throw new Error(`Limit query in number format required. Maximun value ${process.env.MAX_LIMIT}, minimum value 1.`)
     }
   }

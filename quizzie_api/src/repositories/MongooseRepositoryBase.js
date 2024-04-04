@@ -121,4 +121,14 @@ export class MongooseRepositoryBase {
       .lean({ virtuals: !!this.#model.schema.virtuals })
       .exec()
   }
+
+  /**
+   * Counts documents.
+   *
+   * @param {number} limit - number of docs to return.
+   * @returns {Promise<number>} Promise resolved with the number of documents.
+   */
+  async getRandom (limit) {
+    return this.#model.aggregate([{ $sample: { size: limit } }])
+  }
 }
