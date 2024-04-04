@@ -7,6 +7,7 @@
 
 import createError from 'http-errors'
 import { QuestionService } from '../services/QuestionService.js'
+import { QuestionModel } from '../models/QuestionModel.js'
 
 /**
  * Encapsulates a controller.
@@ -68,7 +69,7 @@ export class QuestionController {
   }
 
   /**
-   * Return a specified number of questions..
+   * Return a specified number of questions.
    *
    * @param {object} req - Express request object.
    * @param {object} res - Express response object.
@@ -96,11 +97,23 @@ export class QuestionController {
    * @param {object} res - Express response object.
    * @param {Function} next - Express next middleware function.
    */
-  getVerbPhrases (req, res, next) {
-    res
-      .status(200)
-      .json({
-        message: "Welcome to the question route of the quizzie API!",
-      })
+  async getVerbPhrases (req, res, next) {
+    try {
+      const questions = await this.#service.get({ conditions: { type: 'phrasalVerb'}, limit: 50 })
+
+      if (!questions) {
+        next(createError(404, 'No verb phrases found'))
+      }
+
+      res
+        .status(200)
+        .json({
+          message: "Phrasal Verbs",
+          questions: questions
+        })
+    }
+    catch (error) {
+      next(createError(400, error.message))
+    }
   }
 }
