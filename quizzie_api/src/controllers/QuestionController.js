@@ -79,11 +79,11 @@ export class QuestionController {
       if (!['phrasalVerb', 'idiom', 'vocab'].includes(req.query.type)) {
         throw new Error('Invalid type.')
       }
-      if (req.query.limit && isNaN(req.query.limit)) {
-        throw new Error('Invalid limit query.')
-      }
+      this.checkLimit(req)
 
-      const questions = await this.#service.get(req.query.type ? { conditions: { type: req.query.type }, limit: req.query.limit || process.env.LIMIT } : { limit: req.query.limit || process.env.LIMIT })
+      const limitValue = req.query.limit || process.env.LIMIT 
+      const questions = await this.#service.get(req.query.type ? { conditions: { type: req.query.type }, limit: limitValue } : { limit: limitValue })
+
       res
         .status(200)
         .json({
@@ -92,6 +92,43 @@ export class QuestionController {
         })
     } catch (error) {
       next(createError(400, error.message))
+    }
+  }
+
+  /**
+   * Get a set of random questions.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async getRandomQuestions (req, res, next) {
+    try {
+      this.checkLimit(req)
+      const questions = await this.#service.getRandom({ value: req.query.limit })
+
+      res
+        .status(200)
+        .json({
+          message: "Set of random questions",
+          question: questions
+        })
+    } catch (error) {
+      next(createError(400, error.message))
+    }
+  }
+
+   /**
+   * Check limit query.
+   *
+   * @param {object} req - Express request object.
+   * @throws {Error} - If limit query is not in number format, if it is greater than the maximum value or lower than one.
+   */
+   checkLimit (req) {
+    if (!req.query.limit || isNaN(req.query.limit) || 
+        req.query.limit > Number.parseInt(process.env.MAX_LIMIT) || 
+        req.query.limit < 1) {
+      throw new Error(`Limit query in number format required. Maximun value ${process.env.MAX_LIMIT}, minimum value 1.`)
     }
   }
 }
