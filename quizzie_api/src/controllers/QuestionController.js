@@ -7,7 +7,6 @@
 
 import createError from 'http-errors'
 import { QuestionService } from '../services/QuestionService.js'
-import { QuestionModel } from '../models/QuestionModel.js'
 
 /**
  * Encapsulates a controller.
@@ -77,10 +76,8 @@ export class QuestionController {
    */
   async getQuestions (req, res, next) {
     try {
-      if (req.query.type) {
-        console.log('Query: ', req.query)
-      } else {
-        console.log('No query')
+      if (!['phrasalVerb', 'idiom', 'vocab'].includes(req.query.type)) {
+        throw new Error('Invalid type')
       }
       const questions = await this.#service.get(req.query.type ? { conditions: { type: req.query.type }, limit: process.env.LIMIT } : { limit: process.env.LIMIT })
       res
