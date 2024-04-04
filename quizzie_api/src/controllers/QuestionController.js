@@ -79,9 +79,7 @@ export class QuestionController {
       if (!['phrasalVerb', 'idiom', 'vocab'].includes(req.query.type)) {
         throw new Error('Invalid type.')
       }
-      if (req.query.limit && isNaN(req.query.limit) || req.query.limit > Number.parseInt(process.env.MAX_LIMIT)) {
-        throw new Error(`Limit query in number format required. Maximun value ${process.env.MAX_LIMIT}`)
-      }
+      this.checkLimit(req)
 
       const limitValue = req.query.limit || process.env.LIMIT 
 
@@ -107,9 +105,7 @@ export class QuestionController {
    */
   async getRandomQuestions (req, res, next) {
     try {
-      if (!req.query.limit || isNaN(req.query.limit) || req.query.limit > Number.parseInt(process.env.MAX_LIMIT)) {
-        throw new Error(`Limit query in number format required. Maximun value ${process.env.MAX_LIMIT}`)
-      }
+      this.checkLimit(req)
 
       const questions = await this.#service.getRandom({ limit: req.query.limit })
 
@@ -121,6 +117,18 @@ export class QuestionController {
         })
     } catch (error) {
       next(createError(400, error.message))
+    }
+  }
+
+   /**
+   * Check limit query.
+   *
+   * @param {object} req - Express request object.
+   * @throws {Error} - If limit query is not in number format, if it is greater than the maximum value or lower than one.
+   */
+   checkLimit (req) {
+    if (!req.query.limit || isNaN(req.query.limit) || req.query.limit > Number.parseInt(process.env.MAX_LIMIT) || req.query.limit < 1) {
+      throw new Error(`Limit query in number format required. Maximun value ${process.env.MAX_LIMIT}, minimum value 1.`)
     }
   }
 }
