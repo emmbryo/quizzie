@@ -77,8 +77,12 @@ export class QuestionController {
    */
   async getQuestions (req, res, next) {
     try {
-      const questions = await this.#service.get()
-      console.log(questions)
+      if (req.query.type) {
+        console.log('Query: ', req.query)
+      } else {
+        console.log('No query')
+      }
+      const questions = await this.#service.get(req.query.type ? { conditions: { type: req.query.type }, limit: process.env.LIMIT } : { limit: process.env.LIMIT })
       res
         .status(200)
         .json({
@@ -86,33 +90,6 @@ export class QuestionController {
           questions: questions
         })
     } catch (error) {
-      next(createError(400, error.message))
-    }
-  }
-
-  /**
-   * Return verb phrases.
-   *
-   * @param {object} req - Express request object.
-   * @param {object} res - Express response object.
-   * @param {Function} next - Express next middleware function.
-   */
-  async getPhrasalVerbs (req, res, next) {
-    try {
-      const questions = await this.#service.get({ conditions: { type: 'phrasalVerb'}, limit: 50 })
-
-      if (!questions) {
-        next(createError(404, 'No verb phrases found'))
-      }
-
-      res
-        .status(200)
-        .json({
-          message: "Phrasal Verbs",
-          questions: questions
-        })
-    }
-    catch (error) {
       next(createError(400, error.message))
     }
   }
