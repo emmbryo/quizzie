@@ -77,9 +77,13 @@ export class QuestionController {
   async getQuestions (req, res, next) {
     try {
       if (!['phrasalVerb', 'idiom', 'vocab'].includes(req.query.type)) {
-        throw new Error('Invalid type')
+        throw new Error('Invalid type.')
       }
-      const questions = await this.#service.get(req.query.type ? { conditions: { type: req.query.type }, limit: process.env.LIMIT } : { limit: process.env.LIMIT })
+      if (req.query.limit && isNaN(req.query.limit)) {
+        throw new Error('Invalid limit query.')
+      }
+
+      const questions = await this.#service.get(req.query.type ? { conditions: { type: req.query.type }, limit: req.query.limit || process.env.LIMIT } : { limit: req.query.limit || process.env.LIMIT })
       res
         .status(200)
         .json({
