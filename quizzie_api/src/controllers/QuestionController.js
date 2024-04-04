@@ -107,7 +107,7 @@ export class QuestionController {
    */
   async getRandomQuestions (req, res, next) {
     try {
-      const questions = await this.#service.get()
+      const questions = await this.#service.getRandom()
 
       res
         .status(200)

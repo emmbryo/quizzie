@@ -20,5 +20,15 @@ export class QuestionService extends MongooseServiceBase {
   constructor (repository = new QuestionRepository()) {
     super(repository)
   }
+  
+  /**
+   * Gets a random question.
+   *
+   * @returns {Promise<object>} Promise resolved with a random question as a plain JavaScript object.
+   */
+  async getRandom () {
+    // TODO: Implement getting a determined number of random questions.
+    return this._repository.get({ limit: 5 })
+  }
 
 }
