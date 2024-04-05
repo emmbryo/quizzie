@@ -36,9 +36,8 @@ export class QuestionController {
    * @param {Function} next - Express next middleware function.
    */
   index (req, res, next) {
-    res
-      .status(200)
-      .json({
+    res.status(200)
+    res.json({
         message: "Welcome to the question route of the quizzie API!",
       })
   }
