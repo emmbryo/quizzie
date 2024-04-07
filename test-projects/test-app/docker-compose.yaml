@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  test-app:
+    container_name: "test-app"
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "8088:3000"
+    volumes:
+      - ./src:/usr/src/app/src
+    restart: on-failure
+    environment:
+      # The base URL for the application. Defaults to '/' if not provided.
+      - NODE_PORT=3000
+
