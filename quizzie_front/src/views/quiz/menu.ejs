@@ -1,1 +1,20 @@
-<h1>This is the quiz menu</h1>
+<div class="form-wrapper">
+  <h1>Create a quiz:</h1>
+  <form action="./quiz" method="post">
+    <div class="quiz-option">
+      <input type="radio" id="vocab" name="quizOption" value="vocab">
+      <label for="option1">Vocabulary</label><br>
+      <input type="radio" id="idiom" name="quizOption" value="idiom">
+      <label for="option2">Idioms</label><br>
+      <input type="radio" id="phrasalVerb" name="quizOption" value="phrasalVerb">
+      <label for="option3">Verbal Phrases</label><br>
+      <input type="radio" id="option4" name="quizOption" value="Mixed">
+      <label for="option3">Mixed</label><br>
+    </div>
+    <div class="quiz-size">
+      <label for="size">Number of questions: <span id="sizeValue">10</span></label>
+      <input type="range" id="size" name="size" min="1" max="50" value="10">
+    </div>
+    <input class="submit-btn" type="submit" value="Create quiz">
+  </form>
+</div>

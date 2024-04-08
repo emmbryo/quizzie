@@ -1,0 +1,95 @@
+@font-face {
+  font-family: super-toast;
+  src: url('../fonts/super_toast.TTF');
+}
+
+body {
+  background-color: rgb(100, 137, 97);
+  padding: 30px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+main, .form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-wrapper {
+  padding: 20px;
+  /* border-radius: 10px;
+  border: solid 2px black; */
+}
+
+.header-nav ul {
+  display: flex;
+  flex-direction:row-reverse;
+  gap: 20px;
+  align-items: center;
+  padding: 10px 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
+
+.header-nav ul li {
+  list-style: none;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: black;
+}
+
+ h1, button, .submit-btn {
+  font-family: super-toast;
+ }
+
+ h1 {
+  color: white;
+ }
+
+ .h1-quizzie {
+  font-size: 80px;
+  margin: 10px;
+  /* border: solid 2px black;
+  border-radius: 30px;
+  padding: 15px;
+  box-shadow: 2px 2px 2px black; */
+ }
+
+ button, .submit-btn {
+  font-size: 20px;
+  padding: 5px;
+  color: black;
+  background-color: rgb(100, 137, 97);
+  border-radius: 10px;
+  border: solid 2px black;
+  box-shadow: 2px 2px 2px black;
+ }
+
+ button:hover, .submit-btn:hover {
+  background-color: white;
+ }
+
+
+ form, .quiz-size {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+ }
+
+ form {
+  width: 200px;
+  align-items: center;
+ }
+
+
+ .footer {
+  position: absolute;
+  bottom: 10px;
+ }
