@@ -1,0 +1,12 @@
+<header>
+    <nav class="header-nav">
+        <ul>
+            <li><a href="./">Home</a></li>
+            <% if (typeof authorized !== 'undefined' && authorized) { %>
+                <li><a href="a logged in link">Link name</a></li>
+            <% } else { %>
+                <li><a href="a logged out link">Link name</a></li>
+            <% } %>
+        </ul>
+    </nav>
+</header>
