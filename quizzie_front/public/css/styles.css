@@ -6,6 +6,20 @@
 body {
   background-color: rgb(100, 137, 97);
   padding: 30px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+main, .form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-wrapper {
+  padding: 20px;
+  /* border-radius: 10px;
+  border: solid 2px black; */
 }
 
 .header-nav ul {
@@ -31,7 +45,7 @@ header {
   color: black;
 }
 
- h1, button {
+ h1, button, .submit-btn {
   font-family: super-toast;
  }
 
@@ -48,7 +62,7 @@ header {
   box-shadow: 2px 2px 2px black; */
  }
 
- button {
+ button, .submit-btn {
   font-size: 20px;
   padding: 5px;
   color: black;
@@ -58,9 +72,22 @@ header {
   box-shadow: 2px 2px 2px black;
  }
 
- button:hover {
+ button:hover, .submit-btn:hover {
   background-color: white;
  }
+
+
+ form, .quiz-size {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+ }
+
+ form {
+  width: 200px;
+  align-items: center;
+ }
+
 
  .footer {
   position: absolute;
