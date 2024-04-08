@@ -1,12 +1,11 @@
 <header>
+    <h1 class="h1-quizzie">Quizzie</h1>
     <nav class="header-nav">
         <ul>
-            <li><a href="./">Home</a></li>
-            <% if (typeof authorized !== 'undefined' && authorized) { %>
-                <li><a href="a logged in link">Link name</a></li>
-            <% } else { %>
-                <li><a href="a logged out link">Link name</a></li>
-            <% } %>
+            <li><button><a href="./logout">Logout</a></button></li>
+            <li><button><a href="./login">Login</a></button></li>
+            <li><button><a href="./quiz">create quiz</a></button></li>
+            <li><button><a href="./">Home</a></button></li>
         </ul>
     </nav>
 </header>
