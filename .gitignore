@@ -4,6 +4,7 @@
 
 ### vscode settings
 .vscode
+docker-compose.yaml
 
 ### egan anteckningar
 /eget_hexxx

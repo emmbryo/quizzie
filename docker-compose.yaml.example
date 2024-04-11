@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  quizzie-front:
+    container_name: "quizzie-front"
+    build:
+      dockerfile: Dockerfile
+      context: ./quizzie_front
+    ports:
+      - "8088:3000"
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./public:/usr/src/app/public
+    restart: on-failure
+    environment:
+      # The base URL for the application. Defaults to '/' if not provided.
+      - PORT=XXXX
+      - NODE_PORT=XXXX
+      - BASE_URL='/'
+      - NODE_ENV="development"
+      - ORIGIN=""
+      - SESSION_SECRET={"provide a session-secret-string"}
+      - SESSION_NAME={"provide a session-name-string"}
+
