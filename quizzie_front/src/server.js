@@ -31,7 +31,9 @@ app.use(helmet({
   crossOriginResourcePolicy: false,
   contentSecurityPolicy: {
     directives: {
-      imgSrc: ["'self'", 'data:', 'gitlab.lnu.se', 'https://secure.gravatar.com']
+      imgSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      fontSrc: ["'self'"]
     }
   }
 }))
