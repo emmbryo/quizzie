@@ -4,7 +4,10 @@
 
 ### vscode settings
 .vscode
+
+### files connected to docker compose
 docker-compose.yaml
+.volumes
 
 ### egan anteckningar
 /eget_hexxx

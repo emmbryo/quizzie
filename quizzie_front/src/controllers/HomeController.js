@@ -19,10 +19,8 @@ export class HomeController {
    * @param {object} res - Express response object.
    * @param {Function} next - Express next middleware function.
    */
-  index (req, res, next) {
+  async index (req, res, next) {
     res.status(200)
     res.render('home/index')
-  }
-
-  
+  } 
 }

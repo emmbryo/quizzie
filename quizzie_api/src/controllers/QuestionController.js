@@ -86,7 +86,7 @@ export class QuestionController {
       res
         .status(200)
         .json({
-          message: "All questions",
+          message: "TODO: add meta data about question set",
           questions: questions
         })
     } catch (error) {
