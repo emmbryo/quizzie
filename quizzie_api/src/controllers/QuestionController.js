@@ -110,7 +110,7 @@ export class QuestionController {
         .status(200)
         .json({
           message: "Set of random questions",
-          question: questions
+          questions: questions
         })
     } catch (error) {
       next(createError(400, error.message))

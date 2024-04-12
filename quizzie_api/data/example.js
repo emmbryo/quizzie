@@ -363,4 +363,4 @@ const phrasalVerbs = [
 ]
 
 
-export default phrasalVerbs
+export default vocabs

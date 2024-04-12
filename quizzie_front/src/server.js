@@ -78,9 +78,11 @@ app.use(session(sessionOptions))
 
 // Middleware to be executed before the routes.
 app.use((req, res, next) => {
+  console.log('flash: ', req.session.flash)
   // the views need to know if the user is logged in, in order to show the corrrect available choices.
-  if (req.session.gitLabToken) {
-    res.locals.authorized = true
+  if (req.session.flash) {
+    res.locals.flash = req.session.flash
+    delete req.session.flash
   }
   // Pass the base URL to the views.
   res.locals.baseURL = baseURL

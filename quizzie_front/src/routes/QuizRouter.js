@@ -22,3 +22,8 @@ const resolveQuizController = (req) => req.app.get('container').resolve('QuizCon
 router.get('/',
   (req, res, next) => resolveQuizController(req).index(req, res, next)
 )
+
+router.post('/',
+  (req, res, next) => resolveQuizController(req).getQuestions(req, res, next)
+)
+

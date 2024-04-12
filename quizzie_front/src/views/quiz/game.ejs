@@ -1,0 +1,9 @@
+<% questions.forEach((question, index) => { %>
+  <div>
+    <h2>Question <%= index + 1 %>:</h2>
+    <p><%= question.question %></p>
+    <% question.answers?.forEach((answer) => { %>
+      <p><%= answer %></p>
+    <% }) %>
+  </div>
+<% }) %>
