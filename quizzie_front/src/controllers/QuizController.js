@@ -36,8 +36,30 @@ export class QuizController {
    * @param {Function} next - Express next middleware function.
    */
   index (req, res, next) {
-    res.status(200)
-    res.render('quiz/menu')
+    try {
+      res.status(200)
+      res.render('quiz/menu')
+    } catch (error) {
+      next(error)
+    }
+    
+  }
+
+  /**
+   * Renders a quiz game menu
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async getQuestions (req, res, next) {
+    try {
+      const questions = await this.#service.getQuestions(req.body.size, req.body.quizOption)
+      // console.log(questions)
+      res.redirect('.')
+    } catch (error) {
+      next(error)
+    }
   }
 
   

@@ -14,4 +14,4 @@ router.get('/', (req, res) => res.json({
   message: 'Welcome to the quizzie language quiz API!',
 }))
 
-router.use('/question', questionRouter)
+router.use('/questions', questionRouter)
