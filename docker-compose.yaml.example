@@ -1,6 +1,38 @@
 version: "3.8"
 
 services:
+
+  version: "3.8"
+
+services:
+  mongodb:
+    container_name: "mongodb-q"
+    image: mongo:7.0.2
+    volumes: 
+      - ./.volumes/mongodb:/data/db
+
+  quizzie-api:
+    container_name: "api"
+    build:
+      dockerfile: Dockerfile
+      context: ./quizzie_api
+    volumes:
+    - ./quizzie_api:/usr/src/app
+    ports:
+      - "8086:3000"
+    depends_on:
+      - mongodb
+    restart: on-failure
+    environment:
+      # The base URL for the application. Defaults to '/' if not provided.
+      - PORT=XXXX
+      - NODE_PORT=XXXX
+      - BASE_URL='/'
+      - NODE_ENV="development"
+      - DB_CONNECTION_STRING=mongodb://<mongodb service name>:27017/<colection name>
+      - LIMIT=10
+      - MAX_LIMIT=100
+
   quizzie-front:
     container_name: "quizzie-front"
     build:
@@ -21,4 +53,5 @@ services:
       - ORIGIN=""
       - SESSION_SECRET={"provide a session-secret-string"}
       - SESSION_NAME={"provide a session-name-string"}
+      - API_BASE_URL={"provide a api-base-url-string"}
 

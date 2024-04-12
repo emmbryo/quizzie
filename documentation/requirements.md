@@ -41,6 +41,7 @@ A quiz app to be used in English education at the high school level. The idea is
   * 4.2 Backend Framework: Express.js
   * 4.3 Frontend: vanilla? Or React
   * 4.4 Database: MongoDB
+  * 4.5 Deploy: Docker compose
 
 ## 5: Testing
   * 5.1 Unit tests
