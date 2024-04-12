@@ -55,10 +55,14 @@ export class QuizController {
   async getQuestions (req, res, next) {
     try {
       const questions = await this.#service.getQuestions(req.body.size, req.body.quizOption)
-      // console.log(questions)
-      res.redirect('.')
+      console.log(questions)
+      res.render('quiz/game', { questions })
     } catch (error) {
-      next(error)
+      req.session.flash = {
+        type: 'danger',
+        text: error.message
+      }
+      res.redirect('/quiz')
     }
   }
 
