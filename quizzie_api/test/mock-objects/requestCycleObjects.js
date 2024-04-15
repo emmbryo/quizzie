@@ -2,7 +2,7 @@
 // mock req/res objects
 const req = {
   body: {
-      type: "phrasalVerb",
+      type: "verbPhrase",
       meaning: "go to an event / restaurant / pub / party",
       question: "GO __",
       options: [],

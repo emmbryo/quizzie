@@ -19,8 +19,8 @@ export class QuizService {
       return data.questions.map(question => this.transformIdiom(question))
     } else if (type === 'vocab') {
       return data.questions.map(question => this.transformVocab(question))
-    } else if (type === 'phrasalVerb') {
-      return data.questions.map(question => this.transformPhrasalVerb(question))
+    } else if (type === 'verbPhrase') {
+      return data.questions.map(question => this.transformVerbPhrase(question))
     } else if (type === 'mixed') {
       return this.transformMixed(data.questions)
     } else {
@@ -39,8 +39,8 @@ export class QuizService {
         return this.transformIdiom(question)
       } else if (question.type === 'vocab') {
         return this.transformVocab(question)
-      } else if (question.type === 'phrasalVerb') {
-        return this.transformPhrasalVerb(question)
+      } else if (question.type === 'verbPhrase') {
+        return this.transformVerbPhrase(question)
       }
     })
   }
@@ -63,7 +63,7 @@ export class QuizService {
       }
   }
 
-  transformPhrasalVerb (question) {
+  transformVerbPhrase (question) {
       return {
         type: question.type,
         question: question.question,

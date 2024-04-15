@@ -5,7 +5,7 @@ A quiz app to be used in English education at the high school level. The idea is
 ## 1: The Quiz
   * 1.1 A quiz with a selectable number of questions (from a limited question pool)
   * 1.2 A quiz with selectable categories, including a mixed one
-    * 1.2.1 fixed categories: Vocabulary, idioms and phrasal verbs
+    * 1.2.1 fixed categories: Vocabulary, idioms and verb phrases
     * 1.2.2 A random category
   * 1.3 Feedback after each answered question
   * 1.4 The question is answered with free text, not through options

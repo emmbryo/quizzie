@@ -194,7 +194,7 @@ const idioms = [
   }
 ]
 
-const phrasalVerbs = [
+const verbPhrases = [
   {
     question: "GO __",
     answer: "ON",
@@ -204,7 +204,7 @@ const phrasalVerbs = [
       "There\'s a class going on at the moment.",
       "What went on last night?"
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "PICK __",
@@ -215,7 +215,7 @@ const phrasalVerbs = [
       "Please pick up some bread.",
       "Would you come and pick me up from work tonight?"
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "COME __",
@@ -226,7 +226,7 @@ const phrasalVerbs = [
       "When will you come back from France?",
       "Please come back! It\'s boring here without you."
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "COME __ __",
@@ -237,7 +237,7 @@ const phrasalVerbs = [
       "He came up with an answer to the question very quickly.",
       "Can you come up with a better solution?"
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "GO __",
@@ -248,7 +248,7 @@ const phrasalVerbs = [
       "When is she planning to go back to Japan?",
       "I\'ll go back to the library later."
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "FIND __",
@@ -259,7 +259,7 @@ const phrasalVerbs = [
       "I found out that we need to submit our essays next Tuesday.",
       "I don\'t know what the weather forecast is for tomorrow, but I\'ll find out."
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "COME __",
@@ -270,7 +270,7 @@ const phrasalVerbs = [
       "He went to the café and came out with a coffee.",
       "Please come out of the bedroom."
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "GO __",
@@ -281,7 +281,7 @@ const phrasalVerbs = [
       "You\'re going out a lot these days.",
       "We should go out more."
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "POINT __",
@@ -292,7 +292,7 @@ const phrasalVerbs = [
       "Please point out to the students that they must attend all the lectures.",
       "\'We\'ll miss the bus if we don\'t hurry\', he pointed out."
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "GROW __",
@@ -303,7 +303,7 @@ const phrasalVerbs = [
       "My children are growing up too fast!",
       "When will he grow up?"
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "SET __",
@@ -314,7 +314,7 @@ const phrasalVerbs = [
       "She\'s decided to set up her own company.",
       "I set up some language classes at the school."
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "TURN __",
@@ -325,7 +325,7 @@ const phrasalVerbs = [
       "He turned out to be a friend of Alex\'s.",
       "The party turned out to be a big success."
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "GET __",
@@ -336,7 +336,7 @@ const phrasalVerbs = [
       "She got out of the car and went into the shop.",
       "Get out! There\'s a fire in the kitchen!"
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "COME __ / __",
@@ -347,7 +347,7 @@ const phrasalVerbs = [
       "She came into the living room and sat down.",
       "Don\'t come in! I\'m not ready yet!"
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   },
   {
     question: "TAKE __",
@@ -358,9 +358,9 @@ const phrasalVerbs = [
       "She isn\'t taking on any new students at the moment.",
       "Could you take on some extra work?"
     ],
-    type: "phrasalVerb"
+    type: "verbPhrase"
   }
 ]
 
 
-export default vocabs
+export default verbPhrases

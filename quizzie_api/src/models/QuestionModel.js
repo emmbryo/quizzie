@@ -14,7 +14,7 @@ const schema = new mongoose.Schema({
     trim: true,
     maxlength: 11,
     required: [true, 'A question type must be given.'],
-    enum: ['phrasalVerb', 'idiom', 'vocab']
+    enum: ['verbPhrase', 'idiom', 'vocab']
   },
   meaning: {
     type: String,
