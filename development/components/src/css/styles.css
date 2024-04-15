@@ -1,0 +1,9 @@
+
+@font-face {
+  font-family: super-toast;
+  src: url('./fonts/super_toast.ttf');
+}
+
+body {
+  background-color: rgb(183, 238, 194);
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+  <script defer type="module" src="./js/index.js"></script>
+  <script type="module" src="./js/components/idiom-question/index.js"></script>
+  <script type="module" src="./js/components/verb-phrase-question/index.js"></script>
+  <script type="module" src="./js/components/vocab-question/index.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <h1>Components for quiz questions</h1>
+  <div id="quiz-wrapper">
+    <vocab-question question="Hund" answer="Dog"></vocab-question>
+    <idiom-question options='["svar ett", "Detta är svaret", "svar tre"]' question="detta är frågan" answer="Detta är svaret"></idiom-question>
+    <verb-phrase-question meaning="leave a room / building / car" question="GET __" answer="OUT"></verb-phrase-question>
+  </div>
+  
+</body>
+</html>
