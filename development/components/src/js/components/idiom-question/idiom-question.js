@@ -10,8 +10,11 @@ const template = document.createElement('template')
 template.innerHTML = `
   <style>
     .idiom-wrapper {
+      margin: 20px;
+      padding: 10px;
       display: flex;
       flex-direction: column;
+      gap: 5px;
     }
     h1 {
       font-family: super-toast;
@@ -23,7 +26,7 @@ template.innerHTML = `
 
   <div class="idiom-wrapper">
     <h1>Idiom</h1>
-    <div part="question" id="id">
+    <div id="question">
         <div class="question"></div>
         <div class="options"></div>
         <div class="answer"></div>
@@ -60,7 +63,6 @@ customElements.define('idiom-question',
      * Called when the element is inserted into the DOM.
      */
     connectedCallback () {
-      console.log(this.#options)
       this.#element.querySelector('#submit').addEventListener('click', () => {
         const selectedOption = this.#element.querySelector('input[name="answerOption"]:checked').value
         const event = new CustomEvent('answer', {
@@ -69,9 +71,9 @@ customElements.define('idiom-question',
           composed: true
         })
         if (selectedOption === this.#answer) {
-          event.detail.message = 'Correct answer'
+          event.detail.message = 'Correct'
         } else {
-          event.detail.message = 'Wrong answer'
+          event.detail.message = 'Wrong'
         }
         this.dispatchEvent(event)
       })
@@ -114,7 +116,6 @@ customElements.define('idiom-question',
 
       if (name === 'answer') {
         this.#answer = newValue;
-        this.#setAnswer()
       }
     }
 
@@ -145,12 +146,6 @@ customElements.define('idiom-question',
       const question = this.#question
       const questionElement = this.#element.querySelector('.question')
       questionElement.appendChild(this.#getTextNode(question))
-    }
-
-    #setAnswer () {
-      const answer = this.#answer
-      const questionElement = this.#element.querySelector('.answer')
-      questionElement.appendChild(this.#getTextNode(answer))
     }
 
     #getTextNode (text) {

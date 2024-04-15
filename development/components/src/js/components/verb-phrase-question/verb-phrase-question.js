@@ -10,14 +10,23 @@ const template = document.createElement('template')
 template.innerHTML = `
   <style>
     .verb-phrase-wrapper {
+      margin: 20px;
+      padding: 10px;
       display: flex;
       flex-direction: column;
+      gap: 10px;
     }
     h1 {
       font-family: super-toast;
     }
     button {
       width: 100px;
+    }
+    .answer {
+      width: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   </style>
 
@@ -26,9 +35,12 @@ template.innerHTML = `
     <div part="question" id="id">
         <div class="question"></div>
         <div class="meaning"></div>
-        <div class="answer"></div>
+        <div class="answer">
+          <label for="prep-input">Answer:</label>
+          <input id="prep-input" type="text">
+        </div>
     </div>  
-    <button id="submit">Answer</button>
+    <button id="submit">OK</button>
   </div>
 `
 customElements.define('verb-phrase-question',
@@ -45,7 +57,7 @@ customElements.define('verb-phrase-question',
     #meaning
     #answer
 
-    #data = {
+    #exampleData = {
       question: "GET __",
       answer: "OUT",
       meaning: "leave a room / building / car",
@@ -74,16 +86,16 @@ customElements.define('verb-phrase-question',
     connectedCallback () {
       console.log(this.#meaning)
       this.#element.querySelector('#submit').addEventListener('click', () => {
-        const selectedOption = this.#element.querySelector('input[name="answerOption"]:checked').value
+        const selectedOption = this.#element.querySelector('#prep-input').value
         const event = new CustomEvent('answer', {
           detail: { message: '' },
           bubbles: true,
           composed: true
         })
-        if (selectedOption === this.#answer) {
-          event.detail.message = 'Correct answer'
+        if (selectedOption === this.#answer.toLowerCase()) {
+          event.detail.message = 'Correct'
         } else {
-          event.detail.message = 'Wrong answer'
+          event.detail.message = 'Wrong'
         }
         this.dispatchEvent(event)
       })
@@ -126,7 +138,6 @@ customElements.define('verb-phrase-question',
 
       if (name === 'answer') {
         this.#answer = newValue;
-        this.#setAnswer()
       }
     }
 
@@ -140,12 +151,6 @@ customElements.define('verb-phrase-question',
       const question = this.#question
       const questionElement = this.#element.querySelector('.question')
       questionElement.appendChild(this.#getTextNode(question))
-    }
-
-    #setAnswer () {
-      const answer = this.#answer
-      const questionElement = this.#element.querySelector('.answer')
-      questionElement.appendChild(this.#getTextNode(answer))
     }
 
     #getTextNode (text) {
