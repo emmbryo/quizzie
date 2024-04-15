@@ -9,16 +9,26 @@
 const template = document.createElement('template')
 template.innerHTML = `
   <style>
-
+    .idiom-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    h1 {
+      font-family: super-toast;
+    }
+    button {
+      width: 100px;
+    }
   </style>
 
   <div class="idiom-wrapper">
     <h1>Idiom</h1>
-    <div part="for-styling" id="id">
+    <div part="question" id="id">
         <div class="question"></div>
         <div class="options"></div>
         <div class="answer"></div>
     </div>  
+    <button id="submit">Answer</button>
   </div>
 `
 customElements.define('idiom-question',
@@ -51,6 +61,20 @@ customElements.define('idiom-question',
      */
     connectedCallback () {
       console.log(this.#options)
+      this.#element.querySelector('#submit').addEventListener('click', () => {
+        const selectedOption = this.#element.querySelector('input[name="answerOption"]:checked').value
+        const event = new CustomEvent('answer', {
+          detail: { message: '' },
+          bubbles: true,
+          composed: true
+        })
+        if (selectedOption === this.#answer) {
+          event.detail.message = 'Correct answer'
+        } else {
+          event.detail.message = 'Wrong answer'
+        }
+        this.dispatchEvent(event)
+      })
     }
 
     /**
@@ -77,6 +101,7 @@ customElements.define('idiom-question',
      * @param {*} newValue New value of attribute.
      */
     attributeChangedCallback (name, oldValue, newValue) {
+      // TODO: validering av attribut
       if (name === 'options') {
         this.#options = JSON.parse(newValue);
         this.#setOptions()
@@ -97,29 +122,44 @@ customElements.define('idiom-question',
       const options = this.#options
       const optionsElement = this.#element.querySelector('.options')
 
-      options.forEach(option => {
+      options.forEach((option, index) => {
+        const wrapper = document.createElement('div')
+        wrapper.class = 'option-wrapper'
 
-        const p = document.createElement('p')
-        p.textContent = option
-        optionsElement.appendChild(p)
+        const radio = document.createElement('input')
+        radio.type = 'radio'
+        radio.name = 'answerOption'
+        radio.value = option
+        radio.id = 'answerOption' + index
+
+        const label = document.createElement('label')
+        label.textContent = option
+        label.htmlFor = radio.id 
+        wrapper.appendChild(radio)
+        wrapper.appendChild(label)
+        optionsElement.appendChild(wrapper)
       })
     }
 
     #setQuestion () {
       const question = this.#question
       const questionElement = this.#element.querySelector('.question')
-
-      const p = document.createElement('p')
-      p.textContent = question
-      questionElement.appendChild(p)
+      questionElement.appendChild(this.#getTextNode(question))
     }
 
     #setAnswer () {
       const answer = this.#answer
       const questionElement = this.#element.querySelector('.answer')
+      questionElement.appendChild(this.#getTextNode(answer))
+    }
 
+    #getTextNode (text) {
       const p = document.createElement('p')
-      p.textContent = answer
-      questionElement.appendChild(p)
+      p.textContent = text
+      return p
+    }
+
+    getCorrectAnswer () {
+      return this.#answer
     }
   })
