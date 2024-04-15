@@ -56,6 +56,7 @@ export class QuizController {
     try {
       const questions = await this.#service.getQuestions(req.body.size, req.body.quizOption)
       console.log(questions)
+      console.log('****KOM VI HIT****?????')
       res.render('quiz/game', { questions })
     } catch (error) {
       req.session.flash = {

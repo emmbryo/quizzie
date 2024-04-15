@@ -33,7 +33,7 @@ export class QuizService {
   }
 
   transformMixed (questions) {
-    console.log(questions)
+    // console.log(questions)
     return questions.map(question => { 
       if (question.type === 'idiom') {
         return this.transformIdiom(question)
@@ -45,14 +45,22 @@ export class QuizService {
     })
   }
 
-
   transformIdiom (question) {
       return {
         type: question.type,
         question: question.question,
-        answers: this.shuffleArray(question.options),
+        answers: this.transformToString(question.options),
         correctAnswer: question.answer
       }
+  }
+
+  transformToString (rawAnswers) {
+    const answers = this.shuffleArray(rawAnswers)
+    let answersAsText = '['
+    answers.forEach(answer => {
+      answersAsText += '\"' + answer + '\"' + ', '
+    })
+    return answersAsText.slice(0, answersAsText.length - 2) + ']'
   }
 
   transformVocab (question) {

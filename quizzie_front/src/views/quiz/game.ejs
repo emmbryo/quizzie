@@ -1,9 +1,9 @@
 <% questions.forEach((question, index) => { %>
-  <div>
+  <div id="quiz-wrapper">
     <h2>Question <%= index + 1 %>:</h2>
+    <idiom-question question="<%= question.question %>" options='<%= question.answers %>' answer="<%= question.answer %>"></idiom-question>
+    <p><%= question.answers %></p>
     <p><%= question.question %></p>
-    <% question.answers?.forEach((answer) => { %>
-      <p><%= answer %></p>
-    <% }) %>
   </div>
 <% }) %>
+</div>
