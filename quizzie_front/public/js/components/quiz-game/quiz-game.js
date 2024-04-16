@@ -9,7 +9,7 @@
 const template = document.createElement('template')
 template.innerHTML = `
   <style>
-    .quiz-wrapper {
+    .quiz-game-wrapper {
       margin: 20px;
       padding: 10px;
       display: flex;
@@ -37,6 +37,7 @@ template.innerHTML = `
     </div>
     <button id="start">Start</button>
     <button class="hidden" id="next">Next</button>
+    <button class="hidden" id="done">Done</button>
   </div>
 `
 customElements.define('quiz-game',
@@ -124,7 +125,10 @@ customElements.define('quiz-game',
 
       this.#element.querySelector('#next').addEventListener('click', () => {
         this.#nextQuestion()
-        this.#showNextQuestion()
+      })
+
+      this.#element.querySelector('#done').addEventListener('click', () => {
+        this.#endQuiz()
       })
     }
 
@@ -161,7 +165,6 @@ customElements.define('quiz-game',
     #startQuiz () {
       console.log('start quiz')
       this.#element.querySelector('#start').classList.add('hidden')
-      this.#element.querySelector('#next').classList.remove('hidden')
       document.querySelector(`#${this.#currentQuestionId}`).classList.remove('hidden')
     }
 
@@ -169,11 +172,15 @@ customElements.define('quiz-game',
       this.#removeResult()
       const currentQuestionIndex = this.#questionsId.indexOf(this.#currentQuestionId)
       if (this.#questionsId.length === currentQuestionIndex + 1) {
-        console.log('no more questions')
+        console.log('no more questions, id: ', this.#currentQuestionId)
+        this.#element.querySelector('#next').classList.add('hidden')
+        this.#element.querySelector('#done').classList.remove('hidden')
+        this.#hideCurrentQuestion()
         this.#displayFinalResult()
       } else {
         const nextQuestionIndex = currentQuestionIndex + 1
         this.#currentQuestionId = this.#questionsId[nextQuestionIndex]
+        this.#showCurrentQuestion()
       }
     }
 
@@ -181,12 +188,14 @@ customElements.define('quiz-game',
       document.querySelector(`#${this.#currentQuestionId}`).classList.add('hidden')
     }
 
-    #showNextQuestion () {
+    #showCurrentQuestion () {
       document.querySelector(`#${this.#currentQuestionId}`).classList.remove('hidden')
+      this.#element.querySelector('#next').classList.add('hidden')
     }
 
     #displayResult (result) {
       this.#resultHolder.textContent = result.message
+      this.#element.querySelector('#next').classList.remove('hidden')
     }
 
     #removeResult () {
@@ -202,5 +211,9 @@ customElements.define('quiz-game',
       if (result === 'Correct') {
         this.#finalResult++
       }
+    }
+
+    #endQuiz () {
+      console.log('end quiz')
     }
   })
