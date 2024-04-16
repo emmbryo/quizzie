@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  if (document.getElementById('quiz-wrapper')) {
-    console.log('quiz-wrapper found, adding event listener')
-    document.getElementById('quiz-wrapper').addEventListener('answer', function(e) {
-      console.log(e.detail);
-      e.stopPropagation();
-      e.preventDefault();
-    });
-  }
+  // if (document.getElementById('quiz-wrapper')) {
+  //   console.log('quiz-wrapper found, adding event listener')
+  //   document.getElementById('quiz-wrapper').addEventListener('answer', function(e) {
+  //     console.log(e.detail);
+  //     e.stopPropagation();
+  //     e.preventDefault();
+  //   });
+  // }
 });

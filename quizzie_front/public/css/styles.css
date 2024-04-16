@@ -88,6 +88,10 @@ header {
   align-items: center;
  }
 
+ .hidden {
+  display: none;
+ }
+
 
  /* .footer {
   position: absolute;

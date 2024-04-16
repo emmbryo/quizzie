@@ -64,7 +64,6 @@ customElements.define('idiom-question',
      */
     connectedCallback () {
       this.#element.querySelector('#submit').addEventListener('click', () => {
-        console.log('selected option: ', this.#element.querySelector('input[name="answerOption"]:checked').value)
         const selectedOption = this.#element.querySelector('input[name="answerOption"]:checked').value
         const event = new CustomEvent('answer', {
           detail: { message: '' },
