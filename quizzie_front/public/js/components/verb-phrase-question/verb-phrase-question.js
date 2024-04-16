@@ -84,7 +84,6 @@ customElements.define('verb-phrase-question',
      * Called when the element is inserted into the DOM.
      */
     connectedCallback () {
-      console.log(this.#meaning)
       this.#element.querySelector('#submit').addEventListener('click', () => {
         const selectedOption = this.#element.querySelector('#prep-input').value
         const event = new CustomEvent('answer', {
