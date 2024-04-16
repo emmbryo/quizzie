@@ -1,9 +1,24 @@
-<% questions.forEach((question, index) => { %>
-  <div id="quiz-wrapper">
-    <h2>Question <%= index + 1 %>:</h2>
-    <idiom-question question="<%= question.question %>" options='<%= question.answers %>' answer="<%= question.answer %>"></idiom-question>
-    <p><%= question.answers %></p>
-    <p><%= question.question %></p>
-  </div>
-<% }) %>
-</div>
+<div id="quiz-wrapper">
+  <% if (viewData.type === 'idiom') { %>
+    <% viewData.questions.forEach((question, index) => { %>
+      <div id="idiom-wrapper">
+        <h2>Question <%= index + 1 %>:</h2>
+        <idiom-question question="<%= question.question %>" options='<%= question.options %>' answer="<%= question.answer %>"></idiom-question>
+      </div>
+    <% }) %>
+  <% } else if (viewData.type === 'vocab') { %>
+    <% viewData.questions.forEach((question, index) => { %>
+      <div id="vocab-wrapper">
+        <h2>Question <%= index + 1 %>:</h2>
+        <vocab-question question="<%= question.question %>" answer="<%= question.answer %>"></vocab-question>
+      </div>
+    <% }) %>
+  <% } else if (viewData.type === 'verbPhrase') { %>
+    <% viewData.questions.forEach((question, index) => { %>
+      <div id="verb-phrase-wrapper">
+        <h2>Question <%= index + 1 %>:</h2>
+        <verb-phrase-question question="<%= question.question %>" meaning="<%= question.meaning %>" answer="<%= question.answer %>"></verb-phrase-question>
+      </div>
+    <% }) %>
+  <% } %>
+</div> 
