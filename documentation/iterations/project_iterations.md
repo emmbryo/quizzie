@@ -38,7 +38,7 @@
 |Issue/description|Status|Comment|
 |------|------|------|
 |Create simple front|✔️||
-|Discuss frotn with customer|✔️||
+|Discuss front with customer|✔️||
 |Docker compose setup project|✔️||
 |Seminar + standup|✔️||
 |Front: quiz menu|✔️||
