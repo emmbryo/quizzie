@@ -14,15 +14,26 @@ export class QuizService {
     console.log(size, type) 
     const response = type === 'mixed' ? await fetch(`${process.env.API_BASE_URL}/questions/random?limit=${size}`) : await fetch(`${process.env.API_BASE_URL}/questions/all?limit=${size}&type=${type}`)
     const data = await response.json()
-    console.log(data)
     if (type === 'idiom') {
-      return data.questions.map(question => this.transformIdiom(question))
+      return {
+        type: 'idiom',
+        questions: data.questions.map(question => this.transformIdiom(question))
+      }
     } else if (type === 'vocab') {
-      return data.questions.map(question => this.transformVocab(question))
+      return {
+        type: 'vocab',
+        questions: data.questions.map(question => this.transformVocab(question))
+      }
     } else if (type === 'verbPhrase') {
-      return data.questions.map(question => this.transformVerbPhrase(question))
+      return {
+        type: 'verbPhrase',
+        questions: data.questions.map(question => this.transformVerbPhrase(question))
+      }
     } else if (type === 'mixed') {
-      return this.transformMixed(data.questions)
+      return {
+        type: 'mixed',
+        questions: this.transformMixed(data.questions)
+      }
     } else {
       throw Error('Invalid type')
     }
@@ -49,25 +60,21 @@ export class QuizService {
       return {
         type: question.type,
         question: question.question,
-        answers: this.transformToString(question.options),
-        correctAnswer: question.answer
+        options: this.transformToString(question.options),
+        answer: question.answer
       }
   }
 
   transformToString (rawAnswers) {
     const answers = this.shuffleArray(rawAnswers)
-    let answersAsText = '['
-    answers.forEach(answer => {
-      answersAsText += '\"' + answer + '\"' + ', '
-    })
-    return answersAsText.slice(0, answersAsText.length - 2) + ']'
+    return JSON.stringify(answers)
   }
 
   transformVocab (question) {
       return {
         type: question.type,
         question: question.question,
-        correctAnswer: question.answer
+        answer: question.answer
       }
   }
 
@@ -77,7 +84,7 @@ export class QuizService {
         question: question.question,
         meaning: question.meaning,
         examples: question.examples,
-        correctAnswer: question.answer
+        answer: question.answer
       }
   }
 
