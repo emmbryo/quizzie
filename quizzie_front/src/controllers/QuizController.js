@@ -66,7 +66,7 @@ export class QuizController {
         type: 'danger',
         text: error.message
       }
-      res.redirect('/quiz')
+      res.redirect('./quiz')
     }
   }
 
