@@ -15,4 +15,19 @@ Work with base structure in main, when the frame is set migrate to branching str
 * Weekly updates of project status
 * Weekly opportunities for feedback
 * Delivery number one during third week of project, then weekly
-* 
+* Update requirements after customer feedback
+
+## Testing strategy
+* Test continuously as the project progresses
+  * Manual: mainly front functionality via UI in browser, but also manually in POSTMAN for pure API testing 
+  * POSTMAN: test collection for API and API:auth
+  * Unit tests: mainly for API and API:auth
+* Go through test specification weekly, adidgn test for new functionality
+* Offical testing weekly 
+* Fill in report on each official testing event.
+
+## Testing by customer
+* Explorative testing of the deployed application
+  * Used in the early stages when the application is only partly functioning 
+* Later on: provide tst specification for the customer to go through
+  * When the base of all intended functionality is in place

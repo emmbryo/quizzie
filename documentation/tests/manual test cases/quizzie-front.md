@@ -27,3 +27,12 @@ For each of the types, create a quiz with 1-50 questions: A quiz of right type a
 * 2.2.4 Next question visible
 * 2.2.5 Repeat 2.2.2 - 2.2.4 until no more questions in current game
 * 2.2.6 result is displayed
+
+## 3. Add questions
+### 3.1: Add individual questions via UI
+### 3.2: Upload question file via UI
+
+## 4. User
+### 4.1: Register
+### 4.2: Login
+### 4.3: Logout
