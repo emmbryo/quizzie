@@ -76,7 +76,7 @@ export class QuestionController {
   async getQuestions (req, res, next) {
     try {
       if (!['verbPhrase', 'idiom', 'vocab'].includes(req.query.type)) {
-        throw new Error('Invalid type.')
+        throw new Error('Invalid or missing type.')
       }
       this.checkLimit(req)
 

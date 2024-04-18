@@ -92,6 +92,15 @@ header {
   display: none;
  }
 
+ .alert {
+  background-color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  border: solid 2px black;
+  box-shadow: 2px 2px 2px black;
+  font-family: super-toast;
+ }
 
  /* .footer {
   position: absolute;

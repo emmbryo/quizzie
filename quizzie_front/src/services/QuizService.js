@@ -35,7 +35,7 @@ export class QuizService {
         questions: this.transformMixed(data.questions)
       }
     } else {
-      throw Error('Invalid type')
+      throw Error('Invalid or missing type')
     }
   }
 
