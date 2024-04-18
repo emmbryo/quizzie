@@ -1,17 +1,17 @@
 <div id="quiz-wrapper">
-<quiz-game>
-  <% if (viewData.type === 'idiom') { %>
-    <% viewData.questions.forEach((question, index) => { %>
-        <idiom-question class="hidden" id="<%= 'idiom' + index %>" question="<%= question.question %>" options='<%= question.options %>' answer="<%= question.answer %>"></idiom-question>
-    <% }) %>
-  <% } else if (viewData.type === 'vocab') { %>
-    <% viewData.questions.forEach((question, index) => { %>
-        <vocab-question class="hidden" id="<%= 'vocab' + index %>" question="<%= question.question %>" answer="<%= question.answer %>"></vocab-question>
-    <% }) %>
-  <% } else if (viewData.type === 'verbPhrase') { %>
-    <% viewData.questions.forEach((question, index) => { %>
-        <verb-phrase-question class="hidden" id="<%= 'phrase' + index %>" question="<%= question.question %>" meaning="<%= question.meaning %>" answer="<%= question.answer %>"></verb-phrase-question>
-    <% }) %>
-  <% } %>
-</quiz-game>
+  <quiz-game>
+    <% if (viewData.type === 'idiom') { %>
+      <% viewData.questions.forEach((question, index) => { %>
+          <idiom-question class="hidden" id="<%= 'idiom' + index %>" question="<%= question.question %>" options='<%= question.options %>' answer="<%= question.answer %>"></idiom-question>
+      <% }) %>
+    <% } else if (viewData.type === 'vocab') { %>
+      <% viewData.questions.forEach((question, index) => { %>
+          <vocab-question class="hidden" id="<%= 'vocab' + index %>" question="<%= question.question %>" answer="<%= question.answer %>"></vocab-question>
+      <% }) %>
+    <% } else if (viewData.type === 'verbPhrase') { %>
+      <% viewData.questions.forEach((question, index) => { %>
+          <verb-phrase-question class="hidden" id="<%= 'phrase' + index %>" question="<%= question.question %>" meaning="<%= question.meaning %>" answer="<%= question.answer %>"></verb-phrase-question>
+      <% }) %>
+    <% } %>
+  </quiz-game>
 </div> 

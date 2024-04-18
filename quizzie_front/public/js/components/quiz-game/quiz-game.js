@@ -9,18 +9,48 @@
 const template = document.createElement('template')
 template.innerHTML = `
   <style>
-    .quiz-game-wrapper {
-      margin: 20px;
-      padding: 10px;
+    .quiz-wrapper {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      border: 3px solid black;
+      border-radius: 10px;
+      background-color: rgb(118, 159, 115);
+      justify-content: center;
+      align-items: center;
+    }
+    .quiz-game {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
     }
     h1 {
+      position: absolute;
+      top: 10px;
       font-family: super-toast;
+      margin: 5px;
+    }
+    .result-wrapper, #final-result-wrapper {
+      font-size: 20px;
+      text-align: center;
     }
     button {
+      position: absolute;
+      bottom: 20px;
       width: 100px;
+      padding: 5px;
+      border-radius: 10px;
+      border: 2px solid black;
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+      font-family: super-toast;
+      font-size: 25px;
+    }
+    button:hover {
+      background-color: rgb(100, 137, 97);
     }
     .hidden {
       display: none;
@@ -32,8 +62,13 @@ template.innerHTML = `
     <div class="quiz-game" id="id">
       <slot></slot>
     </div>
-    <div>
+    <div class="result-wrapper">
       <p id="result"></p>
+      <p id="correct-answer"></p>
+    </div>
+    <div id="final-result-wrapper" class="hidden">
+      <p>Quiz is finished!</p>
+      <p id="final-result"></p>
     </div>
     <button id="start">Start</button>
     <button class="hidden" id="next">Next</button>
@@ -97,7 +132,7 @@ customElements.define('quiz-game',
       this.attachShadow({ mode: 'open' }).appendChild(template.content.cloneNode(true))
 
       this.#element = this.shadowRoot.querySelector('.quiz-wrapper')
-      this.#resultHolder = this.#element.querySelector('#result')
+      this.#resultHolder = this.#element.querySelector('.result-wrapper')
     }
 
     /**
@@ -194,21 +229,24 @@ customElements.define('quiz-game',
     }
 
     #displayResult (result) {
-      this.#resultHolder.textContent = result.message
+      this.#resultHolder.querySelector('#result').textContent = result.message
+      this.#resultHolder.querySelector('#correct-answer').textContent = result.answer
+      this.#resultHolder.classList.remove('hidden')
       this.#element.querySelector('#next').classList.remove('hidden')
     }
 
     #removeResult () {
-      this.#resultHolder.textContent = null
+      this.#element.querySelector('.result-wrapper').classList.add('hidden')
     }
 
     #displayFinalResult () {
       this.#element.querySelector('#next').classList.add('hidden')
-      this.#resultHolder.textContent = 'Quiz is finished, result: ' + this.#finalResult + ' of ' + this.#questionsId.length + ' correct answers.'
+      this.#element.querySelector('#final-result').textContent = this.#finalResult + ' of ' + this.#questionsId.length + ' correct answers.'
+      this.#element.querySelector('#final-result-wrapper').classList.remove('hidden')
     }
 
     #saveResult (result) {
-      if (result === 'Correct') {
+      if (result === 'Correct!') {
         this.#finalResult++
       }
     }

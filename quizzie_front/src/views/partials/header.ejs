@@ -2,8 +2,11 @@
     <h1 class="h1-quizzie">Quizzie</h1>
     <nav class="header-nav">
         <ul>
-            <li><button><a href="./logout">Logout</a></button></li>
-            <li><button><a href="./login">Login</a></button></li>
+            <% if (locals.user) { %>
+                <li><button><a href="./logout">Logout</a></button></li>
+            <% } else { %>
+                <li><button><a href="./login">Login</a></button></li>
+            <% } %>
             <li><button><a href="./quiz">create quiz</a></button></li>
             <li><button><a href="./">Home</a></button></li>
         </ul>
