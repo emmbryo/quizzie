@@ -17,9 +17,6 @@ template.innerHTML = `
       display: flex;
       flex-direction: column;
       gap: 10px;
-      border: 3px solid black;
-      border-radius: 10px;
-      background-color: rgb(118, 159, 115);
       justify-content: center;
       align-items: center;
     }
@@ -43,10 +40,9 @@ template.innerHTML = `
       bottom: 20px;
       width: 100px;
       padding: 5px;
+      font-family: super-toast;
       border-radius: 10px;
       border: 2px solid black;
-      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-      font-family: super-toast;
       font-size: 25px;
     }
     button:hover {
@@ -143,7 +139,6 @@ customElements.define('quiz-game',
         this.#hideCurrentQuestion()
         this.#saveResult(event.detail.message)
         this.#displayResult(event.detail)
-        console.log('answer received: ', event.detail)
       })
 
       this.#slot = this.shadowRoot.querySelector('slot');
@@ -151,7 +146,6 @@ customElements.define('quiz-game',
         const questions = Array.from(this.#slot.assignedElements())
         this.#questionsId = questions.map(question => question.id)
         this.#currentQuestionId = this.#questionsId[0]
-        console.log(this.#questionsId, this.#currentQuestionId)
       })
 
       this.#element.querySelector('#start').addEventListener('click', () => {
@@ -198,7 +192,6 @@ customElements.define('quiz-game',
     }
 
     #startQuiz () {
-      console.log('start quiz')
       this.#element.querySelector('#start').classList.add('hidden')
       document.querySelector(`#${this.#currentQuestionId}`).classList.remove('hidden')
     }
@@ -207,7 +200,6 @@ customElements.define('quiz-game',
       this.#removeResult()
       const currentQuestionIndex = this.#questionsId.indexOf(this.#currentQuestionId)
       if (this.#questionsId.length === currentQuestionIndex + 1) {
-        console.log('no more questions, id: ', this.#currentQuestionId)
         this.#element.querySelector('#next').classList.add('hidden')
         this.#element.querySelector('#done').classList.remove('hidden')
         this.#hideCurrentQuestion()
