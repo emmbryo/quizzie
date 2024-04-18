@@ -9,18 +9,44 @@
 const template = document.createElement('template')
 template.innerHTML = `
   <style>
-    .quiz-game-wrapper {
-      margin: 20px;
-      padding: 10px;
+    .quiz-wrapper {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      border: 3px solid black;
+      border-radius: 10px;
+      background-color: rgb(118, 159, 115);
+      justify-content: center;
+      align-items: center;
+    }
+    .quiz-game {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
     }
     h1 {
+      position: absolute;
+      top: 10px;
       font-family: super-toast;
+      margin: 5px;
     }
     button {
+      position: absolute;
+      bottom: 20px;
       width: 100px;
+      padding: 5px;
+      border-radius: 10px;
+      border: 2px solid black;
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+      font-family: super-toast;
+      font-size: 25px;
+    }
+    button:hover {
+      background-color: rgb(100, 137, 97);
     }
     .hidden {
       display: none;

@@ -10,22 +10,38 @@ const template = document.createElement('template')
 template.innerHTML = `
   <style>
     .idiom-wrapper {
-      margin: 20px;
+      margin: 5px;
       padding: 10px;
       display: flex;
       flex-direction: column;
       gap: 5px;
+      justify-content: center;
+      align-items: center;
     }
-    h1 {
+    .question .question p {
+      justify-content: center;
+      align-items: center;
+    }
+    h1, h2 {
       font-family: super-toast;
     }
     button {
       width: 100px;
+      padding: 5px;
+      margin-top: 30px;
+      border-radius: 10px;
+      border: 2px solid black;
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+      font-family: super-toast;
+      font-size: 18px;
+    }
+    button:hover {
+      background-color: rgb(100, 137, 97);
     }
   </style>
 
   <div class="idiom-wrapper">
-    <h1>Idiom</h1>
+    <h2>Idiom</h2>
     <div id="question">
         <div class="question"></div>
         <div class="options"></div>
