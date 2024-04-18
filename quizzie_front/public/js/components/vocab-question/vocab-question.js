@@ -15,12 +15,31 @@ template.innerHTML = `
       display: flex;
       flex-direction: column;
       gap: 10px;
+      justify-content: center;
+      align-items: center;
     }
-    h1 {
+    h2 {
       font-family: super-toast;
     }
     button {
       width: 100px;
+      padding: 5px;
+      margin-top: 30px;
+      border-radius: 10px;
+      border: 2px solid black;
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+      font-family: super-toast;
+      font-size: 18px;
+    }
+    button:hover {
+      background-color: rgb(100, 137, 97);
+    }
+    .question {
+      font-size: 20px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      margin: 0px;
     }
     .answer {
       width: 120px;
@@ -28,16 +47,20 @@ template.innerHTML = `
       flex-direction: column;
       align-items: center;
     }
+    #prep-input {
+      padding: 5px;
+      border-radius: 10px;
+      border: 2px solid black;
+    }
   </style>
 
   <div class="vocab-wrapper">
-    <h1>Vocabulary</h1>
+    <h2>Vocabulary</h2>
     <div part="question" id="id">
         <div class="question"></div>
         <div class="meaning"></div>
         <div class="answer">
-          <label for="prep-input">Answer:</label>
-          <input id="prep-input" type="text">
+          <input id="prep-input" type="text" placeholder="English translation">
         </div>
     </div>  
     <button id="submit">OK</button>
