@@ -15,29 +15,56 @@ template.innerHTML = `
       display: flex;
       flex-direction: column;
       gap: 10px;
+      justify-content: center;
+      align-items: center;
     }
-    h1 {
+    h2 {
       font-family: super-toast;
+      margin-top: 30px;
+      margin-bottom: 2px;
     }
     button {
       width: 100px;
+      padding: 5px;
+      margin-top: 30px;
+      border-radius: 10px;
+      border: 2px solid black;
+      box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+      font-family: super-toast;
+      font-size: 18px;
+    }
+    button:hover {
+      background-color: rgb(100, 137, 97);
     }
     .answer {
-      width: 120px;
+      width: 300px;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
+      gap: 10px;
+    }
+    .question, .meaning {
+      font-size: 20px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      margin: 0px;
+    }
+    #prep-input {
+      padding: 5px;
+      border-radius: 10px;
+      border: 2px solid black;
     }
   </style>
 
   <div class="verb-phrase-wrapper">
-    <h1>verb phrase</h1>
-    <div part="question" id="id">
-        <div class="question"></div>
+    <h2>verb phrase</h2>
+    <div class="question-wrapper">
         <div class="meaning"></div>
+        <div class="question"></div>
         <div class="answer">
-          <label for="prep-input">Answer:</label>
-          <input id="prep-input" type="text">
+          <input id="prep-input" type="text" placeholder="Preposition(s)">
         </div>
     </div>  
     <button id="submit">OK</button>
