@@ -114,12 +114,12 @@ customElements.define('verb-phrase-question',
       this.#element.querySelector('#submit').addEventListener('click', () => {
         const selectedOption = this.#element.querySelector('#prep-input').value
         const event = new CustomEvent('answer', {
-          detail: { message: '' },
+          detail: { message: '', answer: this.#answer },
           bubbles: true,
           composed: true
         })
         if (selectedOption === this.#answer.toLowerCase()) {
-          event.detail.message = 'Correct'
+          event.detail.message = 'Correct!'
         } else {
           event.detail.message = 'Wrong'
         }

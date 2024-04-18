@@ -47,7 +47,7 @@ template.innerHTML = `
         <div class="options"></div>
         <div class="answer"></div>
     </div>  
-    <button id="submit">Answer</button>
+    <button id="submit">OK</button>
   </div>
 `
 customElements.define('idiom-question',
@@ -82,12 +82,12 @@ customElements.define('idiom-question',
       this.#element.querySelector('#submit').addEventListener('click', () => {
         const selectedOption = this.#element.querySelector('input[name="answerOption"]:checked').value
         const event = new CustomEvent('answer', {
-          detail: { message: '' },
+          detail: { message: '', answer: this.#answer },
           bubbles: true,
           composed: true
         })
         if (selectedOption === this.#answer) {
-          event.detail.message = 'Correct'
+          event.detail.message = 'Correct!'
         } else {
           event.detail.message = 'Wrong'
         }
