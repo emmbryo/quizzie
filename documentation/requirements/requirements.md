@@ -2,6 +2,8 @@
 
 A quiz app to be used in English education at the high school level. The idea is to create customized sections with questions regarding English vocabulary as well as fixed phrases and grammar.
 
+# Application 
+
 ## 1: The Quiz
   * 1.1 A quiz with a selectable number of questions (from a limited question pool)
   * 1.2 A quiz with selectable categories, including a mixed one
@@ -64,3 +66,39 @@ A quiz app to be used in English education at the high school level. The idea is
     * 6.2.1
     * 6.2.1
   * 6.3 POSTMAN tests
+
+<br>
+
+# Workflow & Communication
+
+## Base structure
+Work with base structure in main, when the frame is set migrate to branching stratagy when adding new functionality.
+
+## 1: Branching strategy
+* 1.1: Make a new branch for every new functionality
+  * 1.1.1: Test the new branch
+  * 1.1.2: Commit to the branch
+  * 1.1.3: Repeat until functionality in place
+* 1.2: Test the branch when functionality fully added
+* 1.3: Merge branch to main
+
+## 2: Communication strategy
+* 2.1: Weekly updates of project status (Wednesday)
+* 2.2: Weekly opportunities for feedback (Thursday)
+* 2.3: Delivery number one during third week of project, then weekly
+* 2.4: Update requirements after customer feedback
+
+## 3: Testing strategy
+* 3.1: Test continuously as the project progresses
+  * 3.1.1: Manual: mainly front functionality via UI in browser, but also manually in POSTMAN for pure API testing 
+  * 3.1.2: POSTMAN: test collection for API and API:auth
+  * 3.1.3: Unit tests: mainly for API and API:auth
+* 3.1: Go through test specification weekly, adidgn test for new functionality
+* 3.2: Offical testing weekly 
+* 3.3: Fill in report on each official testing event.
+
+## 4: Testing by customer
+* 4.1: Explorative testing of the deployed application
+  * 4.1.1: Used in the early stages when the application is only partly functioning 
+* 4.2: Later on: provide tst specification for the customer to go through
+  * 4.2.1: When the base of all intended functionality is in place
