@@ -54,19 +54,18 @@
 
 |Issue/description|Status|Comment|
 |------|------|------|
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
+|Closed: #17, #19, #18, #25, #20, #26, #22, #24, #32|✔️||
+|Front components, build and integrate|✔️||
+|Deployed application, docker compose on server|✔️||
+|Customer delivery, feedback, update requirements|✔️||
+|Deployment error handling, add config to mongo db|✔️||
+|Seminar + standup|✔️||
 
-|Hours:|XX|
+|Hours:|20|
 |-|-|
 
 ### Problems
-* ?
+* The deployed version crashed for unknown reason, restarted and it was solved. Added restart on failure for mongo db container. 
 
 
 ## Week 5
