@@ -48,11 +48,10 @@ export class AuthController {
 
       const payload = {
         username: user.username,
-        given_name: user.firstName,
-        family_name: user.lastName,
-        email: user.email,
         sub: user.id
       }
+
+      console.log('payload: ', payload, this.#privateKey);
 
       // Create the access token.
       const accessToken = jwt.sign(payload, this.#privateKey, {
@@ -68,6 +67,7 @@ export class AuthController {
         })
     } catch (error) {
       // Authentication failed.
+      console.log(error)
       const err = createError(401)
       err.cause = error
       err.message = 'Credentials invalid or not provided.'
@@ -119,12 +119,12 @@ export class AuthController {
       if (err.code === 11000) {
         // Duplicated keys.
         err = createError(409)
-        err.message = 'Conflict. Duplicated username and/or email.'
+        err.message = 'Username already in use.'
         err.cause = error
       } else if (error.name === 'ValidationError') {
         // Validation error(s).
         err = createError(400)
-        err.message = 'The request cannot or will not be processed due to something that is perceived to be a client error (for example validation error).'
+        err.message = 'Username and/or password missing. If provided, password must be at least 10 characters.'
         err.cause = error
       }
 

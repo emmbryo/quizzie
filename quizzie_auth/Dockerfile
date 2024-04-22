@@ -12,6 +12,10 @@ COPY package*.json ./
 # Runs the npm install command to install the dependencies specified in the package.json file.
 RUN npm install
 
+RUN npm uninstall bcrypt
+
+RUN npm install bcrypt
+
 # Copies the rest of the application code to the app directory.
 COPY . .
 
