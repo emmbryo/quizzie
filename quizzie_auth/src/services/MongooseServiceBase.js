@@ -29,11 +29,10 @@ export class MongooseServiceBase {
   /**
    * Gets all documents.
    *
-   * @param {object} query - guuery params
    * @returns {Promise<object>} Promise resolved with all documents as plain JavaScript objects.
    */
-  async get (query) {
-    return this._repository.get(query)
+  async get () {
+    return this._repository.get()
   }
 
   /**
@@ -44,6 +43,16 @@ export class MongooseServiceBase {
    */
   async getById (id) {
     return this._repository.getById(id)
+  }
+
+  /**
+   * Gets a document by some parameter.
+   *
+   * @param {string} param - The value of some param for the document to get.
+   * @returns {Promise<object>} Promise resolved with the found document as a plain JavaScript object.
+   */
+  async getOne (param) {
+    return this._repository.getOne(param)
   }
 
   /**

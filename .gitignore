@@ -6,6 +6,9 @@
 .vscode
 .VSCodeCounter
 
+### key files
+/quizzie_auth/keys/
+
 ### files connected to docker compose
 docker-compose.yaml
 .volumes
