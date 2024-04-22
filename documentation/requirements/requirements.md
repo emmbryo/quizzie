@@ -100,5 +100,12 @@ Work with base structure in main, when the frame is set migrate to branching str
 ## 4: Testing by customer
 * 4.1: Explorative testing of the deployed application
   * 4.1.1: Used in the early stages when the application is only partly functioning 
-* 4.2: Later on: provide tst specification for the customer to go through
+* 4.2: Later on: provide test specification for the customer to go through
   * 4.2.1: When the base of all intended functionality is in place
+
+
+## Brainstorm, unformulated requirements, input från andra testare
+* berömmande text vid full pott
+* länkar till inlärning av det som man hade svårt med - kräver mkt data behandling
+* Uppmuntrande ord när det inte gått så bra
+* ok-knappen lite bökig --> autofokus

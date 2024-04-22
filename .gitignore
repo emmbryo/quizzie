@@ -4,6 +4,7 @@
 
 ### vscode settings
 .vscode
+.VSCodeCounter
 
 ### files connected to docker compose
 docker-compose.yaml
