@@ -1,11 +1,17 @@
 <header>
-    <h1 class="h1-quizzie">Quizzie</h1>
+    <div class="title-wrapper">
+       <h1 class="h1-quizzie">Quizzie</h1>
+    <% if (locals.user) { %>
+        <h2>Playing as: <%= locals.user.username %></h2>
+    <% } %> 
+    </div>
+    
     <nav class="header-nav">
         <ul>
             <% if (locals.user) { %>
-                <li><button><a href="./logout">Logout</a></button></li>
+                <li><button><a href="./user/logout">Logout</a></button></li>
             <% } else { %>
-                <li><button><a href="./login">Login</a></button></li>
+                <li><button><a href="./user/login">Login</a></button></li>
             <% } %>
             <li><button><a href="./quiz">create quiz</a></button></li>
             <li><button><a href="./">Home</a></button></li>

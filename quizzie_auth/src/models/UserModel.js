@@ -26,6 +26,11 @@ const schema = new mongoose.Schema({
     maxLength: [256, 'The password must be of maximum length 256 characters.'],
     required: [true, 'Password is required.']
    },
+   permissionLevel: {
+    type: String,
+    default: 'user', // Default permission level
+    enum: ['user', 'admin'] // Possible permission levels
+  },
   // email: {
   //   type: String,
   //   required: [true, 'Email address is required.'],

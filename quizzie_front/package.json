@@ -24,6 +24,7 @@
     "express-session": "^1.17.3",
     "helmet": "^5.0.2",
     "http-errors": "^2.0.0",
+    "jsonwebtoken": "^9.0.2",
     "memorystore": "^1.6.7",
     "morgan": "^1.10.0"
   },

@@ -22,6 +22,29 @@ main, .form-wrapper {
   border: solid 2px black; */
 }
 
+.user-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 300px;
+}
+
+.user-form input {
+  border-radius: 10px;
+  font-size: 22px;
+  padding: 5px;
+}
+
+.reg-link {
+  text-align: center;
+  margin: 20px;
+}
+
+.reg-link a {
+  color: black;
+}
+
+
 .header-nav ul {
   display: flex;
   flex-direction:row-reverse;
@@ -106,7 +129,13 @@ header {
   font-family: super-toast;
  }
 
- /* .footer {
+ .title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+
+ .footer {
   position: absolute;
   bottom: 10px;
- } */
+ }

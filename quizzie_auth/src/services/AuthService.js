@@ -30,4 +30,18 @@ export class AuthService extends MongooseServiceBase {
   async authenticate (username, pwd) {
     return this._repository.authenticate(username, pwd)
   }
+
+  isAuthorized (req) {
+    const token = req.headers['authorization']
+    let authorized = false
+    if (!token) {
+      throw new Error('To register as admin an authorization token is required.')
+    }
+    if (token === process.env.REGISTER_ADMIN_TOKEN) {
+      authorized = true
+    } else {
+      throw new Error('Unauthorized. Invalid token.')
+    }
+    return authorized
+  }
 }
