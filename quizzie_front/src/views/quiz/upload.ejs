@@ -1,1 +1,39 @@
 <h1>Upload quesions</h1>
+
+<form id="question-type">
+  <div id="question-option">
+    <input type="radio" id="vocab" name="quizOption" value="vocab">
+    <label for="option1">Vocabulary</label><br>
+    <input type="radio" id="idiom" name="quizOption" value="idiom">
+    <label for="option2">Idioms</label><br>
+    <input type="radio" id="verbPhrase" name="quizOption" value="verbPhrase">
+    <label for="option3">Verb Phrases</label><br>
+  </div>
+  <input class="submit-btn" type="submit" value="Next">
+</form>
+
+<form class="hidden" id="idiom-form" action="./quiz/upload" method="POST">
+  <div class="question-data-input hidden" id="idiom-data">
+    <label for="option1">Idiom</label><br>
+    <input type="text" id="idiom-input" name="quizOption" value="idiom">
+  </div>
+  <input class="submit-btn" type="submit" value="Create question">
+</form>
+
+<form class="hidden" id="vocab-form" action="./quiz/upload" method="POST">
+  <div class="question-data-input hidden" id="vocab-data">
+    <label for="quizOption">vocab</label><br>
+    <input type="text" id="vocab-input" name="quizOption" value="vocab">
+  </div>
+  <input class="submit-btn" type="submit" value="Create question">
+</form>
+
+<form class="hidden" id="verbPhrase-form" action="./quiz/upload" method="POST">
+  <div class="question-data-input" id="verbPhrase-data">
+    <label for="option1">verbPhrase</label><br>
+    <input type="text" id="verbPhrase-input" name="quizOption" value="verbPhrase">
+  </div>
+  <input class="submit-btn" type="submit" value="Create question">
+</form>
+
+</div>

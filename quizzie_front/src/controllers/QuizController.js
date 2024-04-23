@@ -72,16 +72,21 @@ export class QuizController {
 
   async showUpload (req, res, next) {
     try {
-      if (req.session.user && req.session.user.role === 'admin') {
-        res.status(200)
-        res.render('quiz/upload')
-      } else {
-        next(createError(404))
-      }
+      res.status(200)
+      res.render('quiz/upload')
+      // if (req.session.user && req.session.user.role === 'admin') {
+      //   res.status(200)
+      //   res.render('quiz/upload')
+      // } else {
+      //   next(createError(404))
+      // }
     } catch (error) {
       next(error)
     }
   }
 
-  
+  async uploadQuestion (req, res, next) {
+    console.log('body: ', req.body)
+    res.render('quiz/upload')
+  }
 }
