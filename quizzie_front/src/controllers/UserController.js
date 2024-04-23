@@ -73,26 +73,25 @@ export class UserController {
   async loginUser (req, res, next) {
     try {
       const token = await this.#service.loginUser(req)
-      this.authenticateJWT(req, token.access_token)
-      req.session.loggedIn = true
+      req.session.user = this.authenticateJWT(token.access_token)
       res.redirect('../quiz')
     } catch (error) {
       req.session.flash = { type: 'danger', text: error.message }
-      res.redirect('../user/register')
+      res.redirect('../user/login')
     }
   }
 
   logout (req, res, next) {
     req.session.destroy()
-    res.redirect('../user/login')
+    res.redirect('../quiz')
   }
 
-  authenticateJWT (req, accessToken) {
-    req.jwt = jwt.verify(accessToken, this.#publicKey)
-    req.user = {
-      username: req.jwt.username,
-      id: req.jwt.sub,
-      permissionLevel: req.jwt.permissionLevel
+  authenticateJWT (accessToken) {
+    const jwtData = jwt.verify(accessToken, this.#publicKey)
+    return {
+      username: jwtData.username,
+      id: jwtData.sub,
+      permissionLevel: jwtData.permissionLevel
     }
   }
 }
