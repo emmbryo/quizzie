@@ -103,11 +103,11 @@ export class AuthController {
       const user = {
         username: req.body.username,
         password: req.body.password,
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email
+        email: req.body.email,
       }
-
+      if (req.body.permissionLevel && this.#service.isAuthorized(req)) {
+        user.permissionLevel = req.body.permissionLevel
+      }
       const newUser = await this.#service.insert(user)
 
       res
