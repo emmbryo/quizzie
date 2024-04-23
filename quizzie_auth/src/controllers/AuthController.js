@@ -48,10 +48,9 @@ export class AuthController {
 
       const payload = {
         username: user.username,
-        sub: user.id
+        sub: user.id,
+        permissionLevel: user.permissionLevel
       }
-
-      console.log('payload: ', payload, this.#privateKey);
 
       // Create the access token.
       const accessToken = jwt.sign(payload, this.#privateKey, {
@@ -61,9 +60,8 @@ export class AuthController {
 
       res
         .status(200)
-        .cookie('jwt', accessToken, { httpOnly: true, secure: false, maxAge: 86400000 })
         .json({
-          status: 'logged in'
+          access_token: accessToken
         })
     } catch (error) {
       // Authentication failed.

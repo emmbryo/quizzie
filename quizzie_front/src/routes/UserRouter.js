@@ -26,3 +26,14 @@ router.get('/register',
 router.get('/login',
   (req, res, next) => resolveUserController(req).showLoginView(req, res, next)
 )
+
+// Post requests
+router.post('/register',
+  (req, res, next) => resolveUserController(req).registerUser(req, res, next)
+)
+
+router.post('/login',
+  (req, res, next) => resolveUserController(req).loginUser(req, res, next)
+)
+
+router.get('/logout', (req, res, next) => resolveUserController(req).logout(req, res, next))
