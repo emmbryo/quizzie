@@ -91,7 +91,7 @@ export class UserController {
     return {
       username: jwtData.username,
       id: jwtData.sub,
-      permissionLevel: jwtData.permissionLevel
+      role: jwtData.role
     }
   }
 }

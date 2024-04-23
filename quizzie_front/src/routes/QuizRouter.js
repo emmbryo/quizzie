@@ -23,6 +23,10 @@ router.get('/',
   (req, res, next) => resolveQuizController(req).index(req, res, next)
 )
 
+router.get('/upload',
+  (req, res, next) => resolveQuizController(req).showUpload(req, res, next)
+)
+
 router.post('/',
   (req, res, next) => resolveQuizController(req).getQuestions(req, res, next)
 )

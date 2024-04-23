@@ -49,7 +49,7 @@ export class AuthController {
       const payload = {
         username: user.username,
         sub: user.id,
-        permissionLevel: user.permissionLevel
+        role: user.role
       }
 
       // Create the access token.
@@ -103,8 +103,8 @@ export class AuthController {
         password: req.body.password,
         email: req.body.email,
       }
-      if (req.body.permissionLevel && this.#service.isAuthorized(req)) {
-        user.permissionLevel = req.body.permissionLevel
+      if (req.body.role && this.#service.isAuthorized(req)) {
+        user.role = req.body.role
       }
       const newUser = await this.#service.insert(user)
 
