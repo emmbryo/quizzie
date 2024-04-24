@@ -2,14 +2,23 @@
   <h1>Create a quiz:</h1>
   <form action="./quiz" method="post">
     <div class="quiz-option">
-      <input type="radio" id="vocab" name="quizOption" value="vocab">
-      <label for="option1">Vocabulary</label><br>
-      <input type="radio" id="idiom" name="quizOption" value="idiom">
-      <label for="option2">Idioms</label><br>
-      <input type="radio" id="verbPhrase" name="quizOption" value="verbPhrase">
-      <label for="option3">Verb Phrases</label><br>
-      <input type="radio" id="mixed" name="quizOption" value="mixed">
-      <label for="option3">Mixed</label><br>
+      <div>
+        <input type="radio" id="vocab" name="quizOption" value="vocab">
+        <label for="option1">Vocabulary</label><br>
+      </div>
+      <div>
+        <input type="radio" id="idiom" name="quizOption" value="idiom">
+        <label for="option2">Idioms</label><br>
+      </div>
+      <div>
+        <input type="radio" id="verbPhrase" name="quizOption" value="verbPhrase">
+        <label for="option3">Verb Phrases</label><br>
+      </div>
+      <div class="hidden">
+        <input type="radio" id="mixed" name="quizOption" value="mixed">
+        <label for="option3">Mixed</label><br>
+      </div>
+      
     </div>
     <div class="quiz-size">
       <label for="size">Number of questions: <span id="sizeValue">10</span></label>
