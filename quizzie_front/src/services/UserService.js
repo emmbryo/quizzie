@@ -24,7 +24,7 @@ export class UserService {
   const user = {
     username: req.body.username,
     password: req.body.password,
-    permissionLevel: req.body.permissionLevel,
+    role: req.body.role,
   }
   const response = await fetch(process.env.AUTH_REGISTER_URL, {
     method: 'POST',

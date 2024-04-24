@@ -1,0 +1,80 @@
+<h1>Upload question</h1>
+
+<form id="question-type">
+  <div id="question-option">
+    <input type="radio" id="vocab" name="quizOption" value="vocab">
+    <label for="option1">Vocabulary</label><br>
+    <input type="radio" id="idiom" name="quizOption" value="idiom">
+    <label for="option2">Idiom</label><br>
+    <input type="radio" id="verbPhrase" name="quizOption" value="verbPhrase">
+    <label for="option3">Verb Phrase</label><br>
+  </div>
+  <input class="submit-btn" type="submit" value="Next">
+</form>
+
+<form class="hidden" id="idiom-form" action="./quiz/upload" method="POST">
+  <h2>Idiom</h2>
+  <div class="question-data-input" id="idiom-data">
+    <input class="hidden" type="radio" name="type" value="idiom" checked="true">
+    <div>
+      <label for="idiom">The idiom:</label><br>
+      <input type="text" id="idiom-input" name="answer" required>
+    </div>
+    <div>
+      <label for="meaning">Meaning:</label><br>
+      <input type="text" id="meaning-input" name="question" required>
+    </div>
+    <div>
+      <label for="optionOne">Answer option 1:</label><br>
+      <input type="text" id="optionOne-input" name="optionOne" required>
+    </div>
+    <div>
+      <label for="option1">Answer option 2:</label><br>
+      <input type="text" id="optionTwo-input" name="optionTwo" required>
+    </div>
+    <div>
+      <label for="optionThree">Answer option 3:</label><br>
+      <input type="text" id="optionTwo-input" name="optionThree" required>
+    </div>     
+  </div>
+  <input class="submit-btn" type="submit" value="Create question">
+</form>
+
+<form class="hidden" id="vocab-form" action="./quiz/upload" method="POST">
+  <h2>Vocabulary</h2>
+  <div class="question-data-input" id="vocab-data">
+    <input class="hidden" type="radio" name="type" value="vocab" checked="true">
+    <div>
+      <label for="vocab-input">Word:</label><br>
+      <input type="text" id="vocab-input" name="answer" required>
+    </div>
+    <div>
+      <label for="translation">Translation:</label><br>
+      <input type="text" id="translation" name="question" required>
+    </div>
+    
+  </div>
+  <input class="submit-btn" type="submit" value="Create question">
+</form>
+
+<form class="hidden" id="verbPhrase-form" action="./quiz/upload" method="POST">
+  <h2>Verb Phrase</h2>
+  <div class="question-data-input" id="verbPhrase-data">
+    <input class="hidden" type="radio" name="type" value="verbPhrase" checked="true">
+    <div>
+      <label for="option1">The verb phrase question: </label><br>
+      <input type="text" id="verbPhrase-input" name="question" placeholder="ex: GO __" required>
+    </div>
+    <div>
+      <label for="option1">Answer: </label><br>
+      <input type="text" id="verbPhrase-input" name="answer" placeholder="ex: ON" required>
+    </div>
+    <div>
+      <label for="option1">Meaning: </label><br>
+      <input type="text" id="verbPhrase-input" name="meaning" required>
+    </div>
+  </div>
+  <input class="submit-btn" type="submit" value="Create question">
+</form>
+
+</div>

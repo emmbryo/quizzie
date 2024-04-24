@@ -13,6 +13,9 @@
             <% } else { %>
                 <li><button><a href="./user/login">Login</a></button></li>
             <% } %>
+            <% if (locals.user && locals.user.role === 'admin') { %>
+                <li><button><a href="./quiz/upload">Upload questions</a></button></li>
+            <% } %>
             <li><button><a href="./quiz">create quiz</a></button></li>
             <li><button><a href="./">Home</a></button></li>
         </ul>

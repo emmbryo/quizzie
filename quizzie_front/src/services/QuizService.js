@@ -95,4 +95,24 @@ export class QuizService {
     }
     return array;
   }
+
+  async addQuestion (data) {
+    if (data.type === 'idiom') {
+      const options = [data.optionOne, data.optionTwo, data.optionThree]
+      data.options = options
+    }
+
+    const response = await fetch(process.env.QUESTION_UPLOAD_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+
+    if (!response.ok) {
+      throw new Error('Failed to add question')
+    }
+    return response.json()
+  }
 }

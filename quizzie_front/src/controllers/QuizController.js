@@ -70,5 +70,37 @@ export class QuizController {
     }
   }
 
-  
+  async showUpload (req, res, next) {
+    try {
+      res.status(200)
+      res.render('quiz/upload')
+      // if (req.session.user && req.session.user.role === 'admin') {
+      //   res.status(200)
+      //   res.render('quiz/upload')
+      // } else {
+      //   next(createError(404))
+      // }
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async uploadQuestion (req, res, next) {
+    try {
+      const question = await this.#service.addQuestion(req.body)
+      console.log('reply: ', question)
+      console.log('object: ', req.body)
+      req.session.flash = {
+        type: 'success',
+        text: 'Question uploaded successfully'
+      }
+      res.redirect('../quiz/upload')
+    } catch (error) {
+      req.session.flash = {
+        type: 'danger',
+        text: error.message
+      }
+      res.redirect('../quiz')
+    }
+  }
 }

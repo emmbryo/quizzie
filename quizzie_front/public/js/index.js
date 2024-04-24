@@ -1,18 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('DOM loaded with JavaScript');
+  console.log('DOM loaded with JavaScript')
   if (document.getElementById('size')) {
     document.getElementById('size').addEventListener('input', function(e) {
-      console.log('input changed');
+      console.log('input changed')
       document.getElementById('sizeValue').innerText = e.target.value;
-    });
+    })
   }
 
-  // if (document.getElementById('quiz-wrapper')) {
-  //   console.log('quiz-wrapper found, adding event listener')
-  //   document.getElementById('quiz-wrapper').addEventListener('answer', function(e) {
-  //     console.log(e.detail);
-  //     e.stopPropagation();
-  //     e.preventDefault();
-  //   });
-  // }
+  if (document.getElementById('question-type')) {
+    console.log('question-type found, adding event listener')
+    document.getElementById('question-type').addEventListener('submit', (e) => {
+      e.stopPropagation()
+      e.preventDefault()
+
+      let type = document.querySelector('input[name="quizOption"]:checked')
+      console.log(type.value)
+      document.getElementById(`${type.value}-form`).classList.remove('hidden')
+      document.getElementById('question-type').classList.add('hidden')
+
+      if (document.getElementById('flash-message')) {
+        document.getElementById('flash-message').classList.add('hidden')
+      }
+    })
+  }
 });
