@@ -86,7 +86,21 @@ export class QuizController {
   }
 
   async uploadQuestion (req, res, next) {
-    console.log('body: ', req.body)
-    res.render('quiz/upload')
+    try {
+      const question = await this.#service.addQuestion(req.body)
+      console.log('reply: ', question)
+      console.log('object: ', req.body)
+      req.session.flash = {
+        type: 'success',
+        text: 'Question uploaded successfully'
+      }
+      res.redirect('../quiz/upload')
+    } catch (error) {
+      req.session.flash = {
+        type: 'danger',
+        text: error.message
+      }
+      res.redirect('../quiz')
+    }
   }
 }

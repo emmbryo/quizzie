@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
   if (document.getElementById('question-type')) {
     console.log('question-type found, adding event listener')
     document.getElementById('question-type').addEventListener('submit', (e) => {
-      console.log(e.target)
       e.stopPropagation()
       e.preventDefault()
 
@@ -18,6 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log(type.value)
       document.getElementById(`${type.value}-form`).classList.remove('hidden')
       document.getElementById('question-type').classList.add('hidden')
+
+      if (document.getElementById('flash-message')) {
+        document.getElementById('flash-message').classList.add('hidden')
+      }
     })
   }
 });

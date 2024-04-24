@@ -22,14 +22,14 @@ main, .form-wrapper {
   border: solid 2px black; */
 }
 
-.user-form {
+.user-form, .question-data-input {
   display: flex;
   flex-direction: column;
   gap: 20px;
   max-width: 300px;
 }
 
-.user-form input {
+.user-form input, .question-data-input input {
   border-radius: 10px;
   font-size: 22px;
   padding: 5px;
@@ -72,7 +72,7 @@ header {
   color: black;
 }
 
- h1, button, .submit-btn {
+ h1, h2, button, .submit-btn {
   font-family: super-toast;
  }
 
@@ -129,7 +129,7 @@ header {
   font-family: super-toast;
  }
 
- .title-wrapper, .question-data-input {
+ .title-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
