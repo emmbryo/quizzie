@@ -11,6 +11,12 @@ services:
     volumes: 
       - ./.volumes/mongodb:/data/db
 
+  mongodb-auth:
+    container_name: "mongodb-auth"
+    image: mongo:7.0.2
+    volumes: 
+      - ./.volumes/mongodb-auth:/data/db
+
   quizzie-api:
     container_name: "api"
     build:
@@ -54,4 +60,31 @@ services:
       - SESSION_SECRET={"provide a session-secret-string"}
       - SESSION_NAME={"provide a session-name-string"}
       - API_BASE_URL={"provide a api-base-url-string"}
+      - AUTH_REGISTER_URL={register url, auth API}
+      - AUTH_LOGIN_URL={login url, auth API}
+      - QUESTION_UPLOAD_URL={url to upload question}
+      - PUBLIC_KEY={'matching the private key used in auth service to decode jwt'}
+
+  quizzie-auth:
+    container_name: "auth"
+    build:
+      dockerfile: Dockerfile
+      context: ./quizzie_auth
+    volumes:
+    - ./quizzie_auth:/usr/src/app
+    ports:
+      - "8084:3000"
+    depends_on:
+      - mongodb-auth
+    restart: on-failure
+    environment:
+    - DB_CONNECTION_STRING="mongodb connection string"
+    - PORT='port number'
+    - BASE_URL=/
+    - NODE_PORT='node port number'
+    - ACCESS_TOKEN_SECRET='secret'
+    - ACCESS_TOKEN_LIFE='10h'
+    - REGISTER_ADMIN_TOKEN={'token do have access to register user as admin (only used with API, not via UI)'}
+    - PRIVATE_KEY='used to encrypt the jwt token. Matches the public key used in quizzie api.'
+    - NODE_ENV=development
 

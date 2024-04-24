@@ -55,8 +55,6 @@ export class QuizController {
   async getQuestions (req, res, next) {
     try {
       const questions = await this.#service.getQuestions(req.body.size, req.body.quizOption)
-      console.log(questions)
-      console.log('****')
       const viewData = {
         ...questions
       }
@@ -85,12 +83,13 @@ export class QuizController {
 
   async uploadQuestion (req, res, next) {
     try {
-      if (req.session.user && req.session.user.role !== 'admin') {
+      if (req.session.user && req.session.user.role === 'admin') {
         const question = await this.#service.addQuestion(req.body)
         req.session.flash = {
           type: 'success',
           text: 'Question uploaded successfully'
         }
+        console.log('current user: ', req.session.user)
         res.redirect('../quiz/upload')
       } else {
         next(createError(404))
