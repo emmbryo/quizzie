@@ -31,7 +31,10 @@ template.innerHTML = `
       font-family: super-toast;
       margin: 5px;
     }
-    .result-wrapper, #final-result-wrapper {
+    h3 {
+      font-family: super-toast;
+    }
+    .result-wrapper, #final-result-wrapper, .start-wrapper {
       font-size: 20px;
       text-align: center;
     }
@@ -57,6 +60,10 @@ template.innerHTML = `
     <h1>Quiz game</h1>
     <div class="quiz-game" id="id">
       <slot></slot>
+    </div>
+    <div class="start-wrapper">
+      <h3 id="start-message">Let's do a quiz!</h3>
+      <h3>press start to continue</h3>
     </div>
     <div class="result-wrapper">
       <p id="result"></p>
@@ -193,6 +200,7 @@ customElements.define('quiz-game',
 
     #startQuiz () {
       this.#element.querySelector('#start').classList.add('hidden')
+      this.#element.querySelector('.start-wrapper').classList.add('hidden')
       document.querySelector(`#${this.#currentQuestionId}`).classList.remove('hidden')
     }
 
@@ -244,6 +252,12 @@ customElements.define('quiz-game',
     }
 
     #endQuiz () {
-      console.log('end quiz')
+      this.#element.classList.add('hidden')
+      const event = new CustomEvent('done', {
+        detail: { message: 'done' },
+        bubbles: true,
+        composed: true
+      })
+      this.dispatchEvent(event)
     }
   })

@@ -23,4 +23,18 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     })
   }
+
+  if (document.querySelector('quiz-game')) {
+    console.log('quiz-game found, adding event listener')
+    document.querySelector('quiz-game').addEventListener('done', (e) => {
+      e.stopPropagation()
+      e.preventDefault()
+      console.log('quiz is done')
+      redirectToHome()
+    })
+  }
 });
+
+function redirectToHome() {
+  window.location.href = './quiz';
+}
