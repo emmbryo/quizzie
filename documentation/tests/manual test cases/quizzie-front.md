@@ -27,12 +27,44 @@ For each of the types, create a quiz with 1-50 questions: A quiz of right type a
 * 2.2.4 Next question visible
 * 2.2.5 Repeat 2.2.2 - 2.2.4 until no more questions in current game
 * 2.2.6 result is displayed
+### 2.3 Answering quiz questions
+* 2.3.1 Idiom answered via click radio button
+* 2.3.2 Vocabulary answered via text input
+* 2.3.3 Verb phrase answered via text input
 
 ## 3. Add questions
-### 3.1: Add individual questions via UI
+### 3.1: Add questions one by one via UI
+* 3.1.1 Choose question type
+* 3.1.2 idiom specific form
+* 3.1.3 verb phrase specific form
+* 3.1.4 vocab specific form
+* 3.1.5 No input field can be left blank 
+* 3.1.6 Success message chown on submit
+* 3.1.7 Redirected back to upload question menu
 ### 3.2: Upload question file via UI
 
 ## 4. User
 ### 4.1: Register
+* 4.1.1 Username and password required
+* 4.1.2 Password must be 10 characters
+* 4.1.3 Success message
+* 4.1.4 Error message if duplicated username
+* 4.1.5 On success: redirect to login
 ### 4.2: Login
+* 4.2.1 Username and password required
+* 4.2.2 Error message on wrong credentials
+* 4.2.3 On success. redirected to create quiz meny
+* 4.2.4 The username should be visible under quizzie title
+* 4.2.5 A logout button should appear in menu, to the right
 ### 4.3: Logout
+* 4.3.1 Username under the title disappears
+* 4.4.2 logout button --> login button
+
+## 5. Admin user
+### 5.1: Login ad admin
+* 5.1.1 Admin username and password required
+* 5.1.2 Error message on wrong credentials
+* 5.1.3 On success. redirected to create quiz meny
+* 5.1.4 The username should be visible under quizzie title
+* 5.1.5 A logout button should appear in menu, to the right
+* 5.1.6 An upload questions button should appear in menu, in the middle
