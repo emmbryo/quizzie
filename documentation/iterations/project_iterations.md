@@ -77,9 +77,9 @@
 |Connect registration/login front-API, start on upload|✔️||
 |Finish upload question, deploy latest version|✔️||
 |Look over project, get current status|✔️||
-|Standup, seminar, write docs|✔️||
+|Standup, seminar, write docs, add redis|✔️||
 
-|Hours:|XX|
+|Hours:|22|
 |-|-|
 
 ### Problems

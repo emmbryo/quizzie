@@ -59,6 +59,9 @@ services:
       - ORIGIN=""
       - SESSION_SECRET={"provide a session-secret-string"}
       - SESSION_NAME={"provide a session-name-string"}
+      - REDIS_PORT={redis port, default: 6379}
+      - REDIS_HOST={redis connection string}
+      - REDIS_PREFIX={prefix to session name inside redis}
       - API_BASE_URL={"provide a api-base-url-string"}
       - AUTH_REGISTER_URL={register url, auth API}
       - AUTH_LOGIN_URL={login url, auth API}

@@ -9,6 +9,7 @@ import { container } from './config/bootstrap.js'
 import express from 'express'
 import expressLayouts from 'express-ejs-layouts'
 import session from 'express-session'
+import { sessionOptions } from './config/sessionOptions.js'
 import helmet from 'helmet'
 import logger from 'morgan'
 import { dirname, join } from 'path'
@@ -57,17 +58,8 @@ app.use(express.json())
 // Serve static files.
 app.use(express.static(join(directoryFullName, '..', 'public')))
 
-// Setup and use session middleware
-const sessionOptions = {
-  name: process.env.SESSION_NAME,
-  secret: process.env.SESSION_SECRET,
-  resave: false, // Resave even if a request is not changing the session.
-  saveUninitialized: false, // Don't save a created but not modified session.
-  cookie: {
-    maxAge: 1000 * 60 * 60 * 24, // 1 day
-    sameSite: 'strict'
-  }
-}
+// Setup and use session middleware, using config from redis.js and sessionOptions.js.
+app.use(session(sessionOptions))
 
 if (app.get('env') === 'production') {
   app.set('trust proxy', 1) // trust first proxy
