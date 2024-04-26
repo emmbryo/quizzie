@@ -17,6 +17,14 @@ services:
     volumes: 
       - ./.volumes/mongodb-auth:/data/db
 
+  redis:
+    container_name: "redis"
+    image: redis:6.0.9
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./.volumes/redis:/data
+
   quizzie-api:
     container_name: "api"
     build:
