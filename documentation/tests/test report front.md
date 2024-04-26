@@ -69,7 +69,7 @@ Description of test cases front: [test cases](./manual%20test%20cases/quizzie-fr
 ||3.1.6: Success message|✔️||
 ||3.1.7: Redirect to upload menu|✔️||
 |3.2: Add questions via file upload||-|not implemented!|
-|4.1: Register user|4.1.1: Username and password required|✔️||
+|4.1: Register user|4.1.1: Username and password required|✔️|??? possible BUG: å,ä and ö not allowed in username.|
 ||4.1.2: Password must be 10 characters|✔️||
 ||4.1.3: Success message|✔️||
 ||4.1.4: Error message if duplicated username|✔️||

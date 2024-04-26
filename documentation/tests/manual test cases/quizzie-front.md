@@ -61,7 +61,7 @@ For each of the types, create a quiz with 1-50 questions: A quiz of right type a
 * 4.4.2 logout button --> login button
 
 ## 5. Admin user
-### 5.1: Login ad admin
+### 5.1: Login as admin
 * 5.1.1 Admin username and password required
 * 5.1.2 Error message on wrong credentials
 * 5.1.3 On success. redirected to create quiz meny

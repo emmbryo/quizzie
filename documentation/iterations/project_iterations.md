@@ -54,7 +54,7 @@
 
 |Issue/description|Status|Comment|
 |------|------|------|
-|Closed: #17, #19, #18, #25, #20, #26, #22, #24, #32|✔️||
+|Closed issues: #17, #19, #18, #25, #20, #26, #22, #24, #32|✔️||
 |Front components, build and integrate|✔️||
 |Deployed application, docker compose on server|✔️||
 |Customer delivery, feedback, update requirements|✔️||
@@ -72,19 +72,18 @@
 
 |Issue/description|Status|Comment|
 |------|------|------|
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
+|Closed issues: #14, #15, #27, #9, #7|✔️||
+|Auth service, bcrypt errors, POSTMAN tests|✔️||
+|Connect registration/login front-API, start on upload|✔️||
+|Finish upload question, deploy latest version|✔️||
+|Look over project, get current status|✔️||
+|Standup, seminar, write docs|✔️||
 
 |Hours:|XX|
 |-|-|
 
 ### Problems
-* ?
+* bcrypt module in docker images when running docker compose crashed. Customer unable to meet this week.
 
 
 ## Week 6
