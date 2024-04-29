@@ -72,7 +72,7 @@
 
 |Issue/description|Status|Comment|
 |------|------|------|
-|Closed issues: #14, #15, #27, #9, #7, #37, #33|✔️||
+|Closed issues: #14, #15, #27, #9, #7, #37, #33, #40|✔️||
 |Auth service, bcrypt errors, POSTMAN tests|✔️||
 |Connect registration/login front-API, start on upload|✔️||
 |Finish upload question, deploy latest version|✔️||
