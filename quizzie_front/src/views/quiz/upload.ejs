@@ -5,11 +5,12 @@
 
 <div class="hidden" id="upload-file-wrapper">
   <h2>Upload via file:</h2>
-  <form id="upload-file-form">
-    <div id="question-option">
-      <input type="file" id="myFile" name="filename">
+  <form id="upload-file-form" action="./quiz/uploadFile" method="POST" enctype="multipart/form-data">
+    <div id="file-input-wrapper">
+      <input type="file" id="myFile" name="file">
+      <input id="submit-btn-file" type="submit" value="Upload">
     </div>
-    <input class="submit-btn" type="submit" value="Upload">
+    
   </form>
 </div>
 

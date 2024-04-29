@@ -102,4 +102,26 @@ export class QuizController {
       res.redirect('../quiz')
     }
   }
+
+  async uploadFile (req, res, next) {
+    try {
+      if (req.session.user && req.session.user.role === 'admin') {
+        console.log(req.file)
+        req.session.flash = {
+          type: 'success',
+          text: 'File uploaded successfully'
+        }
+        res.redirect('../quiz/upload')
+      } else {
+        next(createError(404))
+      }
+    } catch (error) {
+      req.session.flash = {
+        type: 'danger',
+        text: error.message
+      }
+      res.redirect('../quiz')
+    }
+
+  }
 }
