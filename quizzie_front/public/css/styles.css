@@ -103,7 +103,6 @@ header {
   background-color: white;
  }
 
-
  form, .quiz-size {
   display: flex;
   flex-direction: column;
@@ -133,6 +132,16 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+ }
+
+ .upload-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+ }
+
+ .upload-options button {
+  width: 300px;
  }
 
  .footer {
