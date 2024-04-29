@@ -70,12 +70,8 @@ export class QuizController {
 
   async showUpload (req, res, next) {
     try {
-      if (req.session.user && req.session.user.role === 'admin') {
         res.status(200)
         res.render('quiz/upload')
-      } else {
-        next(createError(404))
-      }
     } catch (error) {
       next(error)
     }
@@ -83,17 +79,13 @@ export class QuizController {
 
   async uploadQuestion (req, res, next) {
     try {
-      if (req.session.user && req.session.user.role === 'admin') {
-        const question = await this.#service.addQuestion(req.body)
+        await this.#service.addQuestion(req.body)
         req.session.flash = {
           type: 'success',
           text: 'Question uploaded successfully'
         }
         console.log('current user: ', req.session.user)
         res.redirect('../quiz/upload')
-      } else {
-        next(createError(404))
-      }
     } catch (error) {
       req.session.flash = {
         type: 'danger',
@@ -105,16 +97,12 @@ export class QuizController {
 
   async uploadFile (req, res, next) {
     try {
-      if (req.session.user && req.session.user.role === 'admin') {
-        console.log(req.file)
-        req.session.flash = {
-          type: 'success',
-          text: 'File uploaded successfully'
-        }
-        res.redirect('../quiz/upload')
-      } else {
-        next(createError(404))
+      console.log(req.file)
+      req.session.flash = {
+        type: 'success',
+        text: 'File uploaded successfully'
       }
+      res.redirect('../quiz/upload')
     } catch (error) {
       req.session.flash = {
         type: 'danger',

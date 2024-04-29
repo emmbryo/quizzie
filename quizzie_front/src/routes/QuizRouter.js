@@ -21,6 +21,13 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 export const router = express.Router()
 
+function authenticateUser(req, res, next) {
+  if (req.session.isAdmin) {
+    return next()
+  }
+  res.redirect('../')
+}
+
 
 /**
  * Resolves an QuizController object from the IoC container.
@@ -37,20 +44,23 @@ router.get('/',
   (req, res, next) => resolveQuizController(req).index(req, res, next)
 )
 
+router.post('/',
+  (req, res, next) => resolveQuizController(req).getQuestions(req, res, next)
+)
+
 router.get('/upload',
+  (req, res, next) => authenticateUser(req, res, next),
   (req, res, next) => resolveQuizController(req).showUpload(req, res, next)
 )
 
 router.post('/upload',
+  (req, res, next) => authenticateUser(req, res, next),
   (req, res, next) => resolveQuizController(req).uploadQuestion(req, res, next)
 )
 
 router.post('/uploadFile',
+  (req, res, next) => authenticateUser(req, res, next),
   upload.single('file'),
   (req, res, next) => resolveQuizController(req).uploadFile(req, res, next)
-)
-
-router.post('/',
-  (req, res, next) => resolveQuizController(req).getQuestions(req, res, next)
 )
 

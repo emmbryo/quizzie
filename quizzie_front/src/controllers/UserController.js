@@ -74,6 +74,7 @@ export class UserController {
     try {
       const token = await this.#service.loginUser(req)
       req.session.user = this.authenticateJWT(token.access_token)
+      req.session.isAdmin = req.session.user.role === 'admin'
       res.redirect('../quiz')
     } catch (error) {
       req.session.flash = { type: 'danger', text: error.message }
