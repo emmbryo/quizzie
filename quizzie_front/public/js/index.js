@@ -32,22 +32,30 @@ document.addEventListener('DOMContentLoaded', function() {
       redirectToHome()
     })
   }
+
+  if (document.getElementById('upload-form-btn')) {
+    document.getElementById('upload-form-btn').addEventListener('click', function(e) {
+      document.getElementById('upload-form').classList.toggle('hidden')
+    })
+  }
+  
+  if (document.getElementById('upload-file-btn')) {
+    document.getElementById('upload-file-btn').addEventListener('click', function(e) {
+      document.getElementById('upload-file-wrapper').classList.toggle('hidden')
+    })
+  }
+
+  if (document.getElementById('file-input')) {
+    document.getElementById('file-input').addEventListener('change', event => {
+      const filename = event.target.files[0].name
+      document.getElementById('file-label').innerText = filename
+    })
+
+  }
 })
 
 function redirectToHome() {
   window.location.href = './quiz';
-}
-
-if (document.getElementById('upload-form-btn')) {
-  document.getElementById('upload-form-btn').addEventListener('click', function(e) {
-    document.getElementById('upload-form').classList.toggle('hidden')
-  })
-}
-
-if (document.getElementById('upload-file-btn')) {
-  document.getElementById('upload-file-btn').addEventListener('click', function(e) {
-    document.getElementById('upload-file-wrapper').classList.toggle('hidden')
-  })
 }
 
 function hideFlash() {
