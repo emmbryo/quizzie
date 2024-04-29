@@ -18,9 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById(`${type.value}-form`).classList.remove('hidden')
       document.getElementById('question-type').classList.add('hidden')
 
-      if (document.getElementById('flash-message')) {
-        document.getElementById('flash-message').classList.add('hidden')
-      }
+      hideFlash()
+
     })
   }
 
@@ -49,4 +48,10 @@ if (document.getElementById('upload-file-btn')) {
   document.getElementById('upload-file-btn').addEventListener('click', function(e) {
     document.getElementById('upload-file-wrapper').classList.toggle('hidden')
   })
+}
+
+function hideFlash() {
+  if (document.getElementById('flash-message')) {
+    document.getElementById('flash-message').classList.add('hidden')
+  }
 }

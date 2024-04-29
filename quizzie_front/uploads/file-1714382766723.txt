@@ -1,3 +1,0 @@
-{
-	"test": "lite test-data"
-}
