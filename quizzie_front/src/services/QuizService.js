@@ -5,6 +5,10 @@
  * @version 1.0.0
  */
 
+import fs from 'fs'
+import { dirname, join } from 'path'
+import { fileURLToPath } from 'url'
+
 /**
  * Encapsulates a tandem service.
  */
@@ -97,7 +101,7 @@ export class QuizService {
   }
 
   async addQuestion (data) {
-    if (data.type === 'idiom') {
+    if (data.type === 'idiom' && !data.options) {
       const options = [data.optionOne, data.optionTwo, data.optionThree]
       data.options = options
     }
@@ -114,5 +118,15 @@ export class QuizService {
       throw new Error('Failed to add question')
     }
     return response.json()
+  }
+
+  async uploadFile (file) {
+    const directoryFullName = dirname(fileURLToPath(import.meta.url))
+    const filePath = join(directoryFullName, '../..', file.path)
+    let data = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+
+    data.questions.forEach(async (question) => {
+      await this.addQuestion(question)
+    })
   }
 }

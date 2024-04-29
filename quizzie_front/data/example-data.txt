@@ -1,0 +1,74 @@
+// the following shows how the data must be formatted before uploading the file.
+
+
+{
+"questions": [
+  { "question": "hund", "answer": "dog", "type": "vocab" },
+  { "question": "katt", "answer": "cat", "type": "vocab" },
+  { "question": "bil", "answer": "car", "type": "vocab" },
+  {
+    "question": "GET __",
+    "answer": "OUT",
+    "meaning": "leave a room / building / car",
+    "examples": [
+      "I need to get out of the house!",
+      "She got out of the car and went into the shop.",
+      "Get out! There's a fire in the kitchen!"
+    ],
+    "type": "verbPhrase"
+  },
+  {
+    "question": "COME __ / __",
+    "answer": "IN / INTO",
+    "meaning": "enter (the speaker is in that place)",
+    "examples": [
+      "Please come in! It's great to see you.",
+      "She came into the living room and sat down.",
+      "Don't come in! I'm not ready yet!"
+    ],
+    "type": "verbPhrase"
+  },
+  {
+    "question": "TAKE __",
+    "answer": "ON",
+    "meaning": "to be responsible for",
+    "examples": [
+      "He's going to take on the new project.",
+      "She isn't taking on any new students at the moment.",
+      "Could you take on some extra work?"
+    ],
+    "type": "verbPhrase"
+  },
+  {
+    "question": "A blessing in disguise",
+    "answer": "A good thing that seemed bad at first",
+    "options": [
+      "A good thing that seemed bad at first",
+      "An unfortunate event",
+      "A hidden treasure"
+    ],
+    "type": "idiom"
+  },
+  {
+    "question": "Beat around the bush",
+    "answer": "Avoid saying what you mean, usually because it is uncomfortable",
+    "options": [
+      "Avoid saying what you mean, usually because it is uncomfortable",
+      "Speak directly",
+      "Make a clear statement"
+    ],
+    "type": "idiom"
+  },
+  {
+    "question": "Better late than never",
+    "answer": "Better to arrive late than not to come at all",
+    "options": [
+      "Better to arrive late than not to come at all",
+      "Punctuality is important",
+      "Late arrivals are unacceptable"
+    ],
+    "type": "idiom"
+  }
+]
+
+}

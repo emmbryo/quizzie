@@ -97,7 +97,7 @@ export class QuizController {
 
   async uploadFile (req, res, next) {
     try {
-      console.log(req.file)
+      await this.#service.uploadFile(req.file)
       req.session.flash = {
         type: 'success',
         text: 'File uploaded successfully'
