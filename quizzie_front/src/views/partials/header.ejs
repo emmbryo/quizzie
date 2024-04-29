@@ -9,15 +9,15 @@
     <nav class="header-nav">
         <ul>
             <% if (locals.user) { %>
-                <li><button><a href="./user/logout">Logout</a></button></li>
+                <li><a href="./user/logout"><button>Logout</button></a></li>
             <% } else { %>
-                <li><button><a href="./user/login">Login</a></button></li>
+                <li><a href="./user/login"><button>Login</button></a></li>
             <% } %>
             <% if (locals.user && locals.user.role === 'admin') { %>
-                <li><button><a href="./quiz/upload">Upload questions</a></button></li>
+                <li><a href="./quiz/upload"><button>Upload questions</button></a></li>
             <% } %>
-            <li><button><a href="./quiz">create quiz</a></button></li>
-            <li><button><a href="./">Home</a></button></li>
+            <li><a href="./quiz"><button>create quiz</button></a></li>
+            <li><a href="./"><button>Home</button></a></li>
         </ul>
     </nav>
 </header>

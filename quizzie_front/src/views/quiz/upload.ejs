@@ -1,16 +1,35 @@
-<h1>Upload question</h1>
+<div class="upload-options">
+  <button id="upload-file-btn">Upload via file</button>
+  <button id="upload-form-btn">Upload via form</button>
+</div>
 
-<form id="question-type">
-  <div id="question-option">
-    <input type="radio" id="vocab" name="quizOption" value="vocab">
-    <label for="option1">Vocabulary</label><br>
-    <input type="radio" id="idiom" name="quizOption" value="idiom">
-    <label for="option2">Idiom</label><br>
-    <input type="radio" id="verbPhrase" name="quizOption" value="verbPhrase">
-    <label for="option3">Verb Phrase</label><br>
-  </div>
-  <input class="submit-btn" type="submit" value="Next">
-</form>
+<div class="hidden" id="upload-file-wrapper">
+  <h2>Upload via file:</h2>
+  <form id="upload-file-form" action="./quiz/uploadFile" method="POST" enctype="multipart/form-data">
+    <div id="file-input-wrapper">
+      <label id="file-label" for="file-input">Choose a file</label>
+      <input type="file" id="file-input" name="file" required>
+      <input class="submit-btn" id="submit-btn-file" type="submit" value="Upload">
+    </div>
+    
+  </form>
+</div>
+
+<div class="hidden" id="upload-form">
+  <h2>Upload via form:</h2>
+  <form id="question-type">
+    <div id="question-option">
+      <input type="radio" id="vocab" name="quizOption" value="vocab">
+      <label for="option1">Vocabulary</label><br>
+      <input type="radio" id="idiom" name="quizOption" value="idiom">
+      <label for="option2">Idiom</label><br>
+      <input type="radio" id="verbPhrase" name="quizOption" value="verbPhrase">
+      <label for="option3">Verb Phrase</label><br>
+    </div>
+    <input class="submit-btn" type="submit" value="Next">
+  </form>
+</div>
+
 
 <form class="hidden" id="idiom-form" action="./quiz/upload" method="POST">
   <h2>Idiom</h2>

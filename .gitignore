@@ -13,6 +13,9 @@
 docker-compose.yaml
 .volumes
 
+### uploaded files from UI
+/quizzie_front/uploads
+
 ### egan anteckningar
 /eget_hexxx
 
