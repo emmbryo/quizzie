@@ -4,15 +4,27 @@
 </div>
 
 <div class="hidden" id="upload-file-wrapper">
-  <h2>Upload via file:</h2>
-  <form id="upload-file-form" action="./quiz/uploadFile" method="POST" enctype="multipart/form-data">
-    <div id="file-input-wrapper">
-      <label id="file-label" for="file-input">Choose a file</label>
-      <input type="file" id="file-input" name="file" required>
-      <input class="submit-btn" id="submit-btn-file" type="submit" value="Upload">
+  <div id="upload-file-wrapper-inner">
+    <form id="upload-file-form" action="./quiz/uploadFile" method="POST" enctype="multipart/form-data">
+        <div id="file-input-wrapper">
+          <label id="file-label" for="file-input">Choose a file (.txt)</label>
+          <input type="file" id="file-input" name="file" required>
+          <input class="submit-btn" id="submit-btn-file" type="submit" value="Upload">
+        </div>
+      </form>
+
+    <div id="file-structure-info-wrapper">
+      <button id="show-img-btn">See example file format</button>
+      <div id="img-wrapper" class="hidden">
+        <div id="image-wrapper-inner">
+          <img class="upload-img" id="instructions" src="./img/instructions.png" alt="instructions">
+          <img class="upload-img" id="simple" src="./img/simple-text.png" alt="simple text">
+          <img class="upload-img" id="colored" src="./img/colored-questions.png" alt="colored-q">
+          <img class="upload-img" id="editor" src="./img/in_editor.png" alt="in-editor">
+        </div>  
+      </div>
     </div>
-    
-  </form>
+  </div>
 </div>
 
 <div class="hidden" id="upload-form">

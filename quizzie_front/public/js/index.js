@@ -50,8 +50,21 @@ document.addEventListener('DOMContentLoaded', function() {
       const filename = event.target.files[0].name
       document.getElementById('file-label').innerText = filename
     })
-
   }
+
+  if (document.getElementById('img-wrapper')) {
+    document.getElementById('img-wrapper').addEventListener('click', (event) => {
+      console.log(event.target);
+      event.target.classList.toggle('enlarged')
+    })
+  }
+
+  if (document.getElementById('show-img-btn')) {
+    document.getElementById('show-img-btn').addEventListener('click', (event) => {
+      document.getElementById('img-wrapper').classList.toggle('hidden')
+    })
+  }
+
 })
 
 function redirectToHome() {

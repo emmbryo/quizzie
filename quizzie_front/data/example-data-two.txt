@@ -1,0 +1,30 @@
+
+
+
+
+{
+  "questions": [
+    { "question": "hund", "answer": "dog", "type": "vocab" },
+    {
+      "question": "TAKE __",
+      "answer": "ON",
+      "meaning": "to be responsible for",
+      "examples": [
+        "He's going to take on the new project.",
+        "She isn't taking on any new students at the moment.",
+        "Could you take on some extra work?"
+      ],
+      "type": "verbPhrase"
+    },
+    {
+      "question": "Better late than never",
+      "answer": "Better to arrive late than not to come at all",
+      "options": [
+        "Better to arrive late than not to come at all",
+        "Punctuality is important",
+        "Late arrivals are unacceptable"
+      ],
+      "type": "idiom"
+    }
+  ]
+}
