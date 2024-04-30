@@ -109,7 +109,7 @@ customElements.define('vocab-question',
             bubbles: true,
             composed: true
           })
-          if (selectedOption.toLowerCase() === this.#answer.toLowerCase()) {
+          if (selectedOption.toLowerCase().trim() === this.#answer.toLowerCase()) {
             event.detail.message = 'Correct!'
           } else {
             event.detail.message = 'Wrong'

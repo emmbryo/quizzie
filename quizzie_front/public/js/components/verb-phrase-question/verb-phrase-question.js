@@ -109,7 +109,7 @@ customElements.define('verb-phrase-question',
             bubbles: true,
             composed: true
           })
-          if (answer.toLowerCase() === this.#answer.toLowerCase()) {
+          if (answer.toLowerCase().trim() === this.#answer.toLowerCase()) {
             event.detail.message = 'Correct!'
           } else {
             event.detail.message = 'Wrong'
