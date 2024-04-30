@@ -152,4 +152,22 @@ export class QuestionController {
       throw new Error(`Limit query in number format required. Maximun value ${process.env.MAX_LIMIT}, minimum value 1.`)
     }
   }
+
+  /**
+   * Get a set of random questions.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async deleteQuestion (req, res, next) {
+    try {
+      await this.#service.delete(req.params.id)
+      res
+        .status(204)
+        .end()
+    } catch (error) {
+      next(createError(400, error.message))
+    }
+  }
 }

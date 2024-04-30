@@ -139,4 +139,18 @@ export class QuizService {
       await this.addQuestion(question)
     })
   }
+
+  async deleteQuestion (id) {
+    const response = await fetch(`${process.env.API_BASE_URL}/questions/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.QUIZ_API_TOKEN}`
+      }
+    })
+    if (response.status !== 204) {
+      throw new Error('Failed to delete question')
+    }
+    return
+  }
 }

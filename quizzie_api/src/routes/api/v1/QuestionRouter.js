@@ -48,3 +48,9 @@ router.get('/random', (req, res, next) => resolveQuestionController(req).getRand
 // POST
 
 router.post('/', (req, res, next) => resolveQuestionController(req).addQuestion(req, res, next))
+
+// DELETE
+
+router.delete('/:id', 
+  (req, res, next) => authorize(req, res, next),
+  (req, res, next) => resolveQuestionController(req).deleteQuestion(req, res, next))
