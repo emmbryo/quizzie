@@ -72,7 +72,7 @@ header {
   color: black;
 }
 
- h1, h2, button, .submit-btn {
+ h1, h2, h3, button, .submit-btn {
   font-family: super-toast;
  }
 

@@ -2,7 +2,13 @@
     <div class="title-wrapper">
        <h1 class="h1-quizzie">Quizzie</h1>
     <% if (locals.user) { %>
-        <h2>Playing as: <%= locals.user.username %></h2>
+        <div>
+            <h2>Username: <%= locals.user.username %></h2>
+            <% if (locals.user.role === 'admin') { %>
+            <h3>Administrator</h3>
+            <% } %>
+        </div>
+        
     <% } %> 
     </div>
     

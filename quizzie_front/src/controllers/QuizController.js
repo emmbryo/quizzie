@@ -126,8 +126,7 @@ export class QuizController {
 
   async deleteQuestion (req, res, next) {
     try {
-      const response = await this.#service.deleteQuestion(req.params.id)
-      console.log('response: ', response)
+      await this.#service.deleteQuestion(req.params.id)
       req.session.flash = {
         type: 'success',
         text: 'Question deleted successfully'
