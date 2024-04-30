@@ -10,13 +10,23 @@ import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
 /**
- * Encapsulates a tandem service.
+ * Encapsulates a quiz service.
  */
 export class QuizService {
 
+  async getAllQuestions() {
+    const questions = await fetch(`${process.env.API_BASE_URL}/questions/all`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: req.session.user.role === 'admin' ? `Bearer ${process.env.QUIZ_API_TOKEN}` : ''
+      }
+    })
+  }
+
   async getQuestions(size, type) {
     console.log(size, type) 
-    const response = type === 'mixed' ? await fetch(`${process.env.API_BASE_URL}/questions/random?limit=${size}`) : await fetch(`${process.env.API_BASE_URL}/questions/all?limit=${size}&type=${type}`)
+    const response = type === 'mixed' ? await fetch(`${process.env.API_BASE_URL}/questions/random?limit=${size}`) : await fetch(`${process.env.API_BASE_URL}/questions/selected?limit=${size}&type=${type}`)
     const data = await response.json()
     if (type === 'idiom') {
       return {
@@ -41,10 +51,6 @@ export class QuizService {
     } else {
       throw Error('Invalid or missing type')
     }
-  }
-
-  async getSameCategoryQuestions (questions, type) {
-    return fetch(`${process.env.API_BASE_URL}/questions/all?limit=${size}&type=${type}`)
   }
 
   transformMixed (questions) {

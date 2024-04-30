@@ -110,6 +110,17 @@ export class QuizController {
       }
       res.redirect('../quiz')
     }
+  }
 
+  async showEdit (req, res, next) {
+    try {
+      const questions = await this.#service.getAllQuestions()
+
+
+
+      res.render('quiz/edit')
+    } catch (error) {
+      
+    }
   }
 }
