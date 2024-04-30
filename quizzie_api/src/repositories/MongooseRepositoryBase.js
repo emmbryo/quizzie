@@ -28,6 +28,15 @@ export class MongooseRepositoryBase {
   }
 
   /**
+   * Gets all questions.
+   *
+   * @returns {Promise<object>} Promise resolved with a random question as a plain JavaScript object.
+   */
+  async getAll () {
+    return this.#model.find()
+  }
+
+  /**
    * Gets documents.
    *
    * @param {object} filter - ...

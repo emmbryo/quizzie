@@ -10,13 +10,27 @@ import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
 /**
- * Encapsulates a tandem service.
+ * Encapsulates a quiz service.
  */
 export class QuizService {
 
+  async getAllQuestions(userRole) {
+    const response = await fetch(`${process.env.API_BASE_URL}/questions/all`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: userRole === 'admin' ? `Bearer ${process.env.QUIZ_API_TOKEN}` : ''
+      }
+    })
+    if (response.status !== 200) {
+      throw new Error('Failed to get questions')
+    }
+    return response.json()
+  }
+
   async getQuestions(size, type) {
     console.log(size, type) 
-    const response = type === 'mixed' ? await fetch(`${process.env.API_BASE_URL}/questions/random?limit=${size}`) : await fetch(`${process.env.API_BASE_URL}/questions/all?limit=${size}&type=${type}`)
+    const response = type === 'mixed' ? await fetch(`${process.env.API_BASE_URL}/questions/random?limit=${size}`) : await fetch(`${process.env.API_BASE_URL}/questions/selected?limit=${size}&type=${type}`)
     const data = await response.json()
     if (type === 'idiom') {
       return {
@@ -41,10 +55,6 @@ export class QuizService {
     } else {
       throw Error('Invalid or missing type')
     }
-  }
-
-  async getSameCategoryQuestions (questions, type) {
-    return fetch(`${process.env.API_BASE_URL}/questions/all?limit=${size}&type=${type}`)
   }
 
   transformMixed (questions) {
@@ -128,5 +138,19 @@ export class QuizService {
     data.questions.forEach(async (question) => {
       await this.addQuestion(question)
     })
+  }
+
+  async deleteQuestion (id) {
+    const response = await fetch(`${process.env.API_BASE_URL}/questions/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.QUIZ_API_TOKEN}`
+      }
+    })
+    if (response.status !== 204) {
+      throw new Error('Failed to delete question')
+    }
+    return
   }
 }

@@ -2,7 +2,13 @@
     <div class="title-wrapper">
        <h1 class="h1-quizzie">Quizzie</h1>
     <% if (locals.user) { %>
-        <h2>Playing as: <%= locals.user.username %></h2>
+        <div>
+            <h2>Username: <%= locals.user.username %></h2>
+            <% if (locals.user.role === 'admin') { %>
+            <h3>Administrator</h3>
+            <% } %>
+        </div>
+        
     <% } %> 
     </div>
     
@@ -14,7 +20,8 @@
                 <li><a href="./user/login"><button>Login</button></a></li>
             <% } %>
             <% if (locals.user && locals.user.role === 'admin') { %>
-                <li><a href="./quiz/upload"><button>Upload questions</button></a></li>
+                <li><a href="./quiz/upload"><button>Upload</button></a></li>
+                <li><a href="./quiz/edit"><button>Edit</button></a></li>
             <% } %>
             <li><a href="./quiz"><button>create quiz</button></a></li>
             <li><a href="./"><button>Home</button></a></li>

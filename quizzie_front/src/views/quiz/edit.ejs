@@ -1,0 +1,25 @@
+<h1>Delete questions</h1>
+
+<div class="edit-questions-wrapper">
+  <% viewData.questions.forEach( question => { %>
+    <form class="delete-form" action="./quiz/delete/<%= question.id %>" method="POST">
+      <div class="inner-delete-form-wrapper">
+        <% if (question.type === 'vocab') { %>
+          <p><%= question.question %></p>
+          <p><%= question.answer %></p>
+        <% } else if (question.type === 'idiom') { %>
+          <p><%= question.question %></p>
+          <p><%= question.options %></p>
+        <% } else if (question.type === 'verbPhrase') { %>
+          <p><%= question.question %></p>
+          <p><%= question.answer %></p>
+          <p><%= question.meaning %></p>
+        <% } %>
+        <input class="submit-btn" type="submit" value="delete">
+      </div>
+      
+      
+    </form>
+  
+<% }) %>
+</div>

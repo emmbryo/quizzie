@@ -110,6 +110,34 @@ export class QuizController {
       }
       res.redirect('../quiz')
     }
+  }
 
+  async showEdit (req, res, next) {
+    try {
+      const questions = await this.#service.getAllQuestions(req.session.user.role)
+      const viewData = {
+        ...questions
+      }
+      res.render('quiz/edit', { viewData })
+    } catch (error) {
+      next(error)      
+    }
+  }
+
+  async deleteQuestion (req, res, next) {
+    try {
+      await this.#service.deleteQuestion(req.params.id)
+      req.session.flash = {
+        type: 'success',
+        text: 'Question deleted successfully'
+      }
+      res.redirect('../edit')
+    } catch (error) {
+      req.session.flash = {
+        type: 'danger',
+        text: error.message
+      }
+      res.redirect('../edit')
+    }
   }
 }

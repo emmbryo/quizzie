@@ -30,4 +30,13 @@ export class QuestionService extends MongooseServiceBase {
     return this._repository.getRandom(Number.parseInt(limit.value))
   }
 
+  /**
+   * Gets all questions.
+   *
+   * @returns {Promise<object>} Promise resolved with a random question as a plain JavaScript object.
+   */
+  async getAll (limit) {
+    return this._repository.getAll()
+  }
+
 }

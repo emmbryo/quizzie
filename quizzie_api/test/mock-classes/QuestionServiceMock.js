@@ -21,7 +21,7 @@ export class QuestionServiceMock extends QuestionService {
     super()
   }
 
-  async getQuestions() {
+  async getSelectedQuestions() {
     return this.#questions
   }
 

@@ -73,7 +73,29 @@ export class QuestionController {
    * @param {object} res - Express response object.
    * @param {Function} next - Express next middleware function.
    */
-  async getQuestions (req, res, next) {
+  async getAllQuestions (req, res, next) {
+    try {
+      const questions = await this.#service.getAll()
+
+      res
+        .status(200)
+        .json({
+          message: "All questions",
+          questions: questions
+        })
+    } catch (error) {
+      next(createError(400, error.message))
+    }
+  }
+
+  /**
+   * Return a specified number of questions.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async getSelectedQuestions (req, res, next) {
     try {
       if (!['verbPhrase', 'idiom', 'vocab'].includes(req.query.type)) {
         throw new Error('Invalid or missing type.')
@@ -128,6 +150,24 @@ export class QuestionController {
         req.query.limit > Number.parseInt(process.env.MAX_LIMIT) || 
         req.query.limit < 1) {
       throw new Error(`Limit query in number format required. Maximun value ${process.env.MAX_LIMIT}, minimum value 1.`)
+    }
+  }
+
+  /**
+   * Get a set of random questions.
+   *
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async deleteQuestion (req, res, next) {
+    try {
+      await this.#service.delete(req.params.id)
+      res
+        .status(204)
+        .end()
+    } catch (error) {
+      next(createError(400, error.message))
     }
   }
 }
