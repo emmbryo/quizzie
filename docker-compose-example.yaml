@@ -1,10 +1,6 @@
 version: "3.8"
 
 services:
-
-  version: "3.8"
-
-services:
   mongodb:
     container_name: "mongodb-q"
     image: mongo:7.0.2
@@ -69,7 +65,7 @@ services:
       - SESSION_SECRET={"provide a session-secret-string"}
       - SESSION_NAME={"provide a session-name-string"}
       - QUIZ_API_TOKEN={"token for getting ALL questions from api, only sent for admin users"}
-      - REDIS_PORT={redis port, default: 6379}
+      - REDIS_PORT={redis port, default; 6379}
       - REDIS_HOST={redis connection string}
       - REDIS_PREFIX={prefix to session name inside redis}
       - API_BASE_URL={"provide a api-base-url-string"}

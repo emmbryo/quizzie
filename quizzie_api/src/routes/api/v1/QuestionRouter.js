@@ -46,7 +46,6 @@ router.get('/selected', (req, res, next) => resolveQuestionController(req).getSe
 router.get('/random', (req, res, next) => resolveQuestionController(req).getRandomQuestions(req, res, next))
 
 // POST
-
 router.post('/', (req, res, next) => resolveQuestionController(req).addQuestion(req, res, next))
 
 // DELETE

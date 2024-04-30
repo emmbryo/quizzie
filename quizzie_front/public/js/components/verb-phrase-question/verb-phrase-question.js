@@ -84,18 +84,6 @@ customElements.define('verb-phrase-question',
     #meaning
     #answer
 
-    #exampleData = {
-      question: "GET __",
-      answer: "OUT",
-      meaning: "leave a room / building / car",
-      examples: [
-        "I need to get out of the house!",
-        "She got out of the car and went into the shop.",
-        "Get out! There\'s a fire in the kitchen!"
-      ],
-      type: "verbPhrase"
-    }
-
     /**
      * Creates an instance of the current type.
      */
@@ -118,7 +106,7 @@ customElements.define('verb-phrase-question',
           bubbles: true,
           composed: true
         })
-        if (selectedOption === this.#answer.toLowerCase()) {
+        if (selectedOption.toLowerCase() === this.#answer.toLowerCase()) {
           event.detail.message = 'Correct!'
         } else {
           event.detail.message = 'Wrong'
