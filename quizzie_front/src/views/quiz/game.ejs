@@ -17,6 +17,16 @@
       <% viewData.questions.forEach((question, index) => { %>
           <verb-phrase-question class="hidden" id="<%= 'phrase' + index %>" question="<%= question.question %>" meaning="<%= question.meaning %>" answer="<%= question.answer %>"></verb-phrase-question>
       <% }) %>
+    <% } else if (viewData.type === 'mixed') { %>
+      <% viewData.questions.forEach((question, index) => { %>
+        <% if (question.type === 'idiom') { %>
+          <idiom-question class="hidden" id="<%= 'idiom' + index %>" question="<%= question.question %>" options='<%= question.options %>' answer="<%= question.answer %>"></idiom-question>
+        <% } else if (question.type === 'vocab') { %>
+          <vocab-question class="hidden" id="<%= 'vocab' + index %>" question="<%= question.question %>" answer="<%= question.answer %>"></vocab-question>
+        <% } else if (question.type === 'verbPhrase') { %>
+          <verb-phrase-question class="hidden" id="<%= 'phrase' + index %>" question="<%= question.question %>" meaning="<%= question.meaning %>" answer="<%= question.answer %>"></verb-phrase-question>
+        <% } %>
+    <% }) %>
     <% } %>
   </quiz-game>
 </div> 

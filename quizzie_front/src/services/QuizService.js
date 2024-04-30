@@ -32,6 +32,7 @@ export class QuizService {
     console.log(size, type) 
     const response = type === 'mixed' ? await fetch(`${process.env.API_BASE_URL}/questions/random?limit=${size}`) : await fetch(`${process.env.API_BASE_URL}/questions/selected?limit=${size}&type=${type}`)
     const data = await response.json()
+    
     if (type === 'idiom') {
       return {
         type: 'idiom',
