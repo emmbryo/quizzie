@@ -47,7 +47,7 @@ template.innerHTML = `
       flex-direction: column;
       align-items: center;
     }
-    #prep-input {
+    #vocab-input {
       padding: 5px;
       border-radius: 10px;
       border: 2px solid black;
@@ -60,7 +60,7 @@ template.innerHTML = `
         <div class="question"></div>
         <div class="meaning"></div>
         <div class="answer">
-          <input id="prep-input" type="text" placeholder="English translation">
+          <input id="vocab-input" type="text" placeholder="English translation">
         </div>
     </div>  
     <button id="submit">OK</button>
@@ -100,18 +100,22 @@ customElements.define('vocab-question',
      */
     connectedCallback () {
       this.#element.querySelector('#submit').addEventListener('click', () => {
-        const selectedOption = this.#element.querySelector('#prep-input').value
-        const event = new CustomEvent('answer', {
-          detail: { message: '', answer: this.#answer },
-          bubbles: true,
-          composed: true
-        })
-        if (selectedOption.toLowerCase() === this.#answer.toLowerCase()) {
-          event.detail.message = 'Correct!'
+        const selectedOption = this.#element.querySelector('#vocab-input').value
+        if (!selectedOption) {
+          alert('Please enter an answer')
         } else {
-          event.detail.message = 'Wrong'
+          const event = new CustomEvent('answer', {
+            detail: { message: '', answer: this.#answer },
+            bubbles: true,
+            composed: true
+          })
+          if (selectedOption.toLowerCase() === this.#answer.toLowerCase()) {
+            event.detail.message = 'Correct!'
+          } else {
+            event.detail.message = 'Wrong'
+          }
+          this.dispatchEvent(event)
         }
-        this.dispatchEvent(event)
       })
     }
 

@@ -100,18 +100,22 @@ customElements.define('verb-phrase-question',
      */
     connectedCallback () {
       this.#element.querySelector('#submit').addEventListener('click', () => {
-        const selectedOption = this.#element.querySelector('#prep-input').value
-        const event = new CustomEvent('answer', {
-          detail: { message: '', answer: this.#answer },
-          bubbles: true,
-          composed: true
-        })
-        if (selectedOption.toLowerCase() === this.#answer.toLowerCase()) {
-          event.detail.message = 'Correct!'
+        const answer = this.#element.querySelector('#prep-input').value
+        if (!answer) {
+          alert('Please enter an answer')
         } else {
-          event.detail.message = 'Wrong'
+          const event = new CustomEvent('answer', {
+            detail: { message: '', answer: this.#answer },
+            bubbles: true,
+            composed: true
+          })
+          if (answer.toLowerCase() === this.#answer.toLowerCase()) {
+            event.detail.message = 'Correct!'
+          } else {
+            event.detail.message = 'Wrong'
+          }
+          this.dispatchEvent(event)
         }
-        this.dispatchEvent(event)
       })
     }
 
