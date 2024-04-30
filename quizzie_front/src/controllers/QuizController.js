@@ -114,13 +114,14 @@ export class QuizController {
 
   async showEdit (req, res, next) {
     try {
-      const questions = await this.#service.getAllQuestions()
-
-
-
-      res.render('quiz/edit')
+      const questions = await this.#service.getAllQuestions(req.session.user.role)
+      console.log(questions)
+      const viewData = {
+        ...questions
+      }
+      res.render('quiz/edit', { viewData })
     } catch (error) {
-      
+      next(error)      
     }
   }
 }

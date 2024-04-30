@@ -14,14 +14,18 @@ import { fileURLToPath } from 'url'
  */
 export class QuizService {
 
-  async getAllQuestions() {
-    const questions = await fetch(`${process.env.API_BASE_URL}/questions/all`, {
+  async getAllQuestions(userRole) {
+    const response = await fetch(`${process.env.API_BASE_URL}/questions/all`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: req.session.user.role === 'admin' ? `Bearer ${process.env.QUIZ_API_TOKEN}` : ''
+        Authorization: userRole === 'admin' ? `Bearer ${process.env.QUIZ_API_TOKEN}` : ''
       }
     })
+    if (response.status !== 200) {
+      throw new Error('Failed to get questions')
+    }
+    return response.json()
   }
 
   async getQuestions(size, type) {
