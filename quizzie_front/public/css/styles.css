@@ -7,6 +7,9 @@ body {
   background-color: rgb(100, 137, 97);
   padding: 30px;
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 main, .form-wrapper {
@@ -226,7 +229,7 @@ header {
   margin: 5px;
   width: 90%;
  }
- /* .footer {
-  position: absolute;
-  bottom: 10px;
- } */
+
+.footer {
+  margin-top: auto;
+}
