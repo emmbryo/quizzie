@@ -12,8 +12,12 @@
     <% } %> 
     </div>
     
+    <nav class="header-nav-toggle">
+      <button class="menu-toggle"><img id="menu-icon" src="./img/menu-white.png"></button>  
+    </nav>
+    
     <nav class="header-nav">
-        <ul>
+        <ul class="menu base-menu">
             <% if (locals.user) { %>
                 <li><a href="./user/logout"><button>Logout</button></a></li>
             <% } else { %>

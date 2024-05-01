@@ -65,6 +65,14 @@ document.addEventListener('DOMContentLoaded', function() {
     })
   }
 
+  document.querySelector('.menu-toggle').addEventListener('click', (event) => {
+    const menu = document.querySelector('.base-menu')
+
+    console.log('classList: ', menu.classList)
+    menu.classList.toggle('menu')
+    menu.classList.toggle('menu-drop')
+  })
+
 })
 
 function redirectToHome() {
