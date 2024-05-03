@@ -130,11 +130,15 @@ export class QuizService {
   }
 
   async uploadFile (file) {
-    let data = JSON.parse(fs.readFileSync(file.path, 'utf8'))
-
-    data.questions.forEach(async (question) => {
-      await this.addQuestion(question)
-    })
+    try {
+      let data = JSON.parse(fs.readFileSync(file.path, 'utf8'))
+  
+      await Promise.all(data.questions.map(async (question) => {
+        await this.addQuestion(question)
+      }))
+    } catch (error) {
+      throw new Error('Failed to upload file');
+    }
   }
 
   async deleteQuestion (id) {

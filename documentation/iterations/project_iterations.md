@@ -90,19 +90,21 @@
 
 |Issue/description|Status|Comment|
 |------|------|------|
-|Closed issues: #8, #41, #30, #36, #38|✔️||
+|Closed issues: #8, #41, #30, #36, #38, #52|✔️||
 |Upload via file|✔️||
 |Edit menu, delete questions option|✔️||
 |Mobile styling|✔️||
 |Deploy: issues with file upload|✔️||
 |Standup, test update, test report|✔️||
 |Customer delivery 2|✔️||
+|BUG FIX: upload file of bad format, app crashed.|✔️||
 
-|Hours:|18|
+|Hours:|19|
 |-|-|
 
 ### Problems
 * When the app with updates were deployed the upload file broke down. Permission issue.
+* When trying to upload file of wrong format the app crashed, fixed!
 
 
 ## Week 7
