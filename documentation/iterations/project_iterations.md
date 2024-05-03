@@ -90,41 +90,22 @@
 
 |Issue/description|Status|Comment|
 |------|------|------|
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
+|Closed issues: #8, #41, #30, #36, #38|✔️||
+|Upload via file|✔️||
+|Edit menu, delete questions option|✔️||
+|Mobile styling|✔️||
+|Deploy: issues with file upload|✔️||
+|Standup, test update, test report|✔️||
+|Customer delivery 2|✔️||
 
-|Hours:|XX|
+|Hours:|18|
 |-|-|
 
 ### Problems
-* ?
+* When the app with updates were deployed the upload file broke down. Permission issue.
 
 
 ## Week 7
-
-|Issue/description|Status|Comment|
-|------|------|------|
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-
-|Hours:|XX|
-|-|-|
-
-### Problems
-* ?
-
-
-## Week X
 
 |Issue/description|Status|Comment|
 |------|------|------|
