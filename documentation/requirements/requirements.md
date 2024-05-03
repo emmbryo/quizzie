@@ -41,7 +41,7 @@ A quiz app to be used in English education at the high school level. The idea is
   * 3.1 Delete
     * 3.1.1: It should be possible for admin-user (user with expandes persmissions) to delete questions via an admin panel in the interface
   * 3.2 Edit
-    * 3.2.1: no priority: It should be possible to edit questions via an admin panel in the interface
+    * 3.2.1: It should be possible to edit questions via an admin panel in the interface
 
 ## 4: Users
   * 4.1 One should be able to play as a guest or as a logged-in user
@@ -109,3 +109,19 @@ Work with base structure in main, when the frame is set migrate to branching str
 * länkar till inlärning av det som man hade svårt med - kräver mkt data behandling
 * Uppmuntrande ord när det inte gått så bra
 * ok-knappen lite bökig --> autofokus
+
+
+## Customer requirements 2024.05.02
+* larger text idioms
+* en preposition
+* placeholder till vocab input
+* procent tecken i bild, skit!
+* felaktig fil --> meddelande, det kraschar...
+* generallt dtörre text
+* input-byte, FUL!
+* autofocus under spelets gång
+* edit questions
+* räknare med frågor, ex: fråga 3 av 20
+
+## extra things
+* unique quiz, pre made quizzes!

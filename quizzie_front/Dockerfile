@@ -17,12 +17,14 @@ COPY src/ src/
 COPY public/ public/
 RUN ls -la
 
-# Create the log directory
+# Create the log and uploads directory
 RUN mkdir -p /var/log/quizzie-front
+RUN mkdir -p /usr/src/app/uploads
 
 # Change the owner of the log directory to the node user
 RUN chown -R node:node /var/log/quizzie-front
-
+# Change the owner of the uploads directory to the node user
+RUN chown -R node:node /usr/src/app/uploads
 # Sets the user that the Docker container runs as. In this case, it's set to 'node' to avoid running as root for security reasons.
 USER node
 

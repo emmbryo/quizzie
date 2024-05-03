@@ -6,8 +6,6 @@
  */
 
 import fs from 'fs'
-import { dirname, join } from 'path'
-import { fileURLToPath } from 'url'
 
 /**
  * Encapsulates a quiz service.
@@ -132,9 +130,7 @@ export class QuizService {
   }
 
   async uploadFile (file) {
-    const directoryFullName = dirname(fileURLToPath(import.meta.url))
-    const filePath = join(directoryFullName, '../..', file.path)
-    let data = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+    let data = JSON.parse(fs.readFileSync(file.path, 'utf8'))
 
     data.questions.forEach(async (question) => {
       await this.addQuestion(question)

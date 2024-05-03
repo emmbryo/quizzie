@@ -9,9 +9,15 @@ import express from 'express'
 import multer from 'multer'
 import path from 'path'
 
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const directoryFullName = dirname(fileURLToPath(import.meta.url))
+const filePath = join(directoryFullName, '../..', '/uploads/')
+
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
-    cb(null, 'uploads/')
+    cb(null, path.resolve(filePath))
   },
   filename: function(req, file, cb) {
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))

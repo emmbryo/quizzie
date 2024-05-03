@@ -39,9 +39,14 @@ For each of the types, create a quiz with 1-50 questions: A quiz of right type a
 * 3.1.3 verb phrase specific form
 * 3.1.4 vocab specific form
 * 3.1.5 No input field can be left blank 
-* 3.1.6 Success message chown on submit
+* 3.1.6 Success message shown on submit
 * 3.1.7 Redirected back to upload question menu
 ### 3.2: Upload question file via UI
+* 3.2.1 Link to open file handler on user machine
+* 3.2.2 Examples of required input should be availabe
+* 3.2.3 Success message shown on submit
+* 3.2.4 Failure message shown on failure
+* 3.2.5 Redirected back to upload question menu 
 
 ## 4. User
 ### 4.1: Register
@@ -68,3 +73,21 @@ For each of the types, create a quiz with 1-50 questions: A quiz of right type a
 * 5.1.4 The username should be visible under quizzie title
 * 5.1.5 A logout button should appear in menu, to the right
 * 5.1.6 An upload questions button should appear in menu, in the middle
+* 5.1.7 An edit button should appear in the menu
+
+## 6. Edit questions - only for admin user
+### 6.1: Edit questions
+* 6.1.1 Edit button leads to page with all questions displayed
+### 6.2: Delete question
+* 6.2.1: Each question should have a delete button
+* 6.2.2: When pressed, the question is deleted
+* 6.2.3: Success message on delete
+* 6.2.4: Failure message on delte failure
+* 6.2.5: Redirected back to edit questions menu
+### 6.3: Edit question
+* 6.3.1 Each question should have an edit button
+* 6.3.2 When pressed, a form with the question parameters filled in appears
+* 6.3.3 On submit, the edit is sent to server
+* 6.3.4: Success message
+* 6.3.5: Failure message
+* 6.3.6: Redirected to edit menu
