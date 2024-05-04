@@ -124,15 +124,21 @@ export class QuizController {
     }
   }
 
-  async showEditForm (req, res, next) {
+  async editQuestion (req, res, next) {
     try {
-      const question = await this.#service.getQuestion(req.params.id)
-      const viewData = {
-        ...question
+      await this.#service.editQuestion(req.params.id, req.body)
+      req.session.flash = {
+        type: 'success',
+        text: 'Question edited successfully'
       }
-      res.render('quiz/editForm', { viewData })
+      console.log('the body: ', req.body)
+      res.redirect('../edit')
     } catch (error) {
-      next(error)
+      req.session.flash = {
+        type: 'danger',
+        text: error.message
+      }
+      res.redirect('../edit')
     }
   }
 

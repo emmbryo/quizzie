@@ -75,9 +75,10 @@ router.get('/edit',
   (req, res, next) => resolveQuizController(req).showEdit(req, res, next)
 )
 
-router.get('/edit/:id',
+
+router.post('/edit/:id',
   (req, res, next) => authenticateUser(req, res, next),
-  (req, res, next) => resolveQuizController(req).showEditForm(req, res, next)
+  (req, res, next) => resolveQuizController(req).editQuestion(req, res, next)
 )
 
 router.post('/delete/:id',
