@@ -90,7 +90,7 @@
 
 |Issue/description|Status|Comment|
 |------|------|------|
-|Closed issues: #8, #41, #30, #36, #38, #52|✔️||
+|Closed issues: #8, #41, #30, #36, #38, #52, #53, #49, #50|✔️||
 |Upload via file|✔️||
 |Edit menu, delete questions option|✔️||
 |Mobile styling|✔️||
@@ -98,8 +98,9 @@
 |Standup, test update, test report|✔️||
 |Customer delivery 2|✔️||
 |BUG FIX: upload file of bad format, app crashed.|✔️||
+|MINOR FEEDBACK FIXES: font size, placeholders|✔️||
 
-|Hours:|19|
+|Hours:|23|
 |-|-|
 
 ### Problems
