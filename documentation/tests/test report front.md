@@ -88,7 +88,7 @@ Description of test cases front: [test cases](./manual%20test%20cases/quizzie-fr
 ||5.1.5: A logout button should appear in menu, to the right|✔️||
 ||5.1.6: An upload questions button should appear in menu, in the middle|✔️||
 
-## Week 6: 2024.05.03
+## Week 6: 2024.05.04
 |Test|Sub test(s)|Result|Comment|
 |------|------|------|-----|
 |1.1: Start view|1.1.1 - 1.1.2|✔️|whole set OK|
@@ -116,11 +116,11 @@ Description of test cases front: [test cases](./manual%20test%20cases/quizzie-fr
 ||6.2.3: Success: success message|✔️||
 ||6.2.4: Failure: failure message|-|TODO: simulate failure|
 ||6.2.5: Redirect back to edit questions menu|✔️||
-|6.3: Edit question|6.3.1: Each question has an edit button|-|Not implemented|
-||6.3.2: Press edit --> form with question params pre-filled|-|Not implemented|
-||6.3.3: Submit btn, edit sent to server|-|Not implemented|
-||6.3.4: On success: success message|-|Not implemented|
-||6.3.5: On failure: failure message|-|Not implemented|
-||6.3.6: Redirected to edit menu|-|Not implemented|
+|6.3: Edit question|6.3.1: Each question has an edit button|✔️|Not implemented|
+||6.3.2: Each question has params pre-filled|✔️||
+||6.3.3: Submit btn, edit sent to server|✔️||
+||6.3.4: On success: success message|✔️||
+||6.3.5: On failure: failure message|-|TODO: simulate failure|
+||6.3.6: Redirected to edit menu|✔️||
 
 

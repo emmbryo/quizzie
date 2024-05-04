@@ -86,7 +86,7 @@ For each of the types, create a quiz with 1-50 questions: A quiz of right type a
 * 6.2.5: Redirected back to edit questions menu
 ### 6.3: Edit question
 * 6.3.1 Each question should have an edit button
-* 6.3.2 When pressed, a form with the question parameters filled in appears
+* 6.3.2 Each question should have a pre-filled form that the user can edit.
 * 6.3.3 On submit, the edit is sent to server
 * 6.3.4: Success message
 * 6.3.5: Failure message

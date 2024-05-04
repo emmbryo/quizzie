@@ -230,9 +230,25 @@ header {
   grid-template-columns: repeat(4, 1fr);
  }
 
- .inner-delete-form-wrapper {
+ .edit-form {
+  width: 100%;
+ }
+
+ .edit-forms-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
   border: solid 2px black;
   border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+  width: 90%;
+ }
+
+ .inner-edit-form-wrapper {
+  /* border: solid 2px black;
+  border-radius: 10px; */
   padding: 5px;
   margin: 5px;
   width: 90%;

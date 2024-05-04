@@ -12,6 +12,15 @@ import fs from 'fs'
  */
 export class QuizService {
 
+  async getQuestion (id) {
+    const question = await fetch(`${process.env.API_BASE_URL}/questions/question/${id}`)
+
+    if (question.status !== 200) {
+      throw new Error('Failed to get question')
+    }
+    return question.json()
+  }
+
   async getAllQuestions(userRole) {
     const response = await fetch(`${process.env.API_BASE_URL}/questions/all`, {
       method: 'GET',
@@ -139,6 +148,21 @@ export class QuizService {
     } catch (error) {
       throw new Error('Failed to upload file');
     }
+  }
+
+  async editQuestion (id, data) {
+    const response = await fetch(`${process.env.API_BASE_URL}/questions/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${process.env.QUIZ_API_TOKEN}`
+      },
+      body: JSON.stringify(data)
+    })
+    if (response.status !== 200) {
+      throw new Error('Failed to edit question')
+    }
+    return response.json()
   }
 
   async deleteQuestion (id) {

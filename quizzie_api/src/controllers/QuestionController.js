@@ -43,6 +43,27 @@ export class QuestionController {
   }
 
   /**
+   * 
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async getQuestion (req, res, next) {
+    try {
+      const question = await this.#service.getById(req.params.id)
+
+      res
+        .status(200)
+        .json({
+          message: "Question found",
+          question: question
+        })
+    } catch (error) {
+      next(createError(400, error.message))
+    }
+  }
+
+  /**
    * Create question.
    *
    * @param {object} req - Express request object.
@@ -139,17 +160,24 @@ export class QuestionController {
     }
   }
 
-   /**
+  /**
    * Check limit query.
    *
    * @param {object} req - Express request object.
    * @throws {Error} - If limit query is not in number format, if it is greater than the maximum value or lower than one.
    */
-   checkLimit (req) {
-    if (!req.query.limit || isNaN(req.query.limit) || 
-        req.query.limit > Number.parseInt(process.env.MAX_LIMIT) || 
-        req.query.limit < 1) {
-      throw new Error(`Limit query in number format required. Maximun value ${process.env.MAX_LIMIT}, minimum value 1.`)
+  async updateQuestion (req, res, next) {
+    try {
+      const question = await this.#service.update(req.params.id, req.body)
+
+      res
+        .status(200)
+        .json({
+          message: "Question updated",
+          question: question
+        })
+    } catch (error) {
+      next(createError(400, error.message))
     }
   }
 
@@ -168,6 +196,20 @@ export class QuestionController {
         .end()
     } catch (error) {
       next(createError(400, error.message))
+    }
+  }
+
+   /**
+   * Check limit query.
+   *
+   * @param {object} req - Express request object.
+   * @throws {Error} - If limit query is not in number format, if it is greater than the maximum value or lower than one.
+   */
+   checkLimit (req) {
+    if (!req.query.limit || isNaN(req.query.limit) || 
+        req.query.limit > Number.parseInt(process.env.MAX_LIMIT) || 
+        req.query.limit < 1) {
+      throw new Error(`Limit query in number format required. Maximun value ${process.env.MAX_LIMIT}, minimum value 1.`)
     }
   }
 }

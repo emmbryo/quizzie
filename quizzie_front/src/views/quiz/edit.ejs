@@ -1,25 +1,75 @@
-<h1>Delete questions</h1>
+<h1>Edit questions</h1>
 
 <div class="edit-questions-wrapper">
   <% viewData.questions.forEach( question => { %>
-    <form class="delete-form" action="./quiz/delete/<%= question.id %>" method="POST">
-      <div class="inner-delete-form-wrapper">
+    <div class="edit-forms-wrapper">
+    <form class="edit-form" action="./quiz/edit/<%= question.id %>" method="POST">
+      <div class="inner-edit-form-wrapper">
         <% if (question.type === 'vocab') { %>
-          <p><%= question.question %></p>
-          <p><%= question.answer %></p>
-        <% } else if (question.type === 'idiom') { %>
-          <p><%= question.question %></p>
-          <p><%= question.options %></p>
-        <% } else if (question.type === 'verbPhrase') { %>
-          <p><%= question.question %></p>
-          <p><%= question.answer %></p>
-          <p><%= question.meaning %></p>
-        <% } %>
-        <input class="submit-btn" type="submit" value="delete">
+          <h2>Vocabulary</h2>
+          <div class="question-data-input" id="vocab-data">
+            <input class="hidden" type="radio" name="type" value="vocab" checked="true">
+          <div>
+            <label for="vocab-input">Word:</label><br>
+            <input type="text" id="vocab-input" name="answer" value="<%= question.answer %>" required>
+          </div>
+          <div>
+            <label for="translation">Translation:</label><br>
+            <input type="text" id="translation" name="question" value="<%= question.question %>" required>
+          </div>
       </div>
-      
-      
+
+        <% } else if (question.type === 'idiom') { %>
+            <h2>Idiom</h2>
+            <div class="question-data-input" id="idiom-data">
+              <input class="hidden" type="radio" name="type" value="idiom" checked="true">
+              <div>
+                <label for="idiom">The idiom:</label><br>
+                <input type="text" id="idiom-input" name="question" required value="<%= question.question %>">
+              </div>
+              <div>
+                <label for="meaning">Meaning:</label><br>
+                <input type="text" id="meaning-input" name="answer" value="<%= question.answer %>" required>
+              </div>
+              <div>
+                <label for="optionOne">Answer option 1:</label><br>
+                <input type="text" id="optionOne-input" name="optionOne" value="<%= question?.options[0] %>" required>
+              </div>
+              <div>
+                <label for="option1">Answer option 2:</label><br>
+                <input type="text" id="optionTwo-input" name="optionTwo" value="<%= question?.options[1] %>" required>
+              </div>
+              <div>
+                <label for="optionThree">Answer option 3:</label><br>
+                <input type="text" id="optionTwo-input" name="optionThree" value="<%= question?.options[2] %>" required>
+              </div>     
+            </div>
+        <% } else if (question.type === 'verbPhrase') { %>
+          <h2>Verb Phrase</h2>
+          <div class="question-data-input" id="verbPhrase-data">
+            <input class="hidden" type="radio" name="type" value="verbPhrase" checked="true">
+            <div>
+              <label for="option1">The verb phrase question: </label><br>
+              <input type="text" id="verbPhrase-input" name="question" value="<%= question.question %>" required>
+            </div>
+            <div>
+              <label for="option1">Answer: </label><br>
+              <input type="text" id="verbPhrase-input" name="answer" value="<%= question.answer %>" required>
+            </div>
+            <div>
+              <label for="option1">Meaning: </label><br>
+              <input type="text" id="verbPhrase-input" name="meaning" value="<%= question.meaning %>" required>
+            </div>
+          </div>
+        <% } %>
+        <input class="submit-btn" type="submit" value="Edit">
+      </div>
     </form>
-  
+    <div>
+      <form action="./quiz/delete/<%= question.id %>" method="POST">
+        <input type="submit" class="submit-btn" value="Delete">
+      </form>
+    </div>
+  </div>
 <% }) %>
 </div>
