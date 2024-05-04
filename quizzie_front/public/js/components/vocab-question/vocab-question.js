@@ -17,8 +17,9 @@ template.innerHTML = `
       gap: 10px;
       justify-content: center;
       align-items: center;
+      font-size: 20px;
     }
-    h2 {
+    h3 {
       font-family: super-toast;
     }
     button {
@@ -29,13 +30,13 @@ template.innerHTML = `
       border: 2px solid black;
       box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
       font-family: super-toast;
-      font-size: 18px;
+      font-size: 22px;
     }
     button:hover {
       background-color: rgb(100, 137, 97);
     }
     .question {
-      font-size: 20px;
+      font-size: 25px;
       text-align: center;
       justify-content: center;
       align-items: center;
@@ -51,16 +52,17 @@ template.innerHTML = `
       padding: 5px;
       border-radius: 10px;
       border: 2px solid black;
+      font-size: 20px;
     }
   </style>
 
   <div class="vocab-wrapper">
-    <h2>Vocabulary</h2>
+    <h3>Vocabulary</h3>
     <div part="question" id="id">
         <div class="question"></div>
         <div class="meaning"></div>
         <div class="answer">
-          <input id="vocab-input" type="text" placeholder="English translation">
+          <input id="vocab-input" type="text" placeholder="English translation" autofocus>
         </div>
     </div>  
     <button id="submit">OK</button>

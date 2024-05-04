@@ -150,7 +150,7 @@ export class QuizService {
     }
   }
 
-  async editQuestion (id, data) {
+  async updateQuestion (id, data) {
     const response = await fetch(`${process.env.API_BASE_URL}/questions/${id}`, {
       method: 'PUT',
       headers: {

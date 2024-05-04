@@ -12,7 +12,7 @@ template.innerHTML = `
     .quiz-wrapper {
       position: relative;
       width: 350px;
-      height: 350px;
+      height: 370px;
       padding: 20px;
       display: flex;
       flex-direction: column;
@@ -27,17 +27,24 @@ template.innerHTML = `
     }
     h1 {
       position: absolute;
-      top: 10px;
+      top: 5px;
       font-family: super-toast;
       margin: 5px;
     }
     h3 {
       font-family: super-toast;
     }
-    .result-wrapper, #final-result-wrapper, .start-wrapper {
+    .result-wrapper, .start-wrapper {
+      font-size: 20px;
+      text-align: center;
+      font-family: super-toast;
+    }
+
+    #final-result-wrapper {
       font-size: 20px;
       text-align: center;
     }
+
     button {
       position: absolute;
       bottom: 20px;
@@ -70,7 +77,7 @@ template.innerHTML = `
       <p id="correct-answer"></p>
     </div>
     <div id="final-result-wrapper" class="hidden">
-      <p>Quiz is finished!</p>
+      <h3>Quiz is finished!</h3>
       <p id="final-result"></p>
     </div>
     <button id="start">Start</button>

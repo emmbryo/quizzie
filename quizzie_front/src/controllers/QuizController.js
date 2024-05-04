@@ -124,9 +124,9 @@ export class QuizController {
     }
   }
 
-  async editQuestion (req, res, next) {
+  async updateQuestion (req, res, next) {
     try {
-      await this.#service.editQuestion(req.params.id, req.body)
+      await this.#service.updateQuestion(req.params.id, req.body)
       req.session.flash = {
         type: 'success',
         text: 'Question edited successfully'

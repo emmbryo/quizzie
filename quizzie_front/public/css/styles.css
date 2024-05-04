@@ -21,6 +21,7 @@ main, .form-wrapper {
 
 .form-wrapper {
   padding: 20px;
+  width: 250px;
   /* border-radius: 10px;
   border: solid 2px black; */
 }
@@ -190,6 +191,23 @@ header {
   width: 200px;
   align-items: center;
  }
+
+ .quiz-option {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+ }
+
+ .quiz-option label, .quiz-size label {
+  font-size: 20px;
+  width: 230px;
+ }
+
+ .quiz-size label {
+  width: 230px;
+  text-align: center ;
+ }
+
 
  .hidden {
   display: none;

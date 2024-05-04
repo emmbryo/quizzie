@@ -17,8 +17,9 @@ template.innerHTML = `
       gap: 10px;
       justify-content: center;
       align-items: center;
+      font-size: 20px;
     }
-    h2 {
+    h2, h3 {
       font-family: super-toast;
       margin-top: 30px;
       margin-bottom: 2px;
@@ -31,7 +32,7 @@ template.innerHTML = `
       border: 2px solid black;
       box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
       font-family: super-toast;
-      font-size: 18px;
+      font-size: 22px;
     }
     button:hover {
       background-color: rgb(100, 137, 97);
@@ -45,26 +46,29 @@ template.innerHTML = `
       gap: 10px;
     }
     .question, .meaning {
-      font-size: 20px;
       text-align: center;
       justify-content: center;
       align-items: center;
       margin: 0px;
     }
+    .question p, .meaning p {
+      font-size: 20px;
+    } 
     #prep-input {
       padding: 5px;
       border-radius: 10px;
       border: 2px solid black;
+      font-size: 20px;
     }
   </style>
 
   <div class="verb-phrase-wrapper">
-    <h2>verb phrase</h2>
+    <h3>verb phrase</h3>
     <div class="question-wrapper">
         <div class="meaning"></div>
         <div class="question"></div>
         <div class="answer">
-          <input id="prep-input" type="text" placeholder="Preposition(s)">
+          <input id="prep-input" type="text" placeholder="Preposition(s)" autofocus>
         </div>
     </div>  
     <button id="submit">OK</button>

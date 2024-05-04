@@ -10,6 +10,7 @@ const template = document.createElement('template')
 template.innerHTML = `
   <style>
     .idiom-wrapper {
+      font-size: 20px;
       margin: 5px;
       padding: 10px;
       display: flex;
@@ -22,7 +23,12 @@ template.innerHTML = `
       justify-content: center;
       align-items: center;
     }
-    h1, h2 {
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    h1, h3 {
       font-family: super-toast;
     }
     button {
@@ -33,7 +39,7 @@ template.innerHTML = `
       border: 2px solid black;
       box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
       font-family: super-toast;
-      font-size: 18px;
+      font-size: 22px;
     }
     button:hover {
       background-color: rgb(100, 137, 97);
@@ -41,7 +47,7 @@ template.innerHTML = `
   </style>
 
   <div class="idiom-wrapper">
-    <h2>Idiom</h2>
+    <h3>Idiom</h3>
     <div id="question">
         <div class="question"></div>
         <div class="options"></div>
@@ -151,6 +157,7 @@ customElements.define('idiom-question',
 
         const label = document.createElement('label')
         label.textContent = option
+        label.style.alignContent = 'center'
         label.htmlFor = radio.id 
         wrapper.appendChild(radio)
         wrapper.appendChild(label)

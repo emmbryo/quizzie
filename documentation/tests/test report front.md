@@ -114,13 +114,13 @@ Description of test cases front: [test cases](./manual%20test%20cases/quizzie-fr
 |6.2: Delete question|6.2.1: Each qustion has a delete button |✔️||
 ||6.2.2: A press on the delete btn deletes question|✔️||
 ||6.2.3: Success: success message|✔️||
-||6.2.4: Failure: failure message|-|TODO: simulate failure|
+||6.2.4: Failure: failure message|✔️| simulated failure|
 ||6.2.5: Redirect back to edit questions menu|✔️||
 |6.3: Edit question|6.3.1: Each question has an edit button|✔️|Not implemented|
 ||6.3.2: Each question has params pre-filled|✔️||
 ||6.3.3: Submit btn, edit sent to server|✔️||
 ||6.3.4: On success: success message|✔️||
-||6.3.5: On failure: failure message|-|TODO: simulate failure|
+||6.3.5: On failure: failure message|✔️|simulated failure|
 ||6.3.6: Redirected to edit menu|✔️||
 
 
