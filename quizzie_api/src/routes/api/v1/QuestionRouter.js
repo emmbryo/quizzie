@@ -7,6 +7,7 @@
 
 import express from 'express'
 import createError from 'http-errors'
+import mongoose from 'mongoose'
 
 export const router = express.Router()
 
@@ -20,7 +21,13 @@ const authorize = (req, res, next) => {
   } catch (error) {
     next(createError(401, 'Unauthorized'))
   }
-  
+}
+
+const checkId = (req, res, next) => {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    return res.status(400).send('Invalid ObjectId');
+  }
+  next();
 }
 
 /**
@@ -37,7 +44,13 @@ const resolveQuestionController = (req) => req.app.get('container').resolve('Que
 router.get('/',
   (req, res, next) => resolveQuestionController(req).index(req, res, next)
 )
- router.get('/all', 
+
+router.get('/question/:id',
+  (req, res, next) => checkId(req, res, next),
+  (req, res, next) => resolveQuestionController(req).getQuestion(req, res, next)
+)
+
+router.get('/all', 
   (req, res, next) => authorize(req, res, next),
   (req, res, next) => resolveQuestionController(req).getAllQuestions(req, res, next))
 

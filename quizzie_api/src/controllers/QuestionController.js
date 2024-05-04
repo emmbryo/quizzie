@@ -43,6 +43,27 @@ export class QuestionController {
   }
 
   /**
+   * 
+   * @param {object} req - Express request object.
+   * @param {object} res - Express response object.
+   * @param {Function} next - Express next middleware function.
+   */
+  async getQuestion (req, res, next) {
+    try {
+      const question = await this.#service.getById(req.params.id)
+
+      res
+        .status(200)
+        .json({
+          message: "Question found",
+          question: question
+        })
+    } catch (error) {
+      next(createError(400, error.message))
+    }
+  }
+
+  /**
    * Create question.
    *
    * @param {object} req - Express request object.

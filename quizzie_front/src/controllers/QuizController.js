@@ -114,13 +114,25 @@ export class QuizController {
 
   async showEdit (req, res, next) {
     try {
-      const questions = await this.#service.getAllQuestions(req.session.user.role)
-      const viewData = {
-        ...questions
-      }
+      const viewData = await this.#service.getAllQuestions(req.session.user.role)
+      // const viewData = {
+      //   ...questions
+      // }
       res.render('quiz/edit', { viewData })
     } catch (error) {
       next(error)      
+    }
+  }
+
+  async showEditForm (req, res, next) {
+    try {
+      const question = await this.#service.getQuestion(req.params.id)
+      const viewData = {
+        ...question
+      }
+      res.render('quiz/editForm', { viewData })
+    } catch (error) {
+      next(error)
     }
   }
 

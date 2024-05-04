@@ -12,6 +12,15 @@ import fs from 'fs'
  */
 export class QuizService {
 
+  async getQuestion (id) {
+    const question = await fetch(`${process.env.API_BASE_URL}/questions/question/${id}`)
+
+    if (question.status !== 200) {
+      throw new Error('Failed to get question')
+    }
+    return question.json()
+  }
+
   async getAllQuestions(userRole) {
     const response = await fetch(`${process.env.API_BASE_URL}/questions/all`, {
       method: 'GET',
