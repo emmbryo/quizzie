@@ -165,9 +165,8 @@ export class QuestionController {
     try {
       const question = await this.#service.update(req.params.id, req.body)
 
-      res
-        .status(200)
-        .json({
+      res.status(200)
+      res.json({
           message: "Question updated",
           question: question
         })
@@ -186,9 +185,8 @@ export class QuestionController {
   async deleteQuestion (req, res, next) {
     try {
       await this.#service.delete(req.params.id)
-      res
-        .status(204)
-        .end()
+      res.status(204)
+      res.end()
     } catch (error) {
       next(createError(400, error.message))
     }

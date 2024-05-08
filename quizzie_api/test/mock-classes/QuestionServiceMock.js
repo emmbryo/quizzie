@@ -78,4 +78,20 @@ export class QuestionServiceMock extends QuestionService {
     })
   }
 
+  async update(data) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.#questions[0])
+      }, 10)
+    })
+  }
+
+  async delete(data) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.#questions[0])
+      }, 10)
+    })
+  }
+
 }

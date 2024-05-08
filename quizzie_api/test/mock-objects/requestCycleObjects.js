@@ -31,7 +31,13 @@ const res = {
   json: (data) => {
     res.data = data
   },
-  error: ''
+  next: (error) => {
+    res.error = error
+  },
+  error: '',
+  end: () => {
+    res.endCalled = true
+  }
 }
 // mock function for next - handling errors
 function next (error = {}) {

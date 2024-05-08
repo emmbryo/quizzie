@@ -15,108 +15,156 @@ describe('Question controller constructor', () => {
   })
 })
 
-describe('index method.', () => {
-  test('index method should call res.json with message: Welcome to the question route of the quizzie API!', () => {
+
+testStatusCode('index method.',
+  'index method should respond with status code 200',
+  200,
+  questionController.index.bind(questionController))
+testMessage('index method.',
+  'index method should respond with message: Welcome to the question route of the quizzie API!',
+  'Welcome to the question route of the quizzie API!',
+  questionController.index.bind(questionController))
+
+testStatusCode('getQuestion method.', 
+  'getQuestion method should respond with status code 200',
+  200,
+  questionController.getQuestion.bind(questionController))
+testMessage('getQuestion method.',
+  'getQuestion method should respond with message: Question found', 
+  'Question found',
+  questionController.getQuestion.bind(questionController))
+testReturnsObject('getQuestion method.',
+  'getQuestion method should respond with a question object',
+  questionController.getQuestion.bind(questionController))
+
+testStatusCode('addQuestion method.',
+  'addQuestion method should respond with status code 200',
+  200,
+  questionController.addQuestion.bind(questionController))
+testMessage('addQuestion method.',
+  'addQuestion method should respond with message: Question added',
+  'Question added', questionController.addQuestion.bind(questionController))
+testReturnsObject('addQuestion method.',
+  'addQuestion method should respond with a question object',
+  questionController.addQuestion.bind(questionController))
+
+testStatusCode('getAllQuestions method.',
+  'getAllQuestions method should respond with status code 200',
+  200,
+  questionController.getAllQuestions.bind(questionController))
+testMessage('getAllQuestions method.',
+  'getAllQuestions method should respond with message: All questions',
+  'All questions',
+  questionController.getAllQuestions.bind(questionController))
+testReturnsArray('getAllQuestions method.',
+  'getAllQuestions method should respond with an array of questions',
+  questionController.getAllQuestions.bind(questionController))
+
+testStatusCode('getSelectedQuestions method.',
+  'getSelectedQuestions method should respond with status code 200',
+  200,
+  questionController.getSelectedQuestions.bind(questionController))
+testMessage('getSelectedQuestions method.',
+  'getSelectedQuestions method should respond with message: Selected questions',
+  'Selected questions',
+  questionController.getSelectedQuestions.bind(questionController))
+testReturnsArray('getSelectedQuestions method.',
+  'getSelectedQuestions method should respond with an array of questions',
+  questionController.getSelectedQuestions.bind(questionController))
+
+testStatusCode('getRandomQuestions method.',
+  'getRandomQuestions method should respond with status code 200',
+  200,
+  questionController.getRandomQuestions.bind(questionController))
+testMessage('getRandomQuestions method.',
+  'getRandomQuestions method should respond with message: Set of random questions',
+  'Set of random questions',
+  questionController.getRandomQuestions.bind(questionController))
+testReturnsArray('getRandomQuestions method.',
+  'getRandomQuestions method should respond with an array of questions',
+  questionController.getRandomQuestions.bind(questionController))
+
+testStatusCode('updateQuestion method.',
+  'updateQuestion method should respond with status code 200',
+  200,
+  questionController.updateQuestion.bind(questionController))
+testMessage('updateQuestion method.',
+  'updateQuestion method should respond with message: Question updated',
+  'Question updated',
+  questionController.updateQuestion.bind(questionController))
+testReturnsObject('updateQuestion method.',
+  'updateQuestion method should respond with a question object',
+  questionController.updateQuestion.bind(questionController))
+
+testStatusCode('deleteQuestion method.',
+  'deleteQuestion method should respond with status code 204',
+  204,
+  questionController.deleteQuestion.bind(questionController))
+describe('deleteQuestion method.', () => {
+  test('deleteQuestion method should call the res.end() method', async () => {
     resetRes()
-    questionController.index(req, res, next)
-    expect(res.data.message).toBe("Welcome to the question route of the quizzie API!")
+    await questionController.deleteQuestion(req, res, next)
+    expect(res.endCalled).toEqual(true)
   })
 })
 
-describe('getQuestion method.', () => {
-  test('getQuestion method should call res.json with message: Question found', async () => {
-    resetRes()
-    await questionController.getQuestion(req, res, next)
-    expect(res.data.message).toBe("Question found")
-  })
-})
-
-describe('getQuestion method.', () => {
-  test('getQuestion method should call res.json with a question object', async () => {
-    resetRes()
-    await questionController.getQuestion(req, res, next)
-    expect(typeof res.data.question).toBe('object')
-  })
-})
-
-describe('addQuestion method.', () => {
-  test('addQuestion method should call res.json with message: Question added', async () => {
-    resetRes()
-    await questionController.addQuestion(req, res, next)
-    expect(res.data.message).toBe("Question added")
-  })
-})
-
-describe('addQuestion method.', () => {
-  test('addQuestion method should call res.json with a question object', async () => {
-    resetRes()
-    await questionController.addQuestion(req, res, next)
-    expect(typeof res.data.question).toBe('object')
-  })
-})
-
-
-describe('getAllQuestions method.', () => {
-  test('getAllQuestions method should call res.json with message: All questions', async () => {
-    resetRes()
-    await questionController.getAllQuestions(req, res, next)
-    expect(res.data.message).toBe("All questions")
-  })
-})
-
-describe('getAllQuestions method.', () => {
-  test('getAllQuestions method should call res.json with a question array', async () => {
-    resetRes()
-    await questionController.getAllQuestions(req, res, next)
-    expect(Array.isArray(res.data.questions)).toBe(true)
-  })
-})
-
-describe('getSelectedQuestions method.', () => {
-  test('getSelectedQuestions method should call res.json with message: All questions', async () => {
-    resetRes()
-    await questionController.getSelectedQuestions(req, res, next)
-    expect(res.data.message).toBe("Selected questions")
-  })
-})
-
-describe('getSelectedQuestions method.', () => {
-  test('getSelectedQuestions method should call res.json with a question array', async () => {
-    resetRes()
-    await questionController.getSelectedQuestions(req, res, next)
-    expect(Array.isArray(res.data.questions)).toBe(true)
-  })
-})
-
-describe('getRandomQuestions method.', () => {
-  test('getRandomQuestions method should call res.json with message: Set of random questions', async () => {
-    resetRes()
-    await questionController.getRandomQuestions(req, res, next)
-    expect(res.data.message).toBe("Set of random questions")
-  })
-})
-
-describe('getRandomQuestions method.', () => {
-  test('getRandomQuestions method should call res.json with a question array', async () => {
-    resetRes()
-    await questionController.getRandomQuestions(req, res, next)
-    expect(Array.isArray(res.data.questions)).toBe(true)
-  })
-})
-
-const testStatus = (testSuite, testName, statusCode) => {
+function testStatusCode (testSuite, testName, statusCode, methodToTest) {
   describe(testSuite, () => {
     test(testName, async () => {
+
       resetRes()
-      await questionController.getRandomQuestions(req, res, next)
+      await methodToTest(req, res, next)
       expect(res.code).toBe(statusCode)
     })
   })
 }
 
-testStatus('index method.', 'index method should respond with status code 200', 200)
-testStatus('getQuestion method.', 'getQuestion method should respond with status code 200', 200)
-testStatus('addQuestion method.', 'addQuestion method should respond with status code 200', 200)
-testStatus('getAllQuestions method.', 'getAllQuestions method should respond with status code 200', 200)
-testStatus('getSelectedQuestions method.', 'getSelectedQuestions method should respond with status code 200', 200)
-testStatus('getRandomQuestions method.', 'getRandomQuestions method should respond with status code 200', 200)
+function testMessage (testSuite, testName, message, methodToTest) {
+  describe(testSuite, () => {
+    test(testName, async () => {
+      resetRes()
+      await methodToTest(req, res, next)
+      expect(res.data.message).toBe(message)
+    })
+  })
+}
+
+function testReturnsArray (testSuite, testName, methodToTest) {
+  describe(testSuite, () => {
+    test(testName, async () => {
+      resetRes()
+      await methodToTest(req, res, next)
+      expect(Array.isArray(res.data.questions)).toBe(true)
+    })
+  })
+}
+
+function testReturnsObject (testSuite, testName, methodToTest) {
+  describe(testSuite, () => {
+    test(testName, async () => {
+      resetRes()
+      await methodToTest(req, res, next)
+      expect(typeof res.data.question).toBe('object')
+    })
+  })
+}
+
+describe('checkLimit method.', () => {
+  process.env.MAX_LIMIT = '100'
+  test('checkLimit method should throw an error if limit query is not in number format', () => {
+    req.query.limit = 'not a number'
+    expect(() => questionController.checkLimit(req)).toThrow()
+  })
+  test('checkLimit method should throw an error if limit query is greater than the maximum value', () => {
+    req.query.limit = 101
+    expect(() => questionController.checkLimit(req)).toThrow()
+  })
+  test('checkLimit method should throw an error if limit query is lower than one', () => {
+    req.query.limit = 0
+    expect(() => questionController.checkLimit(req)).toThrow()
+  })
+  test('checkLimit method should not throw an error if limit query is in number format and within the range', () => {
+    req.query.limit = 5
+    expect(() => questionController.checkLimit(req)).not.toThrow()
+  })
+})
