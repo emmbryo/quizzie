@@ -11,6 +11,7 @@
 
 ### files connected to docker compose
 docker-compose.yaml
+docker-compose-production.yaml
 .volumes
 
 ### uploaded files from UI

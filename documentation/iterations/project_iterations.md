@@ -98,7 +98,7 @@
 |Standup, test update, test report|✔️||
 |Customer delivery 2|✔️||
 |BUG FIX: upload file of bad format, app crashed.|✔️||
-|MINOR FEEDBACK FIXES: font size, placeholders|✔️||
+|customer feedback implementeations: font size, placeholders|✔️||
 
 |Hours:|23|
 |-|-|
