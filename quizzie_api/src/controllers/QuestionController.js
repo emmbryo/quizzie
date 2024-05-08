@@ -52,9 +52,8 @@ export class QuestionController {
     try {
       const question = await this.#service.getById(req.params.id)
 
-      res
-        .status(200)
-        .json({
+      res.status(200)
+      res.json({
           message: "Question found",
           question: question
         })
@@ -74,11 +73,10 @@ export class QuestionController {
     try {
       const question = await this.#service.insert(req.body)
 
-      console.log('question: ', question)
+      // console.log('question: ', question)
 
-      res
-        .status(200)
-        .json({
+      res.status(200)
+      res.json({
           message: "Question added",
           question: question
         })
@@ -98,9 +96,8 @@ export class QuestionController {
     try {
       const questions = await this.#service.getAll()
 
-      res
-        .status(200)
-        .json({
+      res.status(200)
+      res.json({
           message: "All questions",
           questions: questions
         })
@@ -126,10 +123,9 @@ export class QuestionController {
       const limitValue = req.query.limit || process.env.LIMIT 
       const questions = await this.#service.get(req.query.type ? { conditions: { type: req.query.type }, limit: limitValue } : { limit: limitValue })
 
-      res
-        .status(200)
-        .json({
-          message: "TODO: add meta data about question set",
+      res.status(200)
+      res.json({
+          message: "Selected questions",
           questions: questions
         })
     } catch (error) {

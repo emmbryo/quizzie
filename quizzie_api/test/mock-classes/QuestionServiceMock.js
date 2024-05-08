@@ -22,23 +22,53 @@ export class QuestionServiceMock extends QuestionService {
   }
 
   async getSelectedQuestions() {
-    return this.#questions
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.#questions);
+      }, 10)
+    })
   }
 
+  async getAll() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.#questions);
+      }, 10)
+    })
+  }
+
+  
   async getRandom() {
-    return this.#questions
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.#questions)
+      }, 10)
+    })
   }
-
-  async get (query) {
-    return this.#questions
+  
+  async get(query) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.#questions)
+      }, 10)
+    })
   }
-
-  async getById (id) {
-    return this.#questions[0]
+  
+  async getById(id) {
+    console.log('jahoppzzzz?')
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.#questions[0])
+      }, 10)
+    })
   }
-
-  async insert (data) {
-    return this.#questions[0]
+  
+  async insert(data) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.#questions[0])
+      }, 10)
+    })
   }
 
 }

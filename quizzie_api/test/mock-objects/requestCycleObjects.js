@@ -12,6 +12,13 @@ const req = {
         "We should go out more."
       ],
       answer: "OUT"
+  },
+  params: {
+    id: 1
+  },
+  query: {
+    type: "verbPhrase",
+    limit: 5
   }
 }
 // mock res object, with function to set status, in order to test for the code of the response.
