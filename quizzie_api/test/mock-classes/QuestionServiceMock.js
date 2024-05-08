@@ -53,9 +53,16 @@ export class QuestionServiceMock extends QuestionService {
       }, 10)
     })
   }
+
+  async getRandom(query) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.#questions)
+      }, 10)
+    })
+  }
   
   async getById(id) {
-    console.log('jahoppzzzz?')
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(this.#questions[0])

@@ -145,9 +145,8 @@ export class QuestionController {
       this.checkLimit(req)
       const questions = await this.#service.getRandom({ value: req.query.limit })
 
-      res
-        .status(200)
-        .json({
+      res.status(200)
+      res.json({
           message: "Set of random questions",
           questions: questions
         })
