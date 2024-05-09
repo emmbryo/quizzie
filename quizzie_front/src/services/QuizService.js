@@ -36,8 +36,12 @@ export class QuizService {
   }
 
   async getQuestions(size, type) {
-    console.log(size, type) 
+    // console.log(size, type) 
     const response = type === 'mixed' ? await fetch(`${process.env.API_BASE_URL}/questions/random?limit=${size}`) : await fetch(`${process.env.API_BASE_URL}/questions/selected?limit=${size}&type=${type}`)
+
+    if (response.status !== 200) {
+      throw new Error('Failed to get questions')
+    }
     const data = await response.json()
     
     if (type === 'idiom') {
