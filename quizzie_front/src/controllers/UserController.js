@@ -42,8 +42,9 @@ export class UserController {
    */
   async showRegisterView (req, res, next) {
     try {
-      res.status(200)
-      res.render('user/register')
+      res
+        .status(200)
+        .render('user/register')
     } catch (error) {
       next(error)
     }
