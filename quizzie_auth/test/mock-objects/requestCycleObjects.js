@@ -2,16 +2,8 @@
 // mock req/res objects
 const req = {
   body: {
-      type: "verbPhrase",
-      meaning: "go to an event / restaurant / pub / party",
-      question: "GO __",
-      options: [],
-      examples: [
-        "Let's go out for dinner.",
-        "You're going out a lot these days.",
-        "We should go out more."
-      ],
-      answer: "OUT"
+      username: 'username',
+      password: 'password'
   },
   params: {
     id: 1

@@ -8,6 +8,9 @@
 
 ### key files
 /quizzie_auth/keys/
+/quizzie_auth/test/keys/
+/quizzie_auth/test/jest.setup.js
+/quizzie_front/test/jest.setup.js
 
 ### files connected to docker compose
 docker-compose.yaml
