@@ -21,11 +21,11 @@ export class HomeController {
    */
   async index (req, res, next) {
     try {
-      res.status(200)
-      res.render('home/index')
+      res
+        .status(200)
+        .render('home/index')
     } catch (error) {
       next(error)
     }
-    
   } 
 }

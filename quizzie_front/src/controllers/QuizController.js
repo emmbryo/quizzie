@@ -35,10 +35,11 @@ export class QuizController {
    * @param {object} res - Express response object.
    * @param {Function} next - Express next middleware function.
    */
-  index (req, res, next) {
+  async index (req, res, next) {
     try {
-      res.status(200)
-      res.render('quiz/menu')
+      res
+        .status(200)
+        .render('quiz/menu')
     } catch (error) {
       next(error)
     }
@@ -58,7 +59,9 @@ export class QuizController {
       const viewData = {
         ...questions
       }
-      res.render('quiz/game', { viewData })
+      res
+        .status(200)
+        .render('quiz/game', { viewData })
     } catch (error) {
       req.session.flash = {
         type: 'danger',
@@ -70,8 +73,9 @@ export class QuizController {
 
   async showUpload (req, res, next) {
     try {
-        res.status(200)
-        res.render('quiz/upload')
+        res
+          .status(200)
+          .render('quiz/upload')
     } catch (error) {
       next(error)
     }
@@ -84,7 +88,7 @@ export class QuizController {
           type: 'success',
           text: 'Question uploaded successfully'
         }
-        console.log('current user: ', req.session.user)
+        // console.log('current user: ', req.session.user)
         res.redirect('../quiz/upload')
     } catch (error) {
       req.session.flash = {
@@ -118,7 +122,9 @@ export class QuizController {
       // const viewData = {
       //   ...questions
       // }
-      res.render('quiz/edit', { viewData })
+      res
+        .status(200)
+        .render('quiz/edit', { viewData })
     } catch (error) {
       next(error)      
     }
@@ -131,7 +137,6 @@ export class QuizController {
         type: 'success',
         text: 'Question edited successfully'
       }
-      console.log('the body: ', req.body)
       res.redirect('../edit')
     } catch (error) {
       req.session.flash = {
