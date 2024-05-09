@@ -20,7 +20,12 @@ export class HomeController {
    * @param {Function} next - Express next middleware function.
    */
   async index (req, res, next) {
-    res.status(200)
-    res.render('home/index')
+    try {
+      res.status(200)
+      res.render('home/index')
+    } catch (error) {
+      next(error)
+    }
+    
   } 
 }
