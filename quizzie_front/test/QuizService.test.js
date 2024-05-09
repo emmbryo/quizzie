@@ -131,6 +131,19 @@ describe('transformFunction methods', () => {
     expect(result.meaning).toEqual('meaning')
     expect(result.examples).toEqual('examples')
   })
+
+  test('transformMixed method should return transformed object.', () => {
+    const questions = [
+      { type: 'idiom', question: 'question', options: ['one', 'two', 'three'], answer: 'answer' },
+      { type: 'vocab', question: 'question', answer: 'answer' },
+      { type: 'verbPhrase', question: 'question', answer: 'answer', meaning: 'meaning', examples: 'examples' }
+    ]
+    const result = quizService.transformMixed(questions)
+    expect(result.length).toEqual(3)
+    expect(result[0].type).toEqual('idiom')
+    expect(result[1].type).toEqual('vocab')
+    expect(result[2].type).toEqual('verbPhrase')
+  })
 })
 
 describe('getQuestions method', () => {
