@@ -62,7 +62,7 @@ export class UserController {
   async registerUser (req, res, next) {
     try {
       const user = await this.#service.registerUser(req)
-      console.log('The user was successfully registered: ', user)
+      // console.log('The user was successfully registered: ', user)
       req.session.flash = { type: 'success', text: 'The user was registered successfully.' }
       res.redirect('../user/login')
     } catch (error) {

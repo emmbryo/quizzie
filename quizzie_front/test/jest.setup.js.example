@@ -2,3 +2,6 @@ This file is used to provide the tests with environment variables used in the me
 
 
 process.env.PUBLIC_KEY = {a public key in base64 format, used to decode the jwt}
+
+process.env.AUTH_REGISTER_URL = 'register-url'
+process.env.AUTH_LOGIN_URL = 'login-url'

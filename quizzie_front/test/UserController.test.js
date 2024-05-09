@@ -17,7 +17,7 @@ describe('UserController controller constructor', () => {
   })
 })
 
-describe('showRegisterView mothod', () => {
+describe('showRegisterView method', () => {
 
   beforeEach(() => {
     req = jest.fn()
@@ -48,7 +48,7 @@ describe('showRegisterView mothod', () => {
   })
 })
 
-describe('showLoginView mothod', () => {
+describe('showLoginView method', () => {
 
   beforeEach(() => {
     req = jest.fn()
