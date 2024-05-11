@@ -10,4 +10,12 @@ export class AuthServiceMock extends AuthService {
   constructor() {
     super()
   }
+
+  async authenticate() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({access_token: 'the token'})
+      }, 10)
+    })
+  }
 }
