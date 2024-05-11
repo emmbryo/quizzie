@@ -29,7 +29,7 @@ describe('isAuthorized method', () => {
     expect(isAuth).toEqual(true)
   })
 
-  test('isAuthorized method should throw error on invalid token.', () => {
+  test('isAuthorized method should throw unauthorized error on invalid token.', () => {
     req = {
       headers: {
         authorization: 'invalid'
@@ -38,7 +38,7 @@ describe('isAuthorized method', () => {
     expect(() => authService.isAuthorized(req)).toThrowError('Unauthorized. Invalid token.')
   })
 
-  test('isAuthorized method should throw error on no token.', () => {
+  test('isAuthorized method should throw token required error on no token.', () => {
     req = { 
       headers: {
         authorization: null

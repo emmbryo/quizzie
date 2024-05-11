@@ -2,6 +2,7 @@ import { QuestionService } from '../src/services/QuestionService.js'
 import { QuestionRepositoryMock } from './mock-classes/QuestionRepositoryMock.js'
 
 
+
 const questionService = new QuestionService(new QuestionRepositoryMock())
 
 describe('Question service constructor', () => {
