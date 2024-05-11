@@ -4,17 +4,34 @@ export class AuthServiceMock extends AuthService {
 
   #user = {
       username: 'username',
-      password: 'password'
+      password: 'password',
+      _id: 'id' 
     }
 
-  constructor() {
+  constructor () {
     super()
   }
 
-  async authenticate() {
+  async authenticate () {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve({access_token: 'the token'})
+        resolve(this.#user)
+      }, 10)
+    })
+  }
+
+  async isAuthorized () {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(true)
+      }, 10)
+    })
+  }
+
+  async insert () {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve(this.#user)
       }, 10)
     })
   }

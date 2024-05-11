@@ -125,7 +125,6 @@ export class AuthController {
         err.message = 'Username and/or password missing. If provided, password must be at least 10 characters.'
         err.cause = error
       }
-
       next(err)
     }
   }
