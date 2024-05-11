@@ -112,19 +112,18 @@
 
 |Issue/description|Status|Comment|
 |------|------|------|
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
+|Closed issues: #49, #50 |✔️||
+|Writing report|✔️||
+|Unit tests for API. auth & questions. Unit tests for front-backend.|✔️||
+|Deploy updates|✔️||
+|Standup + seminar|✔️||
+|update docs|✔️||
 
-|Hours:|XX|
+|Hours:|19|
 |-|-|
 
 ### Problems
-* ?
+* POSTMAN limit reached for running collections, aka running tests. Switched focus to unit tests for API.
 
 
 ## Week 8
