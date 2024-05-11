@@ -151,7 +151,7 @@ describe('getQuestions method', () => {
   testCallingTransformFunctions('vocab', 'transformVocab', 3, ['transformed', 'transformed', 'transformed'])
   testCallingTransformFunctions('verbPhrase', 'transformVerbPhrase', 3, ['transformed', 'transformed', 'transformed'])
 
-  test('getQuestions method should transform questions based on type = mixed', async () => {
+  test('getQuestions method should call transform questions method based on type = mixed', async () => {
     const mockData = {
       questions: [{question: {}}, {question: {}}, {question: {}}]
     }
@@ -176,7 +176,7 @@ describe('getQuestions method', () => {
 })
 
   function testCallingTransformFunctions(type, transformFunction, size, questionsReturnValue) {
-    test(`getQuestions method should transform questions based on type = ${type}`, async () => {
+    test(`getQuestions method should call transform questions method based on type = ${type}`, async () => {
       const mockData = {
         questions: [{question: {}}, {question: {}}, {question: {}}]
       }

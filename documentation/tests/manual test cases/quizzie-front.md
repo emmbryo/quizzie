@@ -76,7 +76,7 @@ For each of the types, create a quiz with 1-50 questions: A quiz of right type a
 * 5.1.7 An edit button should appear in the menu
 
 ## 6. Edit questions - only for admin user
-### 6.1: Edit questions
+### 6.1: Menu link: Edit questions
 * 6.1.1 Edit button leads to page with all questions displayed
 ### 6.2: Delete question
 * 6.2.1: Each question should have a delete button
