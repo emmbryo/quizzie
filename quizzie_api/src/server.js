@@ -15,6 +15,7 @@ import { router } from './routes/router.js'
 import { connectDB } from './config/mongoose.js'
 import bodyParser from 'body-parser'
 import cors from 'cors'
+import rateLimit from 'express-rate-limit'
 
 try {
   await connectDB(container.resolve('ConnectionString'))
@@ -28,10 +29,21 @@ try {
 
   app.use(cors({
     origin: process.env.ORIGIN,
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
-  }
+    }
   ))
+
+  // set up a limit for number of requests, max 100 per 20 minutes per IP address.
+  const limiter = rateLimit({
+    windowMs: 20 * 60 * 1000,
+    max: 100,
+    message: 'Too many requests, try again in 20 minutes.',
+    standardHeaders: true,
+    legacyHeaders: false
+  })
+
+  app.use(limiter)
 
   // Set up a morgan logger using the dev format for log entries.
   app.use(logger('dev'))

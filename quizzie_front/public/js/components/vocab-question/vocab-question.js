@@ -62,7 +62,7 @@ template.innerHTML = `
         <div class="question"></div>
         <div class="meaning"></div>
         <div class="answer">
-          <input id="vocab-input" type="text" placeholder="English translation" autofocus>
+          <input id="vocab-input" type="text" placeholder="English translation" autofocus maxlength="200">
         </div>
     </div>  
     <button id="submit">OK</button>

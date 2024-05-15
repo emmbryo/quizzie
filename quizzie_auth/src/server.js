@@ -12,6 +12,7 @@ import { connectDB } from './config/mongoose.js'
 import rateLimit from 'express-rate-limit'
 import cors from 'cors'
 
+
 try {
   await connectDB(container.resolve('ConnectionString'))
 
@@ -25,7 +26,7 @@ try {
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST'],
     credentials: true
-  }
+    }
   ))
 
   // set up a limit for number of requests, max 100 per 20 minutes per IP address.

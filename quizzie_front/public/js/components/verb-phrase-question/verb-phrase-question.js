@@ -68,7 +68,7 @@ template.innerHTML = `
         <div class="meaning"></div>
         <div class="question"></div>
         <div class="answer">
-          <input id="prep-input" type="text" placeholder="Preposition(s)" autofocus>
+          <input id="prep-input" type="text" placeholder="Preposition(s)" autofocus maxlength="200">
         </div>
     </div>  
     <button id="submit">OK</button>

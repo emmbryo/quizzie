@@ -363,4 +363,4 @@ const verbPhrases = [
 ]
 
 
-export default verbPhrases
+export default vocabs

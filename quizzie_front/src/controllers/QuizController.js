@@ -57,7 +57,7 @@ export class QuizController {
     try {
       const questions = await this.#service.getQuestions(req.body.size, req.body.quizOption)
       const viewData = {
-        ...questions
+      ...questions
       }
       res
         .status(200)
