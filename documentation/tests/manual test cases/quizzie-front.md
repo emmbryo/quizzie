@@ -20,6 +20,7 @@ For each of the types, create a quiz with 1-50 questions: A quiz of right type a
 * 2.1.2 Create Idioms quiz: One expression, three alternatives
 * 2.1.3 Create verb phrases quiz: Question with preopsition missing, answer input field
 * 2.1.4 Create mixed quiz: A mix of different question types. Displayed as above.
+* 2.1.5 The mixed option is pre-filled
 ### 2.2 The quiz game
 * 2.2.1 Only one question visible at a time
 * 2.2.2 Answer button: gives correct/incorrect

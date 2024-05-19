@@ -130,19 +130,19 @@
 
 |Issue/description|Status|Comment|
 |------|------|------|
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
-||✔️||
+|CLosed issues: #10, #11, #12, #56, #57|✔️||
+|add rate limit, expand input validation|✔️||
+|work on resport|✔️||
+|standup+seminar|✔️||
+|give feedback to other students report|✔️||
+|update and re-deploy|✔️||
 
-|Hours:|XX|
+
+|Hours:|19|
 |-|-|
 
 ### Problems
-* ?
+* concentrating information in the report and avoiding duplications.
 
 
 ## Week 9

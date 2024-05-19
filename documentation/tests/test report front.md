@@ -141,4 +141,25 @@ Description of test cases front: [test cases](./manual%20test%20cases/quizzie-fr
 |6.2: Delete question|6.2.1 - 6.2.5|✔️|whole set OK|
 |6.3: Edit question|6.3.1 - 6.3.2|✔️|whole set OK|
 
+* 2.1.5 The mixed option is pre-filled
+
+## Week 8: 2024.05.19
+|Test|Sub test(s)|Result|Comment|
+|------|------|------|-----|
+|1.1: Start view|1.1.1 - 1.1.2|✔️|whole set OK|
+|1.2: Menu links|1.2.1 - 1.2.4|✔️|whole set OK|
+|2.1: Quiz types|2.1.1 - 2.1.4|✔️|one test added to set|
+||2.1.5: Mixed option should be pre-filled|✔️||
+|2.2: Quiz game|2.2.1 - 2.2.6|✔️|whole set OK|
+|2.3: Answering quiz questions|2.3.1 - 2.3.3|✔️|whole set OK|
+|3.1: Add questions one by one via form|3.1.1 - 3.1.7|✔️|whole set OK|
+|3.2: Add questions via file upload|3.2.1 - 3.2.5|✔️|whole set OK|
+|4.1: Register user|4.1.1 - 4.1.5|✔️|whole set OK|
+|4.2: Login user|4.2.1 - 4.2.5|✔️|whole set OK|
+|4.3: Logout user|4.3.1 - 4.3.2|✔️|whole set OK|
+|5.1: Admin user|5.1.1 - 5.1.7|✔️|whole set OK|
+|6.1: Menu link: Edit questions|6.1.1|✔️|whole set OK|
+|6.2: Delete question|6.2.1 - 6.2.5|✔️|whole set OK|
+|6.3: Edit question|6.3.1 - 6.3.2|✔️|whole set OK|
+
 
