@@ -15,6 +15,7 @@ import logger from 'morgan'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 import { router } from './routes/router.js'
+import cors from 'cors'
 
 const app = express()
 
@@ -38,6 +39,13 @@ app.use(helmet({
     }
   }
 }))
+
+// app.use(cors({
+//   origin: process.env.ORIGIN,
+//   methods: ['GET', 'POST'],
+//   credentials: true
+//   }
+// ))
 
 // View engine setup.
 app.set('view engine', 'ejs')

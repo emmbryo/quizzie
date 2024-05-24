@@ -37,6 +37,7 @@ services:
       - NODE_PORT=XXXX
       - BASE_URL='/'
       - NODE_ENV="development"
+      - ORIGIN={url of origin}
       - DB_CONNECTION_STRING=mongodb://<mongodb service name>:27017/<colection name>
       - LIMIT=10
       - MAX_LIMIT=100
@@ -62,6 +63,7 @@ services:
       - ORIGIN=""
       - SESSION_SECRET={"provide a session-secret-string"}
       - SESSION_NAME={"provide a session-name-string"}
+      - ORIGIN={url of origin}
       - QUIZ_API_TOKEN={"token for getting ALL questions from api, only sent for admin users"}
       - REDIS_PORT={redis port, default; 6379}
       - REDIS_HOST={redis connection string}
@@ -88,6 +90,7 @@ services:
     - DB_CONNECTION_STRING="mongodb connection string"
     - PORT='port number'
     - BASE_URL=/
+    - ORIGIN={url of origin}
     - NODE_PORT='node port number'
     - ACCESS_TOKEN_SECRET='secret'
     - ACCESS_TOKEN_LIFE='10h'
